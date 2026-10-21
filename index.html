@@ -4,7 +4,7 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html{background:#0A131B}
-body{background:linear-gradient(180deg,#0B1620 0%,#0E1A24 45%,#0A141C 100%);font-family:-apple-system,"Helvetica Neue",Arial,sans-serif;color:#E8E2D6;width:390px;margin:0 auto;padding:18px 16px 30px;position:relative;overflow-x:hidden;min-height:100vh}
+body{background:linear-gradient(180deg,#0B1620 0%,#0E1A24 45%,#0A141C 100%);font-family:-apple-system,"Helvetica Neue",Arial,sans-serif;color:#E8E2D6;width:100%;max-width:430px;margin:0 auto;padding:18px 16px 30px;position:relative;overflow-x:hidden;min-height:100vh}
 #fx{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
 .flake{position:absolute;top:-12px;border-radius:50%;background:#fff;opacity:.85;animation:fall linear infinite}
 @keyframes fall{0%{transform:translate3d(0,-20px,0)}50%{transform:translate3d(var(--dx),55vh,0)}100%{transform:translate3d(calc(var(--dx)*-.6),112vh,0)}}
@@ -43,6 +43,17 @@ ul{list-style:none}ul li{padding:8px 0;border-bottom:1px solid #d9d1c2;font-size
 .st i{position:absolute;left:14px;top:12px;width:38px;height:38px;border-radius:50%;background:#E3A857;color:#2B2118;font-style:normal;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
 .st b{display:block;font-size:16px;font-weight:600;margin-bottom:2px}.st span{font-size:13px;color:#B9B3A6;line-height:1.4}
 .map{height:120px;border-radius:14px;background:rgba(27,42,56,.9);display:flex;align-items:center;justify-content:center;color:#B9B3A6;font-size:14px;border:1px dashed #3a4b5a}
+.li span:first-child{flex:1;padding-right:12px}.li span:last-child{white-space:nowrap}
+a.btn,a.mini{text-decoration:none}
+.hero{width:100%;height:480px;object-fit:cover;border-radius:18px;display:block}
+.pic{position:relative;margin:14px 0 0}
+.pic img{width:100%;height:300px;object-fit:cover;border-radius:16px;display:block;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.pic.tall img{height:420px}
+.pic span{position:absolute;left:12px;bottom:12px;background:rgba(14,26,36,.72);color:#F4EFE6;font-size:13px;padding:6px 11px;border-radius:20px;backdrop-filter:blur(4px)}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.duo img{width:100%;height:230px;object-fit:cover;border-radius:14px;display:block}
+.duo img:last-child{margin-top:26px}
+.mapf{width:100%;height:240px;border:0;border-radius:14px;display:block;background:#1B2A38}
 .ask{font-size:12px;color:#6b5a48;margin-top:12px}
 .cta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
 .cta a{display:block;text-align:center;border-radius:11px;padding:11px;font-size:14px;font-weight:600;text-decoration:none;color:#2B2118;background:#E3A857}
@@ -50,7 +61,7 @@ ul{list-style:none}ul li{padding:8px 0;border-bottom:1px solid #d9d1c2;font-size
 .tap{cursor:pointer}
 .pick{margin-top:12px;font-size:14px;font-weight:600;color:#2B2118;background:#E3A857;border-radius:11px;padding:11px;text-align:center}
 #ov{position:fixed;inset:0;background:rgba(5,10,15,.62);opacity:0;pointer-events:none;transition:opacity .25s;z-index:5}
-#sh{position:fixed;left:50%;bottom:0;width:390px;max-width:100%;max-height:92vh;display:flex;flex-direction:column;transform:translate(-50%,105%);transition:transform .32s cubic-bezier(.2,.8,.2,1);z-index:6;background:#F4EFE6;color:#2B2118;border-radius:22px 22px 0 0;padding:14px 18px 18px}
+#sh{position:fixed;left:50%;bottom:0;width:430px;max-width:100%;max-height:92vh;display:flex;flex-direction:column;transform:translate(-50%,105%);transition:transform .32s cubic-bezier(.2,.8,.2,1);z-index:6;background:#F4EFE6;color:#2B2118;border-radius:22px 22px 0 0;padding:14px 18px 18px}
 body.open #ov{opacity:1;pointer-events:auto}body.open #sh{transform:translate(-50%,0)}
 #sh .grab{width:42px;height:4px;border-radius:2px;background:#cfc6b4;margin:0 auto 14px}
 #sh h3{font-size:20px;font-weight:600}#sh .pp{font-size:14px;color:#6b5a48;margin:2px 0 14px}
@@ -95,22 +106,16 @@ body.open #ov{opacity:1;pointer-events:auto}body.open #sh{transform:translate(-5
 <div id="fx"></div>
 <div class="wrap">
 
-<div class="strip">
-<img src="p30.jpg" alt="Афрейм вечером с гирляндами и светящимися оленями">
-<img src="p27.jpg" alt="Романтический вечер для двоих у афрейма" style="object-position:50% 40%">
-<img src="p29.jpg" alt="Крыльцо афрейма и беседка" style="object-position:50% 70%">
-<img src="p28.jpg" alt="Баня из сибирского кедра" style="object-position:50% 40%">
-</div>
-<div class="dots"><i></i><i></i><i></i><i></i></div>
+<img class="hero" src="p30.jpg" alt="Афрейм вечером с гирляндами и светящимися оленями">
 
 <p class="brand">НЕ ТОТ ЛЕС</p>
 <h1>Дом с баней и чаном<br>в Хабаровске</h1>
 <p class="sub">Аренда афрейма посуточно: баня из кедра, чан на 6 человек и беседка до 15 человек</p>
 <p class="quote">«Зимой он как домик из сказок братьев Гримм»</p>
 
-<div class="btn book">Забронировать даты</div>
-<div class="row"><div class="card mini">WhatsApp</div><div class="card mini">Telegram</div></div>
-<div class="note">Диспетчер отвечает с 7:30 до 23:00</div>
+<a class="btn book" href="#tariffs">Выбрать тариф и дату</a>
+<div class="row"><a class="card mini" href="https://wa.me/79141796645?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%B4%D0%B0%D1%82%D1%8B%20%D0%B8%20%D1%86%D0%B5%D0%BD%D1%83%20%D0%BD%D0%B0%20%D0%B4%D0%BE%D0%BC%20%C2%AB%D0%9D%D0%B5%20%D1%82%D0%BE%D1%82%20%D0%BB%D0%B5%D1%81%C2%BB.">WhatsApp</a><a class="card mini" href="https://t.me/netotforest?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%B4%D0%B0%D1%82%D1%8B%20%D0%B8%20%D1%86%D0%B5%D0%BD%D1%83%20%D0%BD%D0%B0%20%D0%B4%D0%BE%D0%BC%20%C2%AB%D0%9D%D0%B5%20%D1%82%D0%BE%D1%82%20%D0%BB%D0%B5%D1%81%C2%BB.">Telegram</a></div>
+<div class="note">Отвечаем каждый день с 7:30 до 23:00</div>
 
 <div class="ic">
 <div><b>до 6</b>гостей в цене</div>
@@ -119,7 +124,8 @@ body.open #ov{opacity:1;pointer-events:auto}body.open #sh{transform:translate(-5
 </div>
 <div class="stars">4,6 ★ <span style="color:#B9B3A6;font-weight:400;font-size:13px">в 2ГИС, 143 отзыва</span></div>
 
-<h2>Выберите формат отдыха</h2>
+<div class="duo"><img src="p27.jpg" alt="Романтический вечер для двоих" style="object-position:50% 40%"><img src="p35.jpg" alt="Беседка вечером с гирляндами"></div>
+<h2 id="tariffs" style="scroll-margin-top:12px">Выберите формат отдыха</h2>
 <div class="card tap" data-t="Романтика для пары" data-p="от 12 000 ₽, суббота 16 000 ₽">
 <div class="lab">Романтика для пары</div>
 <div class="price">от 12 000 ₽</div>
@@ -138,10 +144,20 @@ body.open #ov{opacity:1;pointer-events:auto}body.open #sh{transform:translate(-5
 <div class="lab" style="color:#B9B3A6;margin-bottom:4px">Чан и баня, допы</div>
 <div class="li"><span>Чан, затопка включена</span><span>7 000 ₽</span></div>
 <div class="li"><span>Баня, затопка включена</span><span>7 000 ₽</span></div>
-<div class="li"><span>Повторная затопка чана или бани</span><span>у диспетчера</span></div>
+<div class="li"><span>Повторная затопка чана или бани</span><span>по запросу</span></div>
 <div class="li"><span>Стол-гриль</span><span>1 500 ₽</span></div>
 <div class="li"><span>Дрова для мангала, связка</span><span>500 ₽</span></div>
 </div>
+
+<h2>Ваш вечер у нас</h2>
+<div class="steps"><div class="st"><i>15:00</i><b>Заезд</b><span>Тёплый афрейм, гирлянды по фасаду и светящиеся олени у крыльца</span></div></div>
+<div class="pic tall"><img src="p36.jpg" alt="Афрейм на закате" style="object-position:50% 30%"><span>Афрейм на закате</span></div>
+<div class="steps" style="margin-top:12px"><div class="st"><i>2</i><b>Баня</b><span>Сибирский кедр, панорамное окно, белые банные халаты</span></div></div>
+<div class="pic"><img src="p34.jpg" alt="Баня-бочка с панорамным окном и фламинго" style="object-position:50% 50%"><span>Баня с панорамным окном</span></div>
+<div class="steps" style="margin-top:12px"><div class="st"><i>3</i><b>Чан</b><span>Чистая вода из источника, до 6 человек</span></div></div>
+<div class="pic"><img src="p29.jpg" alt="Крыльцо афрейма, олени и беседка" style="object-position:50% 70%"><span>Территория с подсветкой</span></div>
+<div class="steps" style="margin-top:12px"><div class="st"><i>4</i><b>Беседка</b><span>Мягкие диваны, до 15 человек, вся территория освещена</span></div></div>
+<div class="pic"><img src="p28.jpg" alt="Парение в бане" style="object-position:50% 40%"><span>Пар по-сибирски</span></div>
 
 <h2>Условия проживания</h2>
 <div class="card"><ul>
@@ -154,10 +170,12 @@ body.open #ov{opacity:1;pointer-events:auto}body.open #sh{transform:translate(-5
 </ul></div>
 
 <h2>Как нас найти</h2>
-<div class="map">Хабаровск, улица Узорная, 8</div>
+<p class="cap" style="margin:0 0 10px">Хабаровск, улица Узорная, 8</p>
+<iframe class="mapf" loading="lazy" src="https://yandex.ru/map-widget/v1/?text=%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA%2C%20%D0%A3%D0%B7%D0%BE%D1%80%D0%BD%D0%B0%D1%8F%2C%208&z=16" title="Карта"></iframe>
+<div class="row"><a class="card mini" href="https://yandex.ru/maps/?text=%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA%2C%20%D0%A3%D0%B7%D0%BE%D1%80%D0%BD%D0%B0%D1%8F%2C%208">Яндекс Карты</a><a class="card mini" href="https://2gis.ru/khabarovsk/search/%D0%A3%D0%B7%D0%BE%D1%80%D0%BD%D0%B0%D1%8F%208">2ГИС</a></div>
 
-<div class="btn book" style="margin-top:22px">Забронировать даты</div>
-<div class="row"><div class="card mini">WhatsApp</div><div class="card mini">Telegram</div></div>
+<a class="btn book" style="margin-top:22px" href="#tariffs">Выбрать тариф и дату</a>
+<div class="row"><a class="card mini" href="https://wa.me/79141796645?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%B4%D0%B0%D1%82%D1%8B%20%D0%B8%20%D1%86%D0%B5%D0%BD%D1%83%20%D0%BD%D0%B0%20%D0%B4%D0%BE%D0%BC%20%C2%AB%D0%9D%D0%B5%20%D1%82%D0%BE%D1%82%20%D0%BB%D0%B5%D1%81%C2%BB.">WhatsApp</a><a class="card mini" href="https://t.me/netotforest?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%B4%D0%B0%D1%82%D1%8B%20%D0%B8%20%D1%86%D0%B5%D0%BD%D1%83%20%D0%BD%D0%B0%20%D0%B4%D0%BE%D0%BC%20%C2%AB%D0%9D%D0%B5%20%D1%82%D0%BE%D1%82%20%D0%BB%D0%B5%D1%81%C2%BB.">Telegram</a></div>
 </div>
 
 <script>
@@ -178,22 +196,22 @@ for(var j=0;j<70;j++){var f=document.createElement('div');f.className='flake';va
 <div class="fl"><label>Ночей</label><div class="stp"><button class="m" data-k="n" data-d="-1">−</button><span id="v_n">1</span><button data-k="n" data-d="1">+</button></div></div>
 <div class="fl"><label for="tm">Время заезда</label><select id="tm"><option>15:00</option><option>16:00</option><option>17:00</option><option>18:00</option><option>19:00</option><option>20:00</option><option>Другое, уточню</option></select></div>
 <div class="fl"><label>Гостей</label><div class="stp"><button class="m" data-k="g" data-d="-1">−</button><span id="v_g">2</span><button data-k="g" data-d="1">+</button></div></div>
-<div class="gnote">Доплату за гостей сверх 6 подскажет диспетчер</div>
+<div class="gnote">Доплату за гостей сверх 6 подскажем в чате</div>
 <div class="sec" style="margin:10px 0 2px">ДОБАВИТЬ В ЗАКАЗ</div>
 <div id="exl"></div>
-<div class="gnote" style="margin:6px 0 8px">Повторная затопка чана или бани: мастер, закажите у диспетчера</div>
+<div class="gnote" style="margin:6px 0 8px">Повторная затопка чана или бани: мастер, уточните в чате</div>
 </div>
 <div class="sum">
 <div class="sr"><span>Проживание</span><span id="s_room">выберите дату</span></div>
 <div class="sr" id="s_exr" style="display:none"><span>Дополнительно</span><span id="s_ex"></span></div>
 <div class="sr big"><span>Предварительно</span><b id="tsum">—</b></div>
-<div class="pp3">Точную стоимость и свободные даты подтвердит диспетчер</div>
+<div class="pp3">Точную стоимость и свободные даты подтвердим в чате</div>
 </div>
 </div>
 <div class="acts">
 <a class="w" id="shW" href="#">Написать в WhatsApp</a>
 <a class="t" id="shG" href="#">Написать в Telegram</a>
-<a class="c" href="tel:+79141796645">Позвонить диспетчеру</a>
+<a class="c" href="tel:+79141796645">Позвонить нам</a>
 </div></div>
 <script>
 var D={"Романтика для пары":{p:"от 12 000 ₽, суббота 16 000 ₽",base:12000,sat:16000,l:[["🏡","b1","Весь дом 78 м² только для вас","Три спальни, уютная гостиная"],["🛏","b4","Спальня с кроватью King Size","Мягкая постель и белые банные халаты"],["🍳","b2","Кухонная зона и стол на 6–8 человек","Всё необходимое для застолья"],["🔥","b5","Мангал и решётки бесплатно","Дрова для мангала 500 ₽ за связку"],["🛖","b6","Беседка с мягкими диванами","До 15 человек, территория освещена"],["♨️","b3","Баня из сибирского кедра","7 000 ₽, затопка включена"],["🫧","b3","Чан на 6 человек","7 000 ₽, затопка включена"],["🚿","b2","Ванная с душем","Стиральная машина"],["🐾","b5","Можно с питомцами","Без доплаты"],["🧹","b1","Уборка после выезда","Делаем мы"],["🕒","b3","Заезд с 15:00, выезд до 12:00","Раньше или позже по договорённости"]]},
