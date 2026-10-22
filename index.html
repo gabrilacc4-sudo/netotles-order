@@ -77,6 +77,8 @@ a.btn,a.mini{text-decoration:none}
 .card .price{margin:6px 0 4px;white-space:nowrap}
 ul li b{font-weight:700;color:#2B2118}ul li .m{color:#8a7a68;font-weight:500}
 .ln{display:none}
+.ov span.m b{display:inline;font-family:inherit;font-size:inherit;line-height:inherit;margin:0;color:#F4EFE6;font-weight:700}
+.ov span.m{color:#9d9788}
 .ask{font-size:12px;color:#6b5a48;margin-top:12px}
 .cta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
 .cta a{display:block;text-align:center;border-radius:11px;padding:11px;font-size:14px;font-weight:600;text-decoration:none;color:#2B2118;background:#E3A857}
@@ -145,7 +147,7 @@ h2{font-size:26px;line-height:1.15;margin:34px 0 14px}
 <div id="fx"></div>
 <div class="wrap">
 
-<div class="top"><img src="logo.png" alt="Не тот лес"><b>НЕ ТОТ ЛЕС</b><span>Дом с баней и чаном · Хабаровск, Узорная 8</span></div>
+<div class="top"><img src="logo.png" alt="Не тот лес"><b>НЕ ТОТ ЛЕС</b><span>Хабаровск, Узорная 8</span></div>
 <img class="hero" src="p30.jpg" alt="Афрейм вечером с гирляндами и светящимися оленями">
 
 <h1>Дом с баней и чаном<br>в Хабаровске</h1>
@@ -163,7 +165,7 @@ h2{font-size:26px;line-height:1.15;margin:34px 0 14px}
 </div>
 <div class="stars">4,6 ★ <span style="color:#B9B3A6;font-weight:400;font-size:13px">в 2ГИС, 143 отзыва</span></div>
 
-<div class="ov" style="margin-top:18px"><img src="p41.jpg" alt="Неоновая вывеска Не тот лес" style="height:480px;object-position:50% 68%"><div><em>ВАС ЖДЁТ</em><b>Вечер, который хочется повторить</b><span class="m">Хабаровск, Узорная 8</span></div></div>
+<div class="ov" style="margin-top:18px"><img src="p41.jpg" alt="Неоновая вывеска Не тот лес" style="height:440px;object-position:50% 0%"><div><em>ВАС ЖДЁТ</em><b>Вечер, который хочется повторить</b><span class="m">Хабаровск, Узорная 8</span></div></div>
 <h2 id="tariffs" style="scroll-margin-top:12px">Выберите формат отдыха</h2>
 <div class="card tap" data-t="Романтика для пары" data-p="от 12 000 ₽, суббота 16 000 ₽">
 <img class="cardimg" src="p27.jpg" alt="Романтика для пары" style="object-position:50% 78%;height:210px">
@@ -174,6 +176,7 @@ h2{font-size:26px;line-height:1.15;margin:34px 0 14px}
 <div class="pick">Выбрать этот тариф ›</div>
 </div>
 <div class="card tap" style="margin-top:10px" data-t="Компания до 6 человек" data-p="от 15 000 ₽, суббота 18 000 ₽">
+<img class="cardimg" src="p44.jpg" alt="Компания в чане" style="object-position:50% 25%;height:210px">
 <div class="lab">Компания до 6 человек</div>
 <div class="price">от 15 000 ₽</div>
 <div class="small">суббота 18 000 ₽</div>
@@ -190,12 +193,12 @@ h2{font-size:26px;line-height:1.15;margin:34px 0 14px}
 </div>
 
 <h2>Ваш вечер у нас</h2>
-<div class="ov"><img src="p36.jpg" alt="Афрейм на закате" style="object-position:50% 30%"><div><em>15:00 · ЗАЕЗД</em><b>Тёплый афрейм</b><i class="chip">С 15:00 · выезд до 12:00</i><br><span class="m">Гирлянды по фасаду и светящиеся олени у крыльца</span></div></div>
-<div class="ov"><img src="p38.jpg" alt="Отдых в бане" style="object-position:50% 60%"><div><em>БАНЯ</em><b>Сибирский кедр</b><i class="chip">7 000 ₽ · затопка включена</i><br><span class="m">Панорамное окно и белые банные халаты</span></div></div>
-<div class="ov"><img src="p28.jpg" alt="Парение в бане" style="object-position:50% 35%"><div><em>ПАР</em><b>Пар по-сибирски</b><span class="m">Сибирский кедр и белые банные халаты</span></div></div>
-<div class="ov"><img src="p40.jpg" alt="Чан с подсветкой" style="object-position:50% 25%"><div><em>ЧАН</em><b>Чан на 6 человек</b><i class="chip">7 000 ₽ · затопка включена</i><br><span class="m">Вода из источника, подсветка вечером</span></div></div>
-<div class="ov"><img src="p29.jpg" alt="Территория с подсветкой" style="object-position:50% 70%"><div><em>ТЕРРИТОРИЯ</em><b>Вечер в огнях</b><span class="m">Крыльцо, светящиеся олени, вся территория освещена</span></div></div>
-<div class="ov"><img src="p35.jpg" alt="Беседка" style="object-position:50% 60%"><div><em>БЕСЕДКА</em><b>Беседка до 15 человек</b><i class="chip">Мангал и решётки бесплатно</i><br><span class="m">Мягкие диваны и гирлянды</span></div></div>
+<div class="ov"><img src="p36.jpg" alt="Афрейм на закате" style="object-position:50% 30%"><div><em>ЗАЕЗД</em><b>Тёплый афрейм</b><span class="m"><b>Гирлянды по фасаду</b> и светящиеся олени у крыльца</span></div></div>
+<div class="ov"><img src="p38.jpg" alt="Отдых в бане" style="object-position:50% 60%"><div><em>БАНЯ</em><b>Сибирский кедр</b><span class="m"><b>Панорамное окно</b> и белые банные халаты</span></div></div>
+<div class="ov"><img src="p28.jpg" alt="Парение в бане" style="object-position:50% 35%"><div><em>ПАР</em><b>Пар по-сибирски</b><span class="m"><b>Халаты и шапочки</b> и всё необходимое, чтобы напариться</span></div></div>
+<div class="ov"><img src="p40.jpg" alt="Чан с подсветкой" style="object-position:50% 25%"><div><em>ЧАН</em><b>Чан на 6 человек</b><span class="m"><b>Вода из источника</b>, подсветка вечером</span></div></div>
+<div class="ov"><img src="p29.jpg" alt="Территория с подсветкой" style="object-position:50% 70%"><div><em>ТЕРРИТОРИЯ</em><b>Вечер в огнях</b><span class="m"><b>Светящиеся олени</b> и вся территория освещена</span></div></div>
+<div class="ov"><img src="p35.jpg" alt="Беседка" style="object-position:50% 60%"><div><em>БЕСЕДКА</em><b>Беседка до 15 человек</b><span class="m"><b>Мангал и решётки бесплатно</b>, мягкие диваны и гирлянды</span></div></div>
 
 <h2>Условия проживания</h2>
 <div class="card"><ul>
@@ -203,7 +206,6 @@ h2{font-size:26px;line-height:1.15;margin:34px 0 14px}
 <li><b>С питомцами</b> <span class="m">можно, без доплаты</span></li>
 <li><b>Баня и чан</b> <span class="m">оплачиваются отдельно, затопка включена</span></li>
 <li><b>Мангал и решётки</b> <span class="m">бесплатно</span></li>
-<li><b>Уборка</b> <span class="m">после выезда на нас</span></li>
 <li><b>Оплата</b> <span class="m">наличные, перевод, карта</span></li>
 </ul></div>
 
