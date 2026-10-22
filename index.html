@@ -12,7 +12,7 @@ body{background:linear-gradient(180deg,#0B1620 0%,#0E1A24 45%,#0A141C 100%);font
 @keyframes float{from{transform:translate3d(0,0,0) scale(1);opacity:.10}to{transform:translate3d(30px,-50px,0) scale(1.35);opacity:.22}}
 .wrap{position:relative;z-index:1}
 .strip{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;border-radius:16px}
-.strip img{flex:0 0 100%;height:430px;object-fit:cover;scroll-snap-align:center;border-radius:16px}
+.strip img{flex:0 0 100%;height:430px;object-fit:cover;scroll-snap-align:center;border-radius:16px}
 .dots{display:flex;justify-content:center;gap:6px;margin:8px 0 2px}
 .dots i{width:6px;height:6px;border-radius:50%;background:#3a4b5a}.dots i:first-child{background:#E3A857}
 .brand{font-size:13px;letter-spacing:5px;text-align:center;color:#E3A857;margin-top:10px}
@@ -67,6 +67,16 @@ a.btn,a.mini{text-decoration:none}
 .top span{display:block;font-size:12px;color:#B9B3A6;margin-top:4px;letter-spacing:.5px}
 .ln{margin-top:12px;background:rgba(27,42,56,.9);border-radius:14px;padding:12px 14px;font-size:14px;color:#D9D2C4;line-height:1.4}
 .ln b{color:#E3A857}
+.chip{font-style:normal;display:inline-block;background:#E3A857;color:#2B2118;font-weight:700;font-size:14px;padding:6px 13px;border-radius:20px;white-space:nowrap;margin:2px 0 10px}
+.ov div{padding:90px 18px 20px;background:linear-gradient(180deg,transparent,rgba(8,14,20,.55) 35%,rgba(8,14,20,.95))}
+.ov em{margin-bottom:8px}.ov b{margin-bottom:10px}
+.ov span.m{display:block;font-size:13px;color:#B9B3A6;line-height:1.5;opacity:.9;margin-top:2px}
+.ov .chip{display:inline-block}
+.cardimg{display:block;width:calc(100% + 28px);margin:-14px -14px 14px;height:170px;object-fit:cover;border-radius:14px 14px 0 0}
+.card .small{color:#8a7a68}.card .tag{font-weight:500;color:#8A5A2B;opacity:.85;margin-top:8px}
+.card .price{margin:6px 0 4px;white-space:nowrap}
+ul li b{font-weight:700;color:#2B2118}ul li .m{color:#8a7a68;font-weight:500}
+.ln{display:none}
 .ask{font-size:12px;color:#6b5a48;margin-top:12px}
 .cta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
 .cta a{display:block;text-align:center;border-radius:11px;padding:11px;font-size:14px;font-weight:600;text-decoration:none;color:#2B2118;background:#E3A857}
@@ -153,47 +163,48 @@ h2{font-size:26px;line-height:1.15;margin:34px 0 14px}
 </div>
 <div class="stars">4,6 ★ <span style="color:#B9B3A6;font-weight:400;font-size:13px">в 2ГИС, 143 отзыва</span></div>
 
-<div class="duo"><img src="p27.jpg" alt="Романтический вечер для двоих" style="object-position:50% 40%"><img src="p35.jpg" alt="Беседка вечером с гирляндами"></div>
+<div class="ov" style="margin-top:18px"><img src="p41.jpg" alt="Неоновая вывеска Не тот лес" style="height:480px;object-position:50% 68%"><div><em>ВАС ЖДЁТ</em><b>Вечер, который хочется повторить</b><span class="m">Хабаровск, Узорная 8</span></div></div>
 <h2 id="tariffs" style="scroll-margin-top:12px">Выберите формат отдыха</h2>
-<div class="card tap" data-t="Романтика для пары" data-p="от 12 000 ₽, суббота 16 000 ₽">
+<div class="card tap" data-t="Романтика для пары" data-p="от 12 000 ₽, суббота 16 000 ₽">
+<img class="cardimg" src="p27.jpg" alt="Романтика для пары" style="object-position:50% 78%;height:210px">
 <div class="lab">Романтика для пары</div>
-<div class="price">от 12 000 ₽</div>
-<div class="small">суббота 16 000 ₽</div>
+<div class="price">от 12 000 ₽</div>
+<div class="small">суббота 16 000 ₽</div>
 <div class="tag">Вечер для двоих: халаты, баня и чан</div>
 <div class="pick">Выбрать этот тариф ›</div>
 </div>
-<div class="card tap" style="margin-top:10px" data-t="Компания до 6 человек" data-p="от 15 000 ₽, суббота 18 000 ₽">
+<div class="card tap" style="margin-top:10px" data-t="Компания до 6 человек" data-p="от 15 000 ₽, суббота 18 000 ₽">
 <div class="lab">Компания до 6 человек</div>
-<div class="price">от 15 000 ₽</div>
-<div class="small">суббота 18 000 ₽</div>
+<div class="price">от 15 000 ₽</div>
+<div class="small">суббота 18 000 ₽</div>
 <div class="tag">Праздник с друзьями: беседка на 15 человек, баня, чан</div>
 <div class="pick">Выбрать этот тариф ›</div>
 </div>
 <div class="dk">
 <div class="lab" style="color:#B9B3A6;margin-bottom:4px">Чан и баня, допы</div>
-<div class="li"><span>Чан, затопка включена</span><span>7 000 ₽</span></div>
-<div class="li"><span>Баня, затопка включена</span><span>7 000 ₽</span></div>
+<div class="li"><span>Чан, затопка включена</span><span>7 000 ₽</span></div>
+<div class="li"><span>Баня, затопка включена</span><span>7 000 ₽</span></div>
 <div class="li"><span>Повторная затопка чана или бани</span><span>по запросу</span></div>
-<div class="li"><span>Стол-гриль</span><span>1 500 ₽</span></div>
-<div class="li"><span>Дрова для мангала, связка</span><span>500 ₽</span></div>
+<div class="li"><span>Стол-гриль</span><span>1 500 ₽</span></div>
+<div class="li"><span>Дрова для мангала, связка</span><span>500 ₽</span></div>
 </div>
 
 <h2>Ваш вечер у нас</h2>
-<div class="ov"><img src="p36.jpg" alt="Афрейм на закате" style="object-position:50% 30%"><div><em>15:00 · ЗАЕЗД</em><b>Тёплый афрейм</b><span>Гирлянды по фасаду и светящиеся олени у крыльца</span></div></div>
-<div class="ov"><img src="p38.jpg" alt="Отдых в бане" style="object-position:50% 60%"><div><em>БАНЯ</em><b>Сибирский кедр</b><span>Панорамное окно, белые банные халаты. 7 000 ₽, затопка включена</span></div></div>
-<div class="ov"><img src="p28.jpg" alt="Парение в бане" style="object-position:50% 35%"><div><em>ПАР</em><b>Пар по-сибирски</b><span>Сибирский кедр и белые банные халаты</span></div></div>
-<div class="ov"><img src="p40.jpg" alt="Чан с подсветкой" style="object-position:50% 70%"><div><em>ЧАН</em><b>До 6 человек под небом</b><span>Чистая вода из источника, подсветка вечером. 7 000 ₽, затопка включена</span></div></div>
-<div class="ov"><img src="p29.jpg" alt="Территория с подсветкой" style="object-position:50% 70%"><div><em>ТЕРРИТОРИЯ</em><b>Вечер в огнях</b><span>Крыльцо, светящиеся олени, вся территория освещена</span></div></div>
-<div class="ov"><img src="p35.jpg" alt="Беседка" style="object-position:50% 60%"><div><em>БЕСЕДКА</em><b>До 15 человек</b><span>Мягкие диваны, гирлянды, мангал и решётки бесплатно</span></div></div>
+<div class="ov"><img src="p36.jpg" alt="Афрейм на закате" style="object-position:50% 30%"><div><em>15:00 · ЗАЕЗД</em><b>Тёплый афрейм</b><i class="chip">С 15:00 · выезд до 12:00</i><br><span class="m">Гирлянды по фасаду и светящиеся олени у крыльца</span></div></div>
+<div class="ov"><img src="p38.jpg" alt="Отдых в бане" style="object-position:50% 60%"><div><em>БАНЯ</em><b>Сибирский кедр</b><i class="chip">7 000 ₽ · затопка включена</i><br><span class="m">Панорамное окно и белые банные халаты</span></div></div>
+<div class="ov"><img src="p28.jpg" alt="Парение в бане" style="object-position:50% 35%"><div><em>ПАР</em><b>Пар по-сибирски</b><span class="m">Сибирский кедр и белые банные халаты</span></div></div>
+<div class="ov"><img src="p40.jpg" alt="Чан с подсветкой" style="object-position:50% 25%"><div><em>ЧАН</em><b>Чан на 6 человек</b><i class="chip">7 000 ₽ · затопка включена</i><br><span class="m">Вода из источника, подсветка вечером</span></div></div>
+<div class="ov"><img src="p29.jpg" alt="Территория с подсветкой" style="object-position:50% 70%"><div><em>ТЕРРИТОРИЯ</em><b>Вечер в огнях</b><span class="m">Крыльцо, светящиеся олени, вся территория освещена</span></div></div>
+<div class="ov"><img src="p35.jpg" alt="Беседка" style="object-position:50% 60%"><div><em>БЕСЕДКА</em><b>Беседка до 15 человек</b><i class="chip">Мангал и решётки бесплатно</i><br><span class="m">Мягкие диваны и гирлянды</span></div></div>
 
 <h2>Условия проживания</h2>
 <div class="card"><ul>
-<li>Заезд с 15:00, выезд до 12:00</li>
-<li>С животными можно, без доплаты</li>
-<li>Баня и чан оплачиваются отдельно, затопка включена</li>
-<li>Мангал и решётки бесплатно</li>
-<li>Уборку после выезда делаем мы</li>
-<li>Оплата: наличные, перевод, карта</li>
+<li><b>Заезд с 15:00</b> <span class="m">выезд до 12:00</span></li>
+<li><b>С питомцами</b> <span class="m">можно, без доплаты</span></li>
+<li><b>Баня и чан</b> <span class="m">оплачиваются отдельно, затопка включена</span></li>
+<li><b>Мангал и решётки</b> <span class="m">бесплатно</span></li>
+<li><b>Уборка</b> <span class="m">после выезда на нас</span></li>
+<li><b>Оплата</b> <span class="m">наличные, перевод, карта</span></li>
 </ul></div>
 
 <h2>Как нас найти</h2>
@@ -241,11 +252,11 @@ for(var j=0;j<70;j++){var f=document.createElement('div');f.className='flake';va
 <a class="c" href="tel:+79141796645">Позвонить нам</a>
 </div></div>
 <script>
-var D={"Романтика для пары":{p:"от 12 000 ₽, суббота 16 000 ₽",base:12000,sat:16000,l:[["🏡","b1","Весь дом 78 м² только для вас","Три спальни, уютная гостиная"],["🛏","b4","Спальня с кроватью King Size","Мягкая постель и белые банные халаты"],["🍳","b2","Кухонная зона и стол на 6–8 человек","Всё необходимое для застолья"],["🔥","b5","Мангал и решётки бесплатно","Дрова для мангала 500 ₽ за связку"],["🛖","b6","Беседка с мягкими диванами","До 15 человек, территория освещена"],["♨️","b3","Баня из сибирского кедра","7 000 ₽, затопка включена"],["🫧","b3","Чан на 6 человек","7 000 ₽, затопка включена"],["🚿","b2","Ванная с душем","Стиральная машина"],["🐾","b5","Можно с питомцами","Без доплаты"],["🧹","b1","Уборка после выезда","Делаем мы"],["🕒","b3","Заезд с 15:00, выезд до 12:00","Раньше или позже по договорённости"]]},
-"Компания до 6 человек":{p:"от 15 000 ₽, суббота 18 000 ₽",base:15000,sat:18000,l:[["🏡","b1","Весь дом 78 м² для компании","До 6 гостей в стоимости"],["🛏","b4","Три спальни","King Size на 1 этаже, диван в гостиной, большое место 2,2×2,2 на 2 этаже"],["🍳","b2","Кухонная зона и стол на 6–8 человек","Всё необходимое для застолья"],["🔥","b5","Мангал и решётки бесплатно","Дрова для мангала 500 ₽ за связку"],["🛖","b6","Беседка с мягкими диванами","До 15 человек, территория освещена"],["♨️","b3","Баня из сибирского кедра","7 000 ₽, затопка включена"],["🫧","b3","Чан на 6 человек","7 000 ₽, затопка включена"],["🚿","b2","Ванная с душем","Стиральная машина"],["🐾","b5","Можно с питомцами","Без доплаты"],["🧹","b1","Уборка после выезда","Делаем мы"],["🕒","b3","Заезд с 15:00, выезд до 12:00","Раньше или позже по договорённости"]]}};
+var D={"Романтика для пары":{p:"от 12 000 ₽, суббота 16 000 ₽",base:12000,sat:16000,l:[["🏡","b1","Весь дом 78 м² только для вас","Три спальни, уютная гостиная"],["🛏","b4","Спальня с кроватью King Size","Мягкая постель и белые банные халаты"],["🍳","b2","Кухонная зона и стол на 6–8 человек","Всё необходимое для застолья"],["🔥","b5","Мангал и решётки бесплатно","Дрова для мангала 500 ₽ за связку"],["🛖","b6","Беседка с мягкими диванами","До 15 человек, территория освещена"],["♨️","b3","Баня из сибирского кедра","7 000 ₽, затопка включена"],["🫧","b3","Чан на 6 человек","7 000 ₽, затопка включена"],["🚿","b2","Ванная с душем","Стиральная машина"],["🐾","b5","Можно с питомцами","Без доплаты"],["🧹","b1","Уборка после выезда","Делаем мы"],["🕒","b3","Заезд с 15:00, выезд до 12:00","Раньше или позже по договорённости"]]},
+"Компания до 6 человек":{p:"от 15 000 ₽, суббота 18 000 ₽",base:15000,sat:18000,l:[["🏡","b1","Весь дом 78 м² для компании","До 6 гостей в стоимости"],["🛏","b4","Три спальни","King Size на 1 этаже, диван в гостиной, большое место 2,2×2,2 на 2 этаже"],["🍳","b2","Кухонная зона и стол на 6–8 человек","Всё необходимое для застолья"],["🔥","b5","Мангал и решётки бесплатно","Дрова для мангала 500 ₽ за связку"],["🛖","b6","Беседка с мягкими диванами","До 15 человек, территория освещена"],["♨️","b3","Баня из сибирского кедра","7 000 ₽, затопка включена"],["🫧","b3","Чан на 6 человек","7 000 ₽, затопка включена"],["🚿","b2","Ванная с душем","Стиральная машина"],["🐾","b5","Можно с питомцами","Без доплаты"],["🧹","b1","Уборка после выезда","Делаем мы"],["🕒","b3","Заезд с 15:00, выезд до 12:00","Раньше или позже по договорённости"]]}};
 var EX=[["chan","Чан",7000,5," · затопка включена"],["banya","Баня",7000,5," · затопка включена"],["grill","Стол-гриль",1500,5,""],["wood","Дрова для мангала, связка",500,9,""]];
 var S={t:null,n:1,g:2,x:{}};
-function fmt(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0')+' ₽'}
+function fmt(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0')+' ₽'}
 function pad(n){return (n<10?'0':'')+n}
 function dow(d){return ['вс','пн','вт','ср','чт','пт','сб'][d.getDay()]}
 function calc(){var t=D[S.t],dv=document.getElementById('dt').value,sum=0;
