@@ -144,7 +144,15 @@ h2{font-size:26px;line-height:1.15;margin:34px 0 14px}
 .price,h1,h2,.ov b{font-variant-numeric:lining-nums}.price{font-size:30px}
 .btn,.mini,.pick,.ic b,.li span:last-child,.lab{font-weight:700}
 .top b{font-size:17px;letter-spacing:8px}
-</style></head><body>
+</style><script>
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
+ym(113739024,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});
+function goal(n){try{ym(113739024,'reachGoal',n)}catch(e){}}
+document.addEventListener('click',function(ev){var a=ev.target.closest&&ev.target.closest('a');if(!a)return;var h=a.getAttribute('href')||'';
+if(h.indexOf('wa.me')>-1)goal('send_whatsapp');else if(h.indexOf('t.me')>-1)goal('send_telegram');else if(h.indexOf('tel:')===0)goal('click_call');},true);
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113739024" style="position:absolute;left:-9999px" alt=""></div></noscript>
+</head><body>
 <div id="fx"></div>
 <div class="wrap">
 
@@ -280,7 +288,7 @@ if(r.room!==null)L.push('Предварительный расчёт: '+fmt(r.ro
 L.push('Подскажите, свободна ли дата?');
 var q=encodeURIComponent(L.join('\n'));
 document.getElementById('shW').href='https://wa.me/79141796645?text='+q;document.getElementById('shG').href='https://t.me/netotforest?text='+q}
-function openSh(t){S={t:t,n:1,g:2,x:{}};var d=D[t];
+function openSh(t){S={t:t,n:1,g:2,x:{}};goal('tariff_open');var d=D[t];
 document.getElementById('shT').textContent=t;document.getElementById('shP').textContent=d.p;
 document.getElementById('shL').innerHTML=d.l.map(function(x){return '<div class="it"><div class="ib '+x[1]+'">'+x[0]+'</div><div>'+x[2]+'<small>'+x[3]+'</small></div></div>'}).join('');
 document.getElementById('exl').innerHTML=EX.map(function(e){return '<div class="ex"><div>'+e[1]+'<small>'+fmt(e[2])+e[4]+'</small></div><div class="stp"><button class="m" data-x="'+e[0]+'" data-d="-1">−</button><span id="x_'+e[0]+'">0</span><button data-x="'+e[0]+'" data-d="1">+</button></div></div>'}).join('');
