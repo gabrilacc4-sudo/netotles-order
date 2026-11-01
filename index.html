@@ -87,14 +87,17 @@ ul li b{font-weight:700;color:#2B2118}ul li .m{color:#8a7a68;font-weight:500}
 .tap{cursor:pointer}
 .pick{margin-top:12px;font-size:14px;font-weight:600;color:#2B2118;background:#E3A857;border-radius:11px;padding:11px;text-align:center}
 #ov{position:fixed;inset:0;background:rgba(5,10,15,.62);opacity:0;pointer-events:none;transition:opacity .25s;z-index:5}
-#sh{position:fixed;left:50%;bottom:0;width:430px;max-width:100%;max-height:92vh;display:flex;flex-direction:column;transform:translate(-50%,105%);transition:transform .32s cubic-bezier(.2,.8,.2,1);z-index:6;background:#F4EFE6;color:#2B2118;border-radius:22px 22px 0 0;padding:14px 18px 18px}
+#sh{position:fixed;left:50%;bottom:0;width:430px;max-width:100%;max-height:92vh;max-height:92dvh;display:flex;flex-direction:column;transform:translate(-50%,105%);transition:transform .32s cubic-bezier(.2,.8,.2,1);z-index:6;background:#F4EFE6;color:#2B2118;border-radius:22px 22px 0 0;padding:14px 18px 18px}
 body.open #ov{opacity:1;pointer-events:auto}body.open #sh{transform:translate(-50%,0)}
 #sh .grab{width:42px;height:4px;border-radius:2px;background:#cfc6b4;margin:0 auto 14px}
 #sh h3{font-size:20px;font-weight:600}#sh .pp{font-size:14px;color:#6b5a48;margin:2px 0 14px}
 #sh a{display:block;text-align:center;border-radius:13px;padding:14px;font-size:16px;font-weight:600;text-decoration:none;margin-top:8px}
 #sh .w{background:#E3A857;color:#2B2118}#sh .t{background:#2B2118;color:#F4EFE6}#sh .c{background:#E8E1D2;color:#2B2118}
 #sh .hint{font-size:12px;color:#6b5a48;text-align:center;margin-top:10px}
-#sh .sc{overflow:auto;flex:1;margin:0 -4px;padding:0 4px 4px}
+#sh .sc{overflow-y:auto;flex:1;min-height:0;margin:0 -4px;padding:0 4px 4px;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-y}
+#sh{overscroll-behavior:contain}
+#ov{touch-action:none}
+body.open{position:fixed;left:0;right:0;width:100%;overflow:hidden}
 #sh .hd{background:linear-gradient(135deg,#E3A857,#F0C27C);border-radius:16px;padding:14px;margin-bottom:12px}
 #sh .hd h3{font-size:20px}#sh .hd .pp{margin:2px 0 0;color:#5a4025;font-size:14px}
 #sh .sec{font-size:12px;letter-spacing:1px;color:#8A5A2B;font-weight:700;margin:12px 0 6px}
@@ -288,13 +291,14 @@ if(r.room!==null)L.push('Предварительный расчёт: '+fmt(r.ro
 L.push('Подскажите, свободна ли дата?');
 var q=encodeURIComponent(L.join('\n'));
 document.getElementById('shW').href='https://wa.me/79141796645?text='+q;document.getElementById('shG').href='https://t.me/netotforest?text='+q}
+var lockY=0;function lock(on){var b=document.body;if(on){if(b.classList.contains('open'))return;lockY=window.pageYOffset;b.style.top=-lockY+'px';b.classList.add('open')}else{if(!b.classList.contains('open'))return;b.classList.remove('open');b.style.top='';window.scrollTo(0,lockY)}}
 function openSh(t){S={t:t,n:1,g:2,x:{}};goal('tariff_open');var d=D[t];
 document.getElementById('shT').textContent=t;document.getElementById('shP').textContent=d.p;
 document.getElementById('shL').innerHTML=d.l.map(function(x){return '<div class="it"><div class="ib '+x[1]+'">'+x[0]+'</div><div>'+x[2]+'<small>'+x[3]+'</small></div></div>'}).join('');
 document.getElementById('exl').innerHTML=EX.map(function(e){return '<div class="ex"><div>'+e[1]+'<small>'+fmt(e[2])+e[4]+'</small></div><div class="stp"><button class="m" data-x="'+e[0]+'" data-d="-1">−</button><span id="x_'+e[0]+'">0</span><button data-x="'+e[0]+'" data-d="1">+</button></div></div>'}).join('');
 document.getElementById('dt').value='';document.getElementById('tm').value='15:00';
 var t0=new Date();document.getElementById('dt').min=t0.getFullYear()+'-'+pad(t0.getMonth()+1)+'-'+pad(t0.getDate());
-document.getElementById('sc').scrollTop=0;upd();document.body.classList.add('open')}
+document.getElementById('sc').scrollTop=0;upd();lock(true)}
 document.getElementById('sh').addEventListener('click',function(ev){var b=ev.target.closest('button');if(!b)return;var dd=+b.dataset.d;
 if(b.dataset.k==='n')S.n=Math.min(7,Math.max(1,S.n+dd));
 if(b.dataset.k==='g')S.g=Math.min(12,Math.max(1,S.g+dd));
@@ -302,7 +306,7 @@ if(b.dataset.x){var e=EX.filter(function(z){return z[0]===b.dataset.x})[0];S.x[e
 upd()});
 document.getElementById('dt').addEventListener('input',upd);document.getElementById('tm').addEventListener('change',upd);
 document.querySelectorAll('.tap').forEach(function(c){c.addEventListener('click',function(){openSh(c.dataset.t)})});
-document.getElementById('ov').addEventListener('click',function(){document.body.classList.remove('open')});
+document.getElementById('ov').addEventListener('click',function(){lock(false)});
 if(location.hash==='#comp'||location.hash==='#pair'){openSh(location.hash==='#comp'?'Компания до 6 человек':'Романтика для пары')}
 if(location.hash==='#demo'){openSh('Компания до 6 человек');document.getElementById('dt').value='2026-10-24';S.g=6;S.x={chan:1,banya:1,wood:2};upd();document.getElementById('sc').scrollTop=document.getElementById('bsec').offsetTop-20}
 </script>
