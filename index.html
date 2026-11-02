@@ -95,7 +95,8 @@ body.open #ov{opacity:1;pointer-events:auto}body.open #sh{transform:translate(-5
 #sh .w{background:#E3A857;color:#2B2118}#sh .t{background:#2B2118;color:#F4EFE6}#sh .c{background:#E8E1D2;color:#2B2118}
 #sh .hint{font-size:12px;color:#6b5a48;text-align:center;margin-top:10px}
 #sh .sc{overflow-y:auto;flex:1;min-height:0;margin:0 -4px;padding:0 4px 4px;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;touch-action:pan-y}
-#sh{overscroll-behavior:contain}
+#sh{overscroll-behavior:contain;touch-action:none}
+#shX{position:absolute;top:4px;right:10px;width:28px;height:28px;border:0;border-radius:50%;background:#E8E1D2;color:#2B2118;font-size:20px;line-height:28px;padding:0;z-index:2;cursor:pointer}
 #ov{touch-action:none}
 body.open{position:fixed;left:0;right:0;width:100%;overflow:hidden}
 #sh .hd{background:linear-gradient(135deg,#E3A857,#F0C27C);border-radius:16px;padding:14px;margin-bottom:12px}
@@ -212,7 +213,7 @@ if(h.indexOf('wa.me')>-1)goal('send_whatsapp');else if(h.indexOf('t.me')>-1)goal
 
 <h2>Условия проживания</h2>
 <div class="card"><ul>
-<li><b>Заезд с 15:00</b> <span class="m">ранний заезд с 13:00, выезд до 12:00</span></li>
+<li><b>Заезд с 15:00</b> <span class="m">ранний заезд по запросу, выезд до 12:00</span></li>
 <li><b>С питомцами</b> <span class="m">можно, без доплаты</span></li>
 <li><b>Баня и чан</b> <span class="m">оплачиваются отдельно, затопка включена</span></li>
 <li><b>Мангал и решётки</b> <span class="m">бесплатно</span></li>
@@ -235,16 +236,16 @@ for(var i=0;i<4;i++){var g=document.createElement('div');g.className='glow';var 
 for(var j=0;j<70;j++){var f=document.createElement('div');f.className='flake';var z=r(1.5,5);f.style.cssText='width:'+z+'px;height:'+z+'px;left:'+r(0,100)+'%;opacity:'+r(.35,.95)+';--dx:'+r(-40,40)+'px;animation-duration:'+(z>3.5?r(7,11):r(12,19))+'s;animation-delay:-'+r(0,19)+'s;filter:blur('+(z>4?1:0)+'px)';fx.appendChild(f)}
 </script>
 <div id="ov"></div>
-<div id="sh"><div class="grab"></div>
+<div id="sh"><button type="button" id="shX" aria-label="Закрыть">×</button><div class="grab"></div>
 <div class="sc" id="sc">
 <div class="hd"><h3 id="shT">Тариф</h3><div class="pp" id="shP"></div></div>
 <div class="sec" id="bsec">СОБЕРИТЕ ЗАЯВКУ</div>
 <div class="bld">
 <div class="fl"><label for="dt">Дата заезда</label><input type="date" id="dt"></div>
 <div class="fl"><label>Ночей</label><div class="stp"><button class="m" data-k="n" data-d="-1">−</button><span id="v_n">1</span><button data-k="n" data-d="1">+</button></div></div>
-<div class="fl"><label for="tm">Время заезда</label><select id="tm"><option>13:00</option><option>14:00</option><option selected>15:00</option><option>16:00</option><option>17:00</option><option>18:00</option><option>19:00</option><option>20:00</option><option>Другое, уточню</option></select></div>
+<div class="fl"><label for="tm">Время заезда</label><select id="tm"><option>08:00</option><option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option><option>13:00</option><option>14:00</option><option selected>15:00</option><option>16:00</option><option>17:00</option><option>18:00</option><option>19:00</option><option>20:00</option><option>21:00</option><option>Другое, уточню</option></select></div>
 <div class="fl"><label>Гостей</label><div class="stp"><button class="m" data-k="g" data-d="-1">−</button><span id="v_g">2</span><button data-k="g" data-d="1">+</button></div></div>
-<div class="gnote">Заезд с 15:00, ранний заезд возможен с 13:00</div>
+<div class="gnote">Заезд с 15:00, ранний заезд возможен по запросу</div>
 <div class="gnote">Доплату за гостей сверх 6 подскажем в чате</div>
 <div class="sec" style="margin:10px 0 2px">ДОБАВИТЬ В ЗАКАЗ</div>
 <div id="exl"></div>
@@ -265,8 +266,8 @@ for(var j=0;j<70;j++){var f=document.createElement('div');f.className='flake';va
 <a class="c" href="tel:+79141796645">Позвонить нам</a>
 </div></div>
 <script>
-var D={"Романтика для пары":{p:"от 12 000 ₽, суббота 16 000 ₽",base:12000,sat:16000,l:[["🏡","b1","Весь дом 78 м² только для вас","Три спальни, уютная гостиная"],["🛏","b4","Спальня с кроватью King Size","Мягкая постель и белые банные халаты"],["🍳","b2","Кухонная зона и стол на 6–8 человек","Всё необходимое для застолья"],["🔥","b5","Мангал и решётки бесплатно","Дрова для мангала 500 ₽ за связку"],["🛖","b6","Беседка с мягкими диванами","До 15 человек, территория освещена"],["♨️","b3","Баня из сибирского кедра","7 000 ₽, затопка включена"],["🫧","b3","Чан","7 000 ₽, затопка включена"],["🚿","b2","Ванная с душем","Стиральная машина"],["🐾","b5","Можно с питомцами","Без доплаты"],["🕒","b3","Заезд с 15:00, выезд до 12:00","Ранний заезд возможен с 13:00"]]},
-"Компания до 6 человек":{p:"от 15 000 ₽, суббота 18 000 ₽",base:15000,sat:18000,l:[["🏡","b1","Весь дом 78 м² для компании","До 6 гостей в стоимости"],["🛏","b4","Три спальни","King Size на 1 этаже, диван в гостиной, большое место 2,2×2,2 на 2 этаже"],["🍳","b2","Кухонная зона и стол на 6–8 человек","Всё необходимое для застолья"],["🔥","b5","Мангал и решётки бесплатно","Дрова для мангала 500 ₽ за связку"],["🛖","b6","Беседка с мягкими диванами","До 15 человек, территория освещена"],["♨️","b3","Баня из сибирского кедра","7 000 ₽, затопка включена"],["🫧","b3","Чан","7 000 ₽, затопка включена"],["🚿","b2","Ванная с душем","Стиральная машина"],["🐾","b5","Можно с питомцами","Без доплаты"],["🕒","b3","Заезд с 15:00, выезд до 12:00","Ранний заезд возможен с 13:00"]]}};
+var D={"Романтика для пары":{p:"от 12 000 ₽, суббота 16 000 ₽",base:12000,sat:16000,l:[["🏡","b1","Весь дом 78 м² только для вас","Три спальни, уютная гостиная"],["🛏","b4","Спальня с кроватью King Size","Мягкая постель и белые банные халаты"],["🍳","b2","Кухонная зона и стол на 6–8 человек","Всё необходимое для застолья"],["🔥","b5","Мангал и решётки бесплатно","Дрова для мангала 500 ₽ за связку"],["🛖","b6","Беседка с мягкими диванами","До 15 человек, территория освещена"],["♨️","b3","Баня из сибирского кедра","7 000 ₽, затопка включена"],["🫧","b3","Чан","7 000 ₽, затопка включена"],["🚿","b2","Ванная с душем","Стиральная машина"],["🐾","b5","Можно с питомцами","Без доплаты"],["🕒","b3","Заезд с 15:00, выезд до 12:00","Ранний заезд возможен по запросу"]]},
+"Компания до 6 человек":{p:"от 15 000 ₽, суббота 18 000 ₽",base:15000,sat:18000,l:[["🏡","b1","Весь дом 78 м² для компании","До 6 гостей в стоимости"],["🛏","b4","Три спальни","King Size на 1 этаже, диван в гостиной, большое место 2,2×2,2 на 2 этаже"],["🍳","b2","Кухонная зона и стол на 6–8 человек","Всё необходимое для застолья"],["🔥","b5","Мангал и решётки бесплатно","Дрова для мангала 500 ₽ за связку"],["🛖","b6","Беседка с мягкими диванами","До 15 человек, территория освещена"],["♨️","b3","Баня из сибирского кедра","7 000 ₽, затопка включена"],["🫧","b3","Чан","7 000 ₽, затопка включена"],["🚿","b2","Ванная с душем","Стиральная машина"],["🐾","b5","Можно с питомцами","Без доплаты"],["🕒","b3","Заезд с 15:00, выезд до 12:00","Ранний заезд возможен по запросу"]]}};
 var EX=[["chan","Чан",7000,5," · затопка включена"],["banya","Баня",7000,5," · затопка включена"],["grill","Стол-гриль",1500,5,""],["wood","Дрова для мангала, связка",500,9,""]];
 var S={t:null,n:1,g:2,x:{}};
 function fmt(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0')+' ₽'}
@@ -281,7 +282,7 @@ document.getElementById('s_room').textContent=fmt(room);document.getElementById(
 return {room:room,sum:sum,d:d}}
 function upd(){document.getElementById('v_n').textContent=S.n;document.getElementById('v_g').textContent=S.g;
 EX.forEach(function(e){var el=document.getElementById('x_'+e[0]);if(el)el.textContent=S.x[e[0]]||0});
-var r=calc(),dv=document.getElementById('dt').value,tm=document.getElementById('tm').value,L=[];
+var r=calc(),dv=document.getElementById('dt').value,tm=document.getElementById('tm').value,L=[];if(/^\d\d:\d\d$/.test(tm))tm=tm+' (подтвердит диспетчер)';
 L.push('Здравствуйте! Хочу забронировать «'+S.t+'».');
 if(dv){var d=r.d,out=new Date(d);out.setDate(out.getDate()+S.n);L.push('Заезд: '+pad(d.getDate())+'.'+pad(d.getMonth()+1)+'.'+d.getFullYear()+' ('+dow(d)+'), время '+tm);L.push('Выезд: '+pad(out.getDate())+'.'+pad(out.getMonth()+1)+', ночей: '+S.n)}else{L.push('Дату подскажу в чате, время заезда: '+tm)}
 L.push('Гостей: '+S.g);
@@ -307,6 +308,13 @@ upd()});
 document.getElementById('dt').addEventListener('input',upd);document.getElementById('tm').addEventListener('change',upd);
 document.querySelectorAll('.tap').forEach(function(c){c.addEventListener('click',function(){openSh(c.dataset.t)})});
 document.getElementById('ov').addEventListener('click',function(){lock(false)});
+(function(){var sh=document.getElementById('sh'),sc=document.getElementById('sc'),y0=0,dy=0,drag=false,inSc=false;
+document.getElementById('shX').addEventListener('click',function(){lock(false)});
+sh.addEventListener('touchstart',function(e){y0=e.touches[0].clientY;dy=0;drag=false;inSc=sc.contains(e.target)},{passive:true});
+sh.addEventListener('touchmove',function(e){dy=e.touches[0].clientY-y0;if(!drag){if(dy<=4||(inSc&&sc.scrollTop>0))return;drag=true;sh.style.transition='none'}
+e.preventDefault();sh.style.transform='translate(-50%,'+Math.max(0,dy)+'px)'},{passive:false});
+function end(){if(!drag)return;drag=false;sh.style.transition='';if(dy>110){sh.style.transform='translate(-50%,105%)';lock(false);setTimeout(function(){sh.style.transform=''},400)}else{sh.style.transform=''}}
+sh.addEventListener('touchend',end);sh.addEventListener('touchcancel',end)})();
 if(location.hash==='#comp'||location.hash==='#pair'){openSh(location.hash==='#comp'?'Компания до 6 человек':'Романтика для пары')}
 if(location.hash==='#demo'){openSh('Компания до 6 человек');document.getElementById('dt').value='2026-10-24';S.g=6;S.x={chan:1,banya:1,wood:2};upd();document.getElementById('sc').scrollTop=document.getElementById('bsec').offsetTop-20}
 </script>
