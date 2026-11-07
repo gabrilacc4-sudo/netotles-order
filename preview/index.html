@@ -269,13 +269,13 @@ if(h.indexOf('wa.me')>-1)goal('send_whatsapp');else if(h.indexOf('t.me')>-1)goal
 @media (prefers-reduced-motion:reduce){.star,.hotclock{animation:none}}
 </style>
 <style>
-.hz{cursor:pointer;animation:hzp 9s ease-in-out infinite}
-@keyframes hzp{0%,86%,100%{text-shadow:none}93%{text-shadow:0 0 9px #E0A458;color:#F0D49B}}
+.hz{cursor:pointer;display:inline-block;animation:hzp 5s ease-in-out infinite}
+@keyframes hzp{0%,70%,100%{text-shadow:none;color:inherit;transform:scale(1)}85%{text-shadow:0 0 7px #E0A458,0 0 2px #F0D49B;color:#F0D49B;transform:scale(1.18)}}
 .hz.open{color:#F0D49B;text-shadow:0 0 6px rgba(240,212,155,.8);animation:none}
 .hotic{cursor:pointer;animation:cl 8s ease-in-out infinite}
 .hotic.open{box-shadow:0 0 0 1px #C9A56B;animation:none}
-.bulb{position:absolute;z-index:4;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;cursor:pointer;background:radial-gradient(circle,rgba(255,236,190,.55) 0%,rgba(255,220,150,.16) 42%,transparent 70%);opacity:0;animation:bl 7s ease-in-out infinite;-webkit-tap-highlight-color:transparent}
-@keyframes bl{0%,62%,100%{opacity:0}82%{opacity:.75}}
+.bulb{position:absolute;z-index:4;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;cursor:pointer;mix-blend-mode:screen;background:radial-gradient(circle,rgba(255,226,160,.85) 0%,rgba(255,190,100,.3) 35%,transparent 68%);opacity:0;animation:bl 5s ease-in-out infinite;-webkit-tap-highlight-color:transparent}
+@keyframes bl{0%,68%,100%{opacity:0;transform:scale(.7)}84%{opacity:.6;transform:scale(1)}}
 .bulb.open{opacity:.85;animation:none}
 @media (prefers-reduced-motion:reduce){.hz,.hotic,.bulb{animation:none}}
 </style>
@@ -461,7 +461,7 @@ var YM=113739024,END=new Date('2026-12-20T23:59:59');
 var R_='Романтика для пары',K_='Компания до 6 человек';
 var CFG={};
 /* три кода на тариф: имя, скидка за ночь, место (gnote:… подпись, li:N строка списка) */
-CFG[R_]={n2:9900,reg:12000,codes:[['ПАРА',200,'zero:chan'],['ДВОЕ',300,'icon:0'],['УЮТ',400,'light:74,22']]};
+CFG[R_]={n2:9900,reg:12000,codes:[['ПАРА',200,'zero:chan'],['ДВОЕ',300,'icon:0'],['УЮТ',400,'light:26,50']]};
 CFG[K_]={n2:13000,reg:15000,codes:[['КОМПАНИЯ',200,'zero:wood'],['ДРУЗЬЯ',300,'icon:4'],['ПРАЗДНИК',400,'clock']]};
 var INFO={};[R_,K_].forEach(function(t){CFG[t].codes.forEach(function(c){INFO[c[0]]={t:t,amt:c[1],reg:CFG[t].reg}})});
 var COND='Промокод работает с понедельника по пятницу, до 20 декабря.<br>В субботу и воскресенье не действует';
