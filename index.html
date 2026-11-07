@@ -270,8 +270,8 @@ if(h.indexOf('wa.me')>-1)goal('send_whatsapp');else if(h.indexOf('t.me')>-1)goal
 @media (prefers-reduced-motion:reduce){.star,.hotclock{animation:none}}
 </style>
 <style>
-.hz{cursor:pointer;position:relative;display:inline-block;color:#DDF0FF;font-weight:800;animation:hzp 2.4s ease-in-out infinite}.hz::after{content:'';position:absolute;inset:-12px -12px}
-@keyframes hzp{0%,100%{text-shadow:0 0 4px rgba(130,200,255,.7);opacity:.85;transform:scale(1)}50%{text-shadow:0 0 8px #BFE3FF,0 0 16px rgba(100,180,255,.95),0 0 26px rgba(80,160,255,.6);opacity:1;transform:scale(1.15)}}
+.hz{cursor:pointer;position:relative;display:inline-block;color:#FFD98A;font-weight:800;text-shadow:0 0 6px rgba(255,200,100,.95),0 0 14px rgba(240,170,60,.7);animation:hzp 2.4s ease-in-out infinite}.hz::after{content:'';position:absolute;inset:-12px -12px}
+@keyframes hzp{0%,100%{text-shadow:0 0 5px rgba(255,200,100,.8),0 0 10px rgba(240,170,60,.5);opacity:.88;transform:scale(1)}50%{text-shadow:0 0 9px #FFE2A0,0 0 18px rgba(255,190,80,1),0 0 28px rgba(240,160,40,.8);opacity:1;transform:scale(1.15)}}
 .hz.open{color:#F0D49B;text-shadow:0 0 6px rgba(240,212,155,.8);animation:none}
 .hotic{cursor:pointer;position:relative;animation:cl 5s ease-in-out infinite}.hotic::after{content:'';position:absolute;inset:-9px}
 .hotic.open{box-shadow:0 0 0 1px #C9A56B;animation:none}
@@ -467,8 +467,8 @@ CFG[R_]={n2:9900,reg:12000,codes:[['ПАРА',200,'zero:chan'],['ДВОЕ',300,'
 CFG[K_]={n2:13000,reg:15000,codes:[['КОМПАНИЯ',200,'zero:wood'],['ДРУЗЬЯ',300,'fly:60,27'],['ПРАЗДНИК',400,'clock']]};
 var INFO={};[R_,K_].forEach(function(t){CFG[t].codes.forEach(function(c){INFO[c[0]]={t:t,amt:c[1],reg:CFG[t].reg}})});
 var COND='Промокод работает с понедельника по пятницу, до 20 декабря.<br>В субботу и воскресенье не действует';
-var found={};var TS=[0,200,500,900],KEY='nl_codes4';try{localStorage.removeItem('nl_codes3');found=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){found={}}
-function save(){try{localStorage.setItem(KEY,JSON.stringify(found))}catch(e){}}
+var found={};var TS=[0,200,500,900],KEY='nl_codes4';try{localStorage.removeItem('nl_codes3');localStorage.removeItem(KEY)}catch(e){}
+function save(){}
 /* человек написал в чат: заявка отправлена, коды больше не помним */
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a)return;var h=a.getAttribute('href')||'';if(h.indexOf('wa.me')>-1||h.indexOf('t.me')>-1){try{localStorage.removeItem(KEY)}catch(x){}}},true);
 function $(i){return document.getElementById(i)}
