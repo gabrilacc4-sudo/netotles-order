@@ -270,14 +270,14 @@ if(h.indexOf('wa.me')>-1)goal('send_whatsapp');else if(h.indexOf('t.me')>-1)goal
 @media (prefers-reduced-motion:reduce){.star,.hotclock{animation:none}}
 </style>
 <style>
-.hz{cursor:pointer;position:relative;display:inline-block;color:inherit;animation:hzp 2.4s ease-in-out infinite}.hz::after{content:'';position:absolute;inset:-12px -12px}
-@keyframes hzp{0%,100%{text-shadow:0 0 2px rgba(240,190,100,.4);opacity:.8}50%{text-shadow:0 0 9px rgba(255,205,120,1),0 0 16px rgba(240,170,70,.8);opacity:1}}
+.hz{cursor:pointer;position:relative;display:inline-block;color:#DDF0FF;font-weight:800;animation:hzp 2.4s ease-in-out infinite}.hz::after{content:'';position:absolute;inset:-12px -12px}
+@keyframes hzp{0%,100%{text-shadow:0 0 4px rgba(130,200,255,.7);opacity:.85;transform:scale(1)}50%{text-shadow:0 0 8px #BFE3FF,0 0 16px rgba(100,180,255,.95),0 0 26px rgba(80,160,255,.6);opacity:1;transform:scale(1.15)}}
 .hz.open{color:#F0D49B;text-shadow:0 0 6px rgba(240,212,155,.8);animation:none}
 .hotic{cursor:pointer;position:relative;animation:cl 5s ease-in-out infinite}.hotic::after{content:'';position:absolute;inset:-9px}
 .hotic.open{box-shadow:0 0 0 1px #C9A56B;animation:none}
 .bulb{position:absolute;z-index:4;width:44px;height:44px;margin:-22px 0 0 -22px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#F0D49B;font-size:16px;line-height:1;opacity:.3;text-shadow:0 0 7px rgba(240,212,155,.9);animation:bl 5s ease-in-out infinite;-webkit-tap-highlight-color:transparent}.bulb::before{content:'\2726'}
 @keyframes bl{0%,60%,100%{opacity:.3;transform:scale(.85) rotate(0)}80%{opacity:1;transform:scale(1.4) rotate(25deg)}}
-.bulb.fly::before{content:'';width:8px;height:8px;border-radius:50%;background:#FFF1C8;box-shadow:0 0 10px 5px rgba(255,214,130,.9)}.bulb.fly{opacity:.55;animation:ff 3.6s ease-in-out infinite}@keyframes ff{0%,50%,100%{opacity:.5;transform:translate(0,0) scale(.8)}80%{opacity:1;transform:translate(5px,-4px) scale(1.3)}}.pic .bulb{background:none;padding:0;backdrop-filter:none;bottom:auto;border-radius:0;font-size:16px}.bulb.open{opacity:.95;animation:none}
+.bulb.fly::before{content:'';width:4px;height:4px;border-radius:50%;background:#FFF1C8;box-shadow:0 0 6px 3px rgba(255,214,130,.85)}.bulb.fly{opacity:.55;animation:ff 3.6s ease-in-out infinite}@keyframes ff{0%,50%,100%{opacity:.5;transform:translate(0,0) scale(.8)}80%{opacity:1;transform:translate(5px,-4px) scale(1.3)}}.pic .bulb{background:none;padding:0;backdrop-filter:none;bottom:auto;border-radius:0;font-size:16px}.bulb.open{opacity:.95;animation:none}
 @media (prefers-reduced-motion:reduce){.hz,.hotic,.bulb,.bulb.fly{animation:none}}
 </style>
 <noscript><div><img src="https://mc.yandex.ru/watch/113739024" style="position:absolute;left:-9999px" alt=""></div></noscript>
@@ -541,6 +541,7 @@ function place(code,spec){
  if(kind==='zero'){var rows=$('exl').querySelectorAll('.ex'),row=rows[key==='chan'?0:3];if(!row)return;var sm=row.querySelector('small');if(!sm)return;
   var h=sm.innerHTML,re=key==='chan'?/(7(?:&nbsp;|[\s\u00a0]))0(00)/:/(5)0(0)/;
   if(re.test(h)){sm.innerHTML=h.replace(re,'$1<span class="hz">0</span>$2');mark(sm.querySelector('.hz'),code)}return}}
+var _lock=window.lock;window.lock=function(on){if(!on&&document.body.classList.contains('open')&&S&&S.t&&CFG[S.t]){CFG[S.t].codes.forEach(function(c){delete found[c[0]]});save()}_lock(on)};
 var _open=window.openSh;
 window.openSh=function(t){window.__n2=null;window.__ck=null;window.__rk=null;window.__gf=0;_open(t);
  document.querySelectorAll('#sh .bulb,#sh .fr,#sh .star').forEach(function(x){x.remove()});
