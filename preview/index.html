@@ -465,8 +465,10 @@ CFG[R_]={n2:9900,reg:12000,codes:[['ПАРА',200,'zero:chan'],['ДВОЕ',300,'
 CFG[K_]={n2:13000,reg:15000,codes:[['КОМПАНИЯ',200,'zero:wood'],['ДРУЗЬЯ',300,'icon:4'],['ПРАЗДНИК',400,'clock']]};
 var INFO={};[R_,K_].forEach(function(t){CFG[t].codes.forEach(function(c){INFO[c[0]]={t:t,amt:c[1],reg:CFG[t].reg}})});
 var COND='Промокод работает с понедельника по пятницу, до 20 декабря.<br>В субботу и воскресенье не действует';
-var found={};var TS=[0,200,500,900];try{localStorage.removeItem('nl_codes3')}catch(e){}
-function save(){}
+var found={};var TS=[0,200,500,900],KEY='nl_codes4';try{localStorage.removeItem('nl_codes3');found=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){found={}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(found))}catch(e){}}
+/* человек написал в чат: заявка отправлена, коды больше не помним */
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a)return;var h=a.getAttribute('href')||'';if(h.indexOf('wa.me')>-1||h.indexOf('t.me')>-1){try{localStorage.removeItem(KEY)}catch(x){}}},true);
 function $(i){return document.getElementById(i)}
 function ev(n,p){try{ym(YM,'reachGoal',n,p||{});var o={};o[n]=(p&&(p.code||p.label))||1;ym(YM,'params',{promo:o})}catch(e){}}
 function elig(x){var g=x.getDay();return g>=1&&g<=5}
