@@ -22,7 +22,7 @@ h1{font-size:26px;font-weight:500;line-height:1.2;text-align:center;margin:6px 0
 .quote{text-align:center;font-style:italic;color:#E3A857;font-size:15px;margin:8px 8px 14px;line-height:1.4}
 .btn{display:block;text-align:center;border-radius:14px;padding:14px;font-size:16px;font-weight:600;margin-top:10px}
 .book{background:#E3A857;color:#2B2118}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.row+.igl{display:block;margin:10px 0 0!important;text-align:center}.igs{font-size:10px;opacity:.55;margin:6px 0 0!important}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
 .card{background:#F4EFE6;color:#2B2118;border-radius:14px;padding:14px}
 .mini{margin:0;font-size:14px;font-weight:600;text-align:center;padding:13px}
 .ghost{border:1px solid #3a4b5a;color:#E8E2D6;font-weight:500;font-size:14px}
@@ -174,7 +174,7 @@ h2{font-size:26px;line-height:1.15;margin:34px 0 14px}
 window.ym=function(){};
 function goal(n){try{ym(113739024,'reachGoal',n)}catch(e){}}
 document.addEventListener('click',function(ev){var a=ev.target.closest&&ev.target.closest('a');if(!a)return;var h=a.getAttribute('href')||'';
-if(h.indexOf('wa.me')>-1)goal('send_whatsapp');else if(h.indexOf('t.me')>-1)goal('send_telegram');else if(h.indexOf('tel:')===0)goal('click_call');},true);
+if(h.indexOf('wa.me')>-1)goal('send_whatsapp');else if(h.indexOf('t.me')>-1)goal('send_telegram');else if(h.indexOf('tel:')===0)goal('click_call');else if(h.indexOf('instagram.com')>-1)goal('click_instagram');},true);
 </script>
 
 <style>
@@ -291,7 +291,7 @@ if(h.indexOf('wa.me')>-1)goal('send_whatsapp');else if(h.indexOf('t.me')>-1)goal
 <p class="quote">«Зимой он как домик из сказок братьев Гримм»</p>
 
 <a class="btn book" href="#tariffs">Выбрать тариф и дату</a>
-<div class="row"><a class="card mini" href="https://wa.me/79141796645?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%B4%D0%B0%D1%82%D1%8B%20%D0%B8%20%D1%86%D0%B5%D0%BD%D1%83%20%D0%BD%D0%B0%20%D0%B4%D0%BE%D0%BC%20%C2%AB%D0%9D%D0%B5%20%D1%82%D0%BE%D1%82%20%D0%BB%D0%B5%D1%81%C2%BB.">WhatsApp</a><a class="card mini" href="https://t.me/netotforest?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%B4%D0%B0%D1%82%D1%8B%20%D0%B8%20%D1%86%D0%B5%D0%BD%D1%83%20%D0%BD%D0%B0%20%D0%B4%D0%BE%D0%BC%20%C2%AB%D0%9D%D0%B5%20%D1%82%D0%BE%D1%82%20%D0%BB%D0%B5%D1%81%C2%BB.">Telegram</a></div>
+<div class="row"><a class="card mini" href="https://wa.me/79141796645?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%B4%D0%B0%D1%82%D1%8B%20%D0%B8%20%D1%86%D0%B5%D0%BD%D1%83%20%D0%BD%D0%B0%20%D0%B4%D0%BE%D0%BC%20%C2%AB%D0%9D%D0%B5%20%D1%82%D0%BE%D1%82%20%D0%BB%D0%B5%D1%81%C2%BB.">WhatsApp</a><a class="card mini" href="https://t.me/netotforest?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%B4%D0%B0%D1%82%D1%8B%20%D0%B8%20%D1%86%D0%B5%D0%BD%D1%83%20%D0%BD%D0%B0%20%D0%B4%D0%BE%D0%BC%20%C2%AB%D0%9D%D0%B5%20%D1%82%D0%BE%D1%82%20%D0%BB%D0%B5%D1%81%C2%BB.">Telegram</a></div><a class="card mini igl" href="https://www.instagram.com/dream_forest111/" target="_blank" rel="noopener">Instagram</a><div class="note igs">Instagram принадлежит компании Meta, признанной в России экстремистской организацией и запрещённой</div>
 <div class="note">Отвечаем каждый день с 7:30 до 23:00</div>
 
 <div class="ic">
@@ -349,7 +349,7 @@ if(h.indexOf('wa.me')>-1)goal('send_whatsapp');else if(h.indexOf('t.me')>-1)goal
 <div class="row"><a class="card mini" href="https://yandex.ru/maps/?text=%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA%2C%20%D0%A3%D0%B7%D0%BE%D1%80%D0%BD%D0%B0%D1%8F%2C%208">Яндекс Карты</a><a class="card mini" href="https://2gis.ru/khabarovsk/search/%D0%A3%D0%B7%D0%BE%D1%80%D0%BD%D0%B0%D1%8F%208">2ГИС</a></div>
 
 <a class="btn book" style="margin-top:22px" href="#tariffs">Выбрать тариф и дату</a>
-<div class="row"><a class="card mini" href="https://wa.me/79141796645?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%B4%D0%B0%D1%82%D1%8B%20%D0%B8%20%D1%86%D0%B5%D0%BD%D1%83%20%D0%BD%D0%B0%20%D0%B4%D0%BE%D0%BC%20%C2%AB%D0%9D%D0%B5%20%D1%82%D0%BE%D1%82%20%D0%BB%D0%B5%D1%81%C2%BB.">WhatsApp</a><a class="card mini" href="https://t.me/netotforest?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%B4%D0%B0%D1%82%D1%8B%20%D0%B8%20%D1%86%D0%B5%D0%BD%D1%83%20%D0%BD%D0%B0%20%D0%B4%D0%BE%D0%BC%20%C2%AB%D0%9D%D0%B5%20%D1%82%D0%BE%D1%82%20%D0%BB%D0%B5%D1%81%C2%BB.">Telegram</a></div>
+<div class="row"><a class="card mini" href="https://wa.me/79141796645?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%B4%D0%B0%D1%82%D1%8B%20%D0%B8%20%D1%86%D0%B5%D0%BD%D1%83%20%D0%BD%D0%B0%20%D0%B4%D0%BE%D0%BC%20%C2%AB%D0%9D%D0%B5%20%D1%82%D0%BE%D1%82%20%D0%BB%D0%B5%D1%81%C2%BB.">WhatsApp</a><a class="card mini" href="https://t.me/netotforest?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%B4%D0%B0%D1%82%D1%8B%20%D0%B8%20%D1%86%D0%B5%D0%BD%D1%83%20%D0%BD%D0%B0%20%D0%B4%D0%BE%D0%BC%20%C2%AB%D0%9D%D0%B5%20%D1%82%D0%BE%D1%82%20%D0%BB%D0%B5%D1%81%C2%BB.">Telegram</a></div><a class="card mini igl" href="https://www.instagram.com/dream_forest111/" target="_blank" rel="noopener">Instagram</a><div class="note igs">Instagram принадлежит компании Meta, признанной в России экстремистской организацией и запрещённой</div>
 </div>
 
 <script>
