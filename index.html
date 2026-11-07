@@ -178,41 +178,57 @@ if(h.indexOf('wa.me')>-1)goal('send_whatsapp');else if(h.indexOf('t.me')>-1)goal
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/113739024" style="position:absolute;left:-9999px" alt=""></div></noscript>
 <style>
-.fr{display:inline-block;margin-left:8px;padding:2px 9px;border-radius:7px;font-size:12px;letter-spacing:2px;font-weight:700;cursor:pointer;vertical-align:middle;position:relative;color:#dcecf7;background:rgba(190,215,235,.24);border:1px solid rgba(255,255,255,.5);filter:blur(1.5px);transition:filter .5s ease,background .5s ease,color .5s ease;animation:frs 3.2s ease-in-out infinite;-webkit-tap-highlight-color:transparent}
-.card .fr{color:#43566a;background:rgba(120,150,180,.22);border-color:rgba(255,255,255,.7)}
-.ic .fr{display:block;margin:6px auto 0;width:max-content}
-.pp .fr{margin-left:10px}
-.fr.open{filter:none;animation:none;color:#0E1A24;background:#C9A56B;border-color:#C9A56B}
-@keyframes frs{0%,100%{box-shadow:0 0 0 rgba(200,230,255,0)}50%{box-shadow:0 0 10px rgba(200,230,255,.65)}}
-#win{position:fixed;inset:0;background:rgba(5,10,15,.74);-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);display:none;align-items:center;justify-content:center;z-index:300;perspective:1100px}
+.fr{display:inline-block;padding:3px 10px;border-radius:8px;font-size:12px;letter-spacing:2.5px;font-weight:700;cursor:pointer;color:#dcecf7;background:rgba(190,215,235,.24);border:1px solid rgba(255,255,255,.5);filter:blur(1.5px);animation:frs 3.2s ease-in-out infinite;transition:filter .5s,background .5s,color .5s;-webkit-tap-highlight-color:transparent}
+#sh .it .fr{margin-left:auto;align-self:center;flex:none}
+.fr.off{animation:none;opacity:.42;filter:blur(2.5px)}
+.fr.open{filter:none;animation:none;color:#0E1A24;background:#C9A56B;border-color:#C9A56B;opacity:1}
+@keyframes frs{0%,100%{box-shadow:0 0 0 rgba(200,230,255,0)}50%{box-shadow:0 0 10px rgba(160,200,235,.8)}}
+#sh .sr s{color:#8a97a0;font-size:13px;margin-right:6px;text-decoration-thickness:1.5px}
+.drift{position:fixed;left:0;top:30%;pointer-events:none;will-change:transform;animation:dcross var(--dur,11s) linear forwards}
+.drift.back{z-index:-1}.drift.mid{z-index:2;mix-blend-mode:screen}.drift.front{z-index:4}
+.drift .dw{pointer-events:auto;display:inline-block;padding:14px 20px;cursor:pointer;font-weight:700;letter-spacing:5px;font-size:var(--fs,26px);color:#EAF4FB;text-shadow:0 0 10px rgba(200,230,255,.9),0 0 26px rgba(160,200,235,.7);filter:blur(var(--bl,2.6px));opacity:var(--op,.88);animation:dsway 3.6s ease-in-out infinite;-webkit-tap-highlight-color:transparent}
+.drift.back .dw{pointer-events:none}
+@keyframes dcross{from{transform:translateX(var(--x0,110vw))}to{transform:translateX(var(--x1,-60vw))}}
+@keyframes dsway{0%,100%{transform:translateY(-14px) rotate(-4deg)}50%{transform:translateY(16px) rotate(4deg)}}
+#win{position:fixed;inset:0;background:rgba(5,10,15,.76);-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);display:none;align-items:center;justify-content:center;z-index:300;padding:16px;perspective:1000px}
 #win.on{display:flex}
-.wcard{width:min(350px,86%);border-radius:22px;padding:26px 20px 22px;background:#0E1A24;border:1px solid rgba(201,165,107,.85);box-shadow:0 40px 90px rgba(0,0,0,.75),0 0 50px rgba(201,165,107,.28);text-align:center;position:relative;overflow:hidden;color:#E8E2D6;animation:wpop .55s cubic-bezier(.2,.9,.3,1) both}
-@keyframes wpop{from{transform:rotateX(28deg) rotateY(-14deg) scale(.55);opacity:0}to{transform:rotateX(9deg) rotateY(-7deg) scale(1.03);opacity:1}}
+.wcard{width:min(360px,100%);border-radius:22px;padding:26px 20px 20px;background:#0E1A24;border:1px solid rgba(201,165,107,.85);box-shadow:0 40px 90px rgba(0,0,0,.7),0 0 50px rgba(201,165,107,.25);text-align:center;position:relative;overflow:hidden;color:#E8E2D6;animation:wfly .9s cubic-bezier(.2,.85,.25,1) both}
+@keyframes wfly{0%{transform:translate3d(90px,50px,-260px) rotateY(-72deg) rotateX(24deg) scale(.55);opacity:0}55%{opacity:1}100%{transform:translate3d(0,0,0) rotateY(0) rotateX(0) scale(1);opacity:1}}
 .wcard:before{content:"";position:absolute;inset:6px;border:1px solid rgba(201,165,107,.35);border-radius:17px;pointer-events:none}
 .wcard .wkk{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#C9A56B;font-weight:700}
-.wcard h3{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:28px;margin:6px 0 14px;color:#F4EFE6}
-.wcode{display:inline-block;padding:12px 24px;border-radius:12px;font-weight:700;letter-spacing:6px;font-size:24px;margin-bottom:14px}
+.wcard h3{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:27px;margin:6px 0 14px;color:#F4EFE6}
+.wcode{display:inline-block;padding:11px 24px;border-radius:12px;font-weight:700;letter-spacing:6px;font-size:23px;margin-bottom:16px}
 .wc-f{color:#dcecf7;background:rgba(190,215,235,.22);border:1px solid rgba(255,255,255,.55);box-shadow:0 0 18px rgba(200,230,255,.5);text-shadow:0 0 8px rgba(255,255,255,.7)}
 .wc-n{color:#ffd9a3;background:#0B1620;border:1px solid #E0A458;text-shadow:0 0 8px #E0A458,0 0 20px #E0A458;box-shadow:0 0 20px rgba(224,164,88,.6),inset 0 0 10px rgba(224,164,88,.35)}
 .wc-s{color:#F4EFE6;border:1px dashed rgba(255,255,255,.4);text-shadow:0 0 8px rgba(255,255,255,.95),0 0 22px rgba(200,220,240,.85);letter-spacing:5px}
-.wcard .wd{font-size:15px;color:#CFC8BA;line-height:1.5;margin:0 0 10px}
-.wcard .wd b{color:#F4EFE6;font-size:18px}
-.wcard .wrec{font-size:13px;color:#9AD3B5;margin-bottom:10px}
+.wcard .rows{display:flex;flex-direction:column;gap:8px;text-align:left;margin-bottom:12px}
+.wrow{display:flex;align-items:baseline;justify-content:space-between;gap:10px;white-space:nowrap;font-variant-numeric:lining-nums tabular-nums}
+.wrow span{font-size:14px;color:#CFC8BA;white-space:normal}
+.wpp{display:flex;align-items:baseline;gap:9px}.wpp s{font-size:14px;color:#9AA3AB}.wpp b{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:24px;color:#C9A56B}
+.wgl{height:1px;background:linear-gradient(90deg,rgba(201,165,107,.9),rgba(201,165,107,.1));margin:-2px 0 2px}
+.wcard .wrec{font-size:13px;color:#9AD3B5;margin:4px 0 10px}
 .wcard .wcond{font-size:13px;color:#C9A56B;line-height:1.5;padding:10px;border:1px dashed rgba(201,165,107,.55);border-radius:12px;margin-bottom:14px}
+.wcard .wterms{display:none;text-align:left;font-size:13px;line-height:1.5;color:#CFC8BA;margin:-4px 0 12px;padding:10px;border-radius:12px;background:rgba(255,255,255,.05)}.wcard .wterms.on{display:block}
 .wcard .wb{display:flex;gap:8px}
 .wcard .wb button{flex:1;padding:12px 8px;border-radius:12px;font-weight:700;font-size:14px;font-family:inherit;cursor:pointer;border:1px solid rgba(201,165,107,.7);background:transparent;color:#F4EFE6}
 .wcard .wb button.pri{background:#E0A458;color:#2B2118;border-color:#E0A458}
-.wcard .wx{position:absolute;top:10px;right:14px;font-size:22px;color:#9AA3AB;background:none;border:0;cursor:pointer;line-height:1}
-.wcard .wterms{display:none;text-align:left;font-size:14px;line-height:1.55;color:#CFC8BA}
-.wcard .wterms li{margin:6px 0}
-.wcard.terms .wmain{display:none}.wcard.terms .wterms{display:block}
+.wcard .wx{position:absolute;top:8px;right:12px;font-size:24px;color:#9AA3AB;background:none;border:0;cursor:pointer;line-height:1}
+.wcard .wchoose{display:none;text-align:left}.wcard.pick .wmain{display:none}.wcard.pick .wchoose{display:block}
+.wsw{position:relative;display:grid;grid-template-columns:1fr 1fr;background:#0B1620;border:1px solid rgba(201,165,107,.38);border-radius:16px;padding:4px;margin:12px 0}
+.wsw .wpill{position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:12px;background:rgba(201,165,107,.2);border:1px solid #C9A56B;transition:transform .35s cubic-bezier(.3,.8,.3,1)}
+.wsw[data-v="c"] .wpill{transform:translateX(100%)}
+.wsw button{position:relative;z-index:1;background:none;border:0;color:#9AA3AB;display:flex;align-items:center;gap:10px;padding:8px 10px;text-align:left;border-radius:12px;font-family:inherit;font-weight:700;cursor:pointer}
+.wsw button.on{color:#F4EFE6}
+.wsw .th{width:40px;height:40px;border-radius:10px;background-size:cover;background-position:center;flex:none;filter:saturate(.8) brightness(.85)}.wsw button.on .th{filter:none}
+.wsw .tt2{font-size:14px;line-height:1.2}.wsw .tt2 i{display:block;font-style:normal;font-weight:500;font-size:11px;color:#9AA3AB}
 .wfl{position:absolute;border-radius:50%;background:#fff;opacity:.75;pointer-events:none}
-.pbx{margin:12px 0;padding:12px 14px;border-radius:14px;background:#0E1A24;color:#E8E2D6;font-size:13px;line-height:1.5}
-.pbx b{color:#F4EFE6}
-.pbx .pl{margin:2px 0}
+.pbx{margin:10px 0;padding:12px 14px;border-radius:14px;background:#0E1A24;color:#E8E2D6;font-size:13px;line-height:1.5}
 .pbx.pg{border:1px solid rgba(111,191,149,.7)}.pbx.pb{border:1px solid rgba(217,123,106,.8)}.pbx.pn{border:1px solid rgba(201,165,107,.45)}
-.pbx .ptt{font-weight:700;font-size:14px;margin-bottom:3px}.pbx.pg .ptt{color:#9AD3B5}.pbx.pb .ptt{color:#F2A395}.pbx.pn .ptt{color:#C9A56B}
+.pbx .ptt{font-weight:700;font-size:14px;margin-bottom:2px}.pbx.pg .ptt{color:#9AD3B5}.pbx.pb .ptt{color:#F2A395}.pbx.pn .ptt{color:#C9A56B}
 .gift{margin:10px 0;padding:10px 12px;border-radius:12px;background:rgba(201,165,107,.12);border:1px solid rgba(201,165,107,.5);color:#E8D7B4;font-size:14px}
+#ptoast{position:fixed;left:50%;bottom:90px;transform:translate(-50%,20px);background:#0E1A24;border:1px solid rgba(201,165,107,.7);color:#E8E2D6;padding:10px 16px;border-radius:12px;font-size:13px;z-index:320;opacity:0;transition:all .35s;max-width:86%;text-align:center}
+#ptoast.on{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){.drift{animation:none}.drift .dw,.fr{animation:none}.wcard{animation:none!important}}
 </style>
 </head><body>
 <div id="fx"></div>
@@ -231,7 +247,7 @@ if(h.indexOf('wa.me')>-1)goal('send_whatsapp');else if(h.indexOf('t.me')>-1)goal
 
 <div class="ic">
 <div><b>до 6</b>гостей в цене</div>
-<div><b>баня + чан</b>на территории<span class="fr" data-c="ЧАН" data-ev="chip_chan">ЧАН</span></div>
+<div><b>баня + чан</b>на территории</div>
 <div><b>с питомцами</b>без доплаты</div>
 </div>
 <div class="stars">4,6 ★ <span style="color:#B9B3A6;font-weight:400;font-size:13px">в 2ГИС, 143 отзыва</span></div>
@@ -243,14 +259,14 @@ if(h.indexOf('wa.me')>-1)goal('send_whatsapp');else if(h.indexOf('t.me')>-1)goal
 <div class="lab">Романтика для пары</div>
 <div class="price">от 12 000 ₽</div>
 <div class="small">суббота 16 000 ₽</div>
-<div class="tag">Вечер для двоих: халаты, баня и чан <span class="fr" data-c="ПАРА" data-ev="chip_para">ПАРА</span></div>
+<div class="tag">Вечер для двоих: халаты, баня и чан</div>
 <div class="pick">Выбрать этот тариф ›</div>
 </div>
 <div class="card tap" style="margin-top:10px" data-t="Компания до 6 человек" data-p="от 15 000 ₽, суббота 18 000 ₽">
 <img class="cardimg" src="p44.jpg" alt="Компания в чане" style="object-position:50% 50%;height:250px">
 <div class="lab">Компания до 6 человек</div>
 <div class="price">от 15 000 ₽</div>
-<div class="small">суббота 18 000 ₽ <span class="fr" data-c="КОМПАНИЯ" data-ev="chip_company">КОМПАНИЯ</span></div>
+<div class="small">суббота 18 000 ₽</div>
 <div class="tag">Праздник с друзьями: беседка на 15 человек, баня, чан</div>
 <div class="pick">Выбрать этот тариф ›</div>
 </div>
@@ -381,143 +397,155 @@ if(location.hash==='#comp'||location.hash==='#pair'){openSh(location.hash==='#co
 if(location.hash==='#demo'){openSh('Компания до 6 человек');document.getElementById('dt').value='2026-10-24';S.g=6;S.x={chan:1,banya:1,wood:2};upd();document.getElementById('sc').scrollTop=document.getElementById('bsec').offsetTop-20}
 </script>
 <div id="win" role="dialog" aria-modal="true"><div class="wcard" id="wcard"><button class="wx" id="wx" aria-label="Закрыть" data-ev="win_close">×</button>
-<div class="wmain"><div class="wkk">Спасибо, что заглянули</div><h3 id="wh">Промокод для вас</h3><div class="wcode" id="wcc"></div><p class="wd" id="wdd"></p><div class="wrec">Мы добавили его в ваш заказ</div><div class="wcond" id="wcn"></div><div class="wb"><button class="pri" id="wgo" data-ev="win_date">Выбрать дату</button><button id="wtr" data-ev="win_terms">Условия</button></div></div>
-<div class="wterms"><div class="wkk">Условия</div><ul><li>Промокод действует на ночи с понедельника по пятницу, дата заезда до 20 декабря включительно.</li><li>В субботу и воскресенье промокод не действует, цена обычная.</li><li>На одну ночь проживания действует одна скидка. Баня и чан вместе даются отдельной скидкой.</li><li>Баня и чан за 12 000 ₽ вместе даются с проживанием.</li><li>К чану или бане в подарок связка дров в любой день.</li></ul><div class="wb"><button class="pri" id="wbk" data-ev="win_back">Назад</button></div></div></div></div>
+<div class="wmain"><div class="wkk">Спасибо, что заглянули</div><h3>Промокод для вас</h3><div class="wcode wc-f" id="wcode"></div><div class="rows" id="wrows"></div><div class="wrec">Мы добавили его в ваш заказ</div><div class="wcond" id="wcn"></div>
+<div class="wterms" id="terms">Промокод действует на ночи с понедельника по пятницу, дата заезда до 20 декабря включительно. В субботу и воскресенье цена обычная. На одну ночь проживания действует одна скидка. Баня и чан вместе даются к проживанию. К чану или бане в подарок связка дров в любой день.</div>
+<div class="wb"><button class="pri" id="wgo" data-ev="win_date">Выбрать дату</button><button id="wterm" data-ev="win_terms">Условия</button></div></div>
+<div class="wchoose"><div class="wkk">Выберите тариф</div>
+<div class="wsw" id="wsw" data-v="p"><span class="wpill"></span>
+<button class="on" data-v="p"><span class="th" style="background-image:url(p27c.jpg)"></span><span class="tt2">Для пары<i>Романтика</i></span></button>
+<button data-v="c"><span class="th" style="background-image:url(p44.jpg)"></span><span class="tt2">Для компании<i>до 6 человек</i></span></button></div>
+<div class="wb"><button id="wback">Назад</button><button class="pri" id="wok" data-ev="win_pick_ok">Продолжить</button></div></div>
+</div></div>
 <script>
 (function(){
 var YM=113739024,END=new Date('2026-12-20T23:59:59');
-var CFG={
- 'ПАРА':{tariff:'Романтика для пары',house:10900,n2:9900,reg:12000,style:'wc-f',desc:'Дом <b>10 900 ₽</b> вместо 12 000 ₽ за ночь.<br>С чаном <b>17 900 ₽</b> вместо 19 000 ₽'},
- 'КОМПАНИЯ':{tariff:'Компания до 6 человек',house:13900,n2:13000,reg:15000,style:'wc-n',desc:'Дом <b>13 900 ₽</b> вместо 15 000 ₽ за ночь'},
- 'ЧАН':{tariff:'Романтика для пары',style:'wc-s',desc:'Баня и чан вместе <b>12 000 ₽</b> вместо 14 000 ₽.<br>Вместе с проживанием'},
- 'НОЧЬ':{style:'wc-n',desc:'Вторая ночь дешевле:<br><b id="n2v"></b>'}
-};
+var R_='Романтика для пары',K_='Компания до 6 человек';
+var CFG={};
+CFG[R_]={code:'ПАРА',house:10900,n2:9900,slot:6,chan:5900,reg:12000,lbl:'Чан для пары'};
+CFG[K_]={code:'КОМПАНИЯ',house:13900,n2:13000,slot:4,chan:5900,reg:15000,lbl:'Чан для компании'};
 var COND='Действует на ночи с понедельника по пятницу до 20 декабря.<br>В субботу и воскресенье не действует';
-var found={};try{found=JSON.parse(localStorage.getItem('nl_codes')||'{}')}catch(e){}
-function save(){try{localStorage.setItem('nl_codes',JSON.stringify(found))}catch(e){}}
+var found={};try{found=JSON.parse(localStorage.getItem('nl_codes2')||'{}')}catch(e){}
+function save(){try{localStorage.setItem('nl_codes2',JSON.stringify(found))}catch(e){}}
+function $(i){return document.getElementById(i)}
 function ev(n,p){try{ym(YM,'reachGoal',n,p||{});var o={};o[n]=(p&&(p.code||p.label))||1;ym(YM,'params',{promo:o})}catch(e){}}
-function $(id){return document.getElementById(id)}
 function elig(x){var g=x.getDay();return g>=1&&g<=5}
-function cname(){return S.t==='Романтика для пары'?'ПАРА':'КОМПАНИЯ'}
+var NB=' ';
+function sm(a,b){return a===b?'':'<s>'+fmt(a)+'</s> '}
 window.PROMO={last:null,found:found};
 
-/* ---- calculator with promo rules ---- */
+/* ---------- калькулятор: скидка на проживание в будни сама, коды дают чан, НОЧЬ вторая ночь ---------- */
 window.calc=function(){
- var t=D[S.t],dv=$('dt').value,sum=0,chan=S.x.chan||0,banya=S.x.banya||0;
- EX.forEach(function(e){sum+=(S.x[e[0]]||0)*e[2]});
- var res={room:null,sum:sum,d:null,codes:[],gift:(chan+banya)>0,notes:[],reject:[],okDate:false};
- if(!dv){$('s_room').textContent='выберите дату';$('tsum').textContent='—';var ex0=$('s_exr');ex0.style.display=sum?'flex':'none';$('s_ex').textContent=fmt(sum);res.sumBase=sum;window.PROMO.last=res;return res}
- var d=new Date(dv+'T12:00:00'),cn=cname(),cf=CFG[cn],nights=[],i;
+ var t=D[S.t],cf=CFG[S.t],dv=$('dt').value,chan=S.x.chan||0,banya=S.x.banya||0,regExtra=0;
+ EX.forEach(function(e){regExtra+=(S.x[e[0]]||0)*e[2]});
+ var r={room:null,regRoom:null,sum:regExtra,regSum:regExtra,codes:[],gift:(chan+banya)>0,notes:[],okDate:false};
+ var exr=$('s_exr');
+ if(!dv){$('s_room').textContent='выберите дату';$('tsum').textContent='—';exr.style.display=regExtra?'flex':'none';$('s_ex').innerHTML=fmt(regExtra);window.PROMO.last=r;return r}
+ var d=new Date(dv+'T12:00:00'),nights=[],i;
  for(i=0;i<S.n;i++){var x=new Date(d);x.setDate(x.getDate()+i);nights.push(x)}
- var okDate=d<=END;res.okDate=okDate;res.d=d;
- var room=0,usedHouse=false,usedN2=false,anyElig=false;
- for(i=0;i<nights.length;i++){var x=nights[i],reg=(x.getDay()===6?t.sat:t.base),price=reg,e=okDate&&elig(x);if(e)anyElig=true;
-  if(e&&i===1&&elig(nights[0])){price=cf.n2;usedN2=true}
-  else if(e&&found[cn]){price=cf.house;usedHouse=true}
-  room+=price}
- if(usedHouse)res.codes.push(cn);
- if(usedN2)res.codes.push('НОЧЬ');
- var sets=Math.min(chan,banya),combo=false;
- if(sets>0&&okDate&&elig(d)&&found['ЧАН']){sum-=sets*2000;combo=true;res.codes.push('ЧАН')}
- res.usedHouse=usedHouse;res.usedN2=usedN2;res.combo=combo;res.anyElig=anyElig;
- if(found[cn]&&!usedHouse&&!usedN2)res.reject.push(cn);
- if(found['ЧАН']&&sets>0&&!combo)res.reject.push('ЧАН');
- var today=new Date();today.setHours(0,0,0,0);var near=false,far=false;
- nights.forEach(function(x){if(x.getDay()===6){var diff=(x-today)/864e5;if(diff<14)near=true;else far=true}});
- res.near=near;res.far=far;res.nights=nights;
- $('s_room').textContent=fmt(room);$('tsum').textContent='≈ '+fmt(room+sum);
- var ex=$('s_exr');ex.style.display=sum?'flex':'none';$('s_ex').textContent=fmt(sum);
- res.room=room;res.sum=sum;window.PROMO.last=res;return res};
+ var ok=d<=END;r.d=d;r.okDate=ok;r.eligStart=ok&&elig(d);
+ var room=0,reg=0,auto=false,un=false;
+ nights.forEach(function(x,i){var rg=(x.getDay()===6?t.sat:t.base),p=rg,e=ok&&elig(x);
+  if(e&&i===1&&elig(nights[0])){p=cf.n2;un=true}else if(e){p=cf.house;auto=true}
+  reg+=rg;room+=p});
+ r.regRoom=reg;r.room=room;r.auto=auto;r.un=un;
+ if(un)r.codes.push('НОЧЬ');
+ var redA=(r.eligStart&&found[cf.code]&&chan>0)?chan*(7000-cf.chan):0;
+ var sets=Math.min(chan,banya),redB=(r.eligStart&&found['ЧАН']&&sets>0)?sets*2000:0;
+ r.redA=redA;r.redB=redB;
+ if(redB>=redA&&redB>0){r.sum=regExtra-redB;r.codes.push('ЧАН');r.used='ЧАН'}
+ else if(redA>0){r.sum=regExtra-redA;r.codes.push(cf.code);r.used=cf.code}
+ var today=new Date();today.setHours(0,0,0,0);
+ nights.forEach(function(x){if(x.getDay()===6){var diff=(x-today)/864e5;if(diff<14)r.near=true;else r.far=true}});
+ $('s_room').innerHTML=sm(r.regRoom,r.room)+fmt(r.room);
+ exr.style.display=regExtra?'flex':'none';$('s_ex').innerHTML=sm(r.regSum,r.sum)+fmt(r.sum);
+ $('tsum').innerHTML=sm(r.regRoom+r.regSum,r.room+r.sum)+'≈ '+fmt(r.room+r.sum);
+ window.PROMO.last=r;return r};
 
-/* ---- banners, gift, message ---- */
+/* ---------- плашки, подарок, слово в списке ---------- */
 function render(){
- var r=window.PROMO.last||{},cn=S.t?cname():'',h='',st='pn',tt='',L=[];
- var dv=$('dt').value;
- if(S.t&&found[cn]){
-  if(!dv){st='pn';tt='Промокод '+cn+' в вашем заказе';L.push('Выберите дату: он работает на ночи с понедельника по пятницу до 20 декабря')}
-  else if(r.usedHouse){st='pg';tt='Промокод '+cn+' применён';L.push('Дом '+fmt(CFG[cn].house)+' за ночь')}
-  else if(r.usedN2){st='pg';tt='Промокод '+cn+' в заказе';L.push('На ночи в выходные он не действует, цена обычная')}
-  else{st='pb';tt='Промокод '+cn+' на эти даты не действует';L.push('Он работает на ночи с понедельника по пятницу до 20 декабря. Выберите другую дату, и скидка включится')}
- }
- if(r.usedN2){L.push('Вторая ночь по промокоду НОЧЬ: '+fmt(CFG[cn].n2));if(!tt){tt='Промокод НОЧЬ применён';st='pg'}}
- if(r.combo){L.push('Баня и чан вместе по промокоду ЧАН: 12 000 ₽');if(!tt){tt='Промокод ЧАН применён';st='pg'}}
- else if(found['ЧАН']&&r.reject&&r.reject.indexOf('ЧАН')>-1){L.push('Баня и чан вместе 12 000 ₽ действуют на ночи пн–пт до 20 декабря');if(!tt){tt='Промокод ЧАН на эти даты не действует';st='pb'}}
- if(r.near)L.push('Ближайшие субботы, как правило, заняты. Подскажем в чате');
- else if(r.far)L.push('Субботу подтвердит диспетчер');
- var b=$('pbn');
- if(tt||L.length){if(!tt){tt='Обратите внимание';st='pn'}h='<div class="pbx '+st+'"><div class="ptt">'+tt+'</div>'+L.map(function(x){return '<div class="pl">'+x+'</div>'}).join('')+'</div>'}
- b.innerHTML=h;
+ if(!S.t)return;var r=window.PROMO.last||{},cf=CFG[S.t],dv=$('dt').value,n=[];
+ var wk=!!(dv&&r.eligStart);
+ var chip=document.querySelector('#shL .fr');
+ if(chip){chip.classList.toggle('off',!wk);chip.classList.toggle('open',!!(wk&&found[cf.code]))}
+ if(r.auto)n.push(['pg','Будни: скидка на проживание применена','Дом '+fmt(cf.house)+' за ночь вместо '+fmt(S.t===R_?12000:15000)]);
+ if(r.un)n.push(['pg','Вторая ночь по промокоду НОЧЬ',fmt(cf.n2)+' вместо '+fmt(cf.reg)]);
+ if(r.used==='ЧАН')n.push(['pg','Баня и чан вместе по промокоду ЧАН','12'+NB+'000 ₽ вместо 14'+NB+'000 ₽, к проживанию']);
+ else if(r.used)n.push(['pg','Промокод '+cf.code+' применён',cf.lbl+' '+fmt(cf.chan)+' вместо 7'+NB+'000 ₽']);
+ if(dv&&!r.eligStart){
+  if(found[cf.code])n.push(['pb','Промокод '+cf.code+' на эти даты не действует','Он работает на ночи с понедельника по пятницу до 20 декабря. Выберите другую дату']);
+  if(found['ЧАН']&&(S.x.chan||0)>0&&(S.x.banya||0)>0)n.push(['pb','Промокод ЧАН на эти даты не действует','Баня и чан вместе на ночи пн–пт до 20 декабря'])}
+ if(r.near)n.push(['pn','Ближайшие субботы, как правило, заняты','Подскажем в чате']);else if(r.far)n.push(['pn','Субботу подтвердит диспетчер','']);
+ $('pbn').innerHTML=n.map(function(x){return '<div class="pbx '+x[0]+'"><div class="ptt">'+x[1]+'</div>'+(x[2]?'<div class="pl">'+x[2]+'</div>':'')+'</div>'}).join('');
  var g=$('gift');if(r.gift){g.style.display='block';g.innerHTML='🔥 В подарок: связка дров'}else g.style.display='none';
 }
 var _upd=window.upd;
-window.upd=function(){_upd();
- var r=window.PROMO.last||{};
+window.upd=function(){_upd();var r=window.PROMO.last||{};
  var extra=[];if(r.codes&&r.codes.length)extra.push('Промокод: '+r.codes.join(', '));if(r.gift)extra.push('В подарок: связка дров');
  ['shW','shG'].forEach(function(id){var a=$(id),u=a.getAttribute('href'),k=u.indexOf('text=');if(k<0)return;var txt=decodeURIComponent(u.slice(k+5)),mk='Подскажите, свободна ли дата?',j=txt.lastIndexOf(mk);if(j>-1&&extra.length){txt=txt.slice(0,j)+extra.join('\n')+'\n'+txt.slice(j)}a.setAttribute('href',u.slice(0,k+5)+encodeURIComponent(txt))});
  render();
- /* автоматический промокод НОЧЬ */
- if(r.usedN2){var key=$('dt').value+'|'+S.n+'|'+S.t;if(window.__n2key!==key){window.__n2key=key;if(!found['НОЧЬ']||true){found['НОЧЬ']=true;save();ev('code_applied',{code:'НОЧЬ',tariff:S.t});openWin('НОЧЬ')}}}
- if(r.codes&&r.codes.length&&window.__lastcodes!==r.codes.join()){window.__lastcodes=r.codes.join();r.codes.forEach(function(c){if(c!=='НОЧЬ')ev('code_applied',{code:c,tariff:S.t})})}
- if(r.reject&&r.reject.length){var rk=r.reject.join()+'|'+$('dt').value;if(window.__rk!==rk){window.__rk=rk;ev('code_rejected',{code:r.reject.join(),tariff:S.t})}}
- if(r.gift&&!window.__gift){window.__gift=1;ev('gift_shown',{tariff:S.t})}
+ if(r.un){var key=$('dt').value+'|'+S.n+'|'+S.t;if(window.__n2!==key){window.__n2=key;ev('code_applied',{code:'НОЧЬ',tariff:S.t});openWin('НОЧЬ')}}
+ if(r.codes&&r.codes.length){var ck=r.codes.join();if(window.__ck!==ck){window.__ck=ck;r.codes.forEach(function(c){if(c!=='НОЧЬ')ev('code_applied',{code:c,tariff:S.t})})}}
+ if(r.gift&&!window.__gf){window.__gf=1;ev('gift_shown',{tariff:S.t})}
+ var dv=$('dt').value;if(dv&&!r.eligStart){var rk=dv+'|'+S.t;if(window.__rk!==rk){window.__rk=rk;if(found[CFG[S.t].code]||found['ЧАН'])ev('code_rejected',{tariff:S.t})}}
 };
 var _open=window.openSh;
-window.openSh=function(t){window.__n2key=null;window.__lastcodes=null;window.__rk=null;window.__gift=0;_open(t);
- var cn=cname(),pp=$('shP');pp.innerHTML=D[t].p+' <span class="fr'+(found[cn]?' open':'')+'" data-c="'+cn+'" data-ev="chip_sheet">'+cn+'</span>';
+window.openSh=function(t){window.__n2=null;window.__ck=null;window.__rk=null;window.__gf=0;_open(t);
+ var cf=CFG[t],items=$('shL').querySelectorAll('.it'),it=items[cf.slot];
+ if(it){var c=document.createElement('span');c.className='fr off';c.dataset.c=cf.code;c.dataset.ev='chip_list';c.textContent=cf.code;it.appendChild(c)}
  window.upd()};
 
-/* ---- window ---- */
-var curCode=null;
-function snow(card){card.querySelectorAll('.wfl').forEach(function(x){x.remove()});for(var i=0;i<16;i++){var f=document.createElement('i');f.className='wfl';var z=2+Math.random()*3;f.style.cssText='width:'+z+'px;height:'+z+'px;left:'+Math.random()*100+'%;top:'+Math.random()*100+'%';card.appendChild(f)}}
-function openWin(code){curCode=code;var c=CFG[code],w=$('win'),card=$('wcard');card.classList.remove('terms');
- var cc=$('wcc');cc.textContent=code;cc.className='wcode '+c.style;
- var desc=c.desc;if(code==='НОЧЬ'){var cn=S.t?cname():'ПАРА';desc='Вторая ночь дешевле:<br><b>'+fmt(CFG[cn].n2)+'</b> вместо '+fmt(CFG[cn].reg)}
- $('wdd').innerHTML=desc;$('wcn').innerHTML=COND;
- $('wgo').textContent=(code==='НОЧЬ')?'Хорошо':'Выбрать дату';
- snow(card);w.classList.add('on');ev('win_show',{code:code})}
+/* ---------- окно «Спасибо, что заглянули» ---------- */
+var cur='ЧАН',pickT=R_;
+function rowsFor(code){var cf=CFG[S.t]||CFG[R_];
+ if(code==='ПАРА'||code==='КОМПАНИЯ'){var c=CFG[code==='ПАРА'?R_:K_];return [[c.lbl,'7'+NB+'000',fmt(c.chan).replace(/\s?₽/,'')]]}
+ if(code==='НОЧЬ')return [['Вторая ночь',fmt(cf.reg).replace(/\s?₽/,''),fmt(cf.n2).replace(/\s?₽/,'')]];
+ return [['Баня и чан вместе<br><small style="color:#9AA3AB">к проживанию</small>','14'+NB+'000','12'+NB+'000']]}
+function openWin(code){cur=code;var card=$('wcard');card.classList.remove('pick');$('terms').classList.remove('on');$('wterm').textContent='Условия';
+ $('wcode').textContent=code;$('wcode').className='wcode '+(code==='КОМПАНИЯ'||code==='НОЧЬ'?'wc-n':code==='ЧАН'?'wc-s':'wc-f');
+ $('wrows').innerHTML=rowsFor(code).map(function(x){return '<div class="wrow"><span>'+x[0]+'</span><div class="wpp"><s>'+x[1]+NB+'₽</s><b>'+x[2]+NB+'₽</b></div></div><div class="wgl"></div>'}).join('');
+ $('wcn').innerHTML=COND;$('wgo').textContent=(code==='НОЧЬ')?'Хорошо':'Выбрать дату';
+ var w=$('win');w.classList.remove('on');void w.offsetWidth;card.style.animation='none';void card.offsetWidth;card.style.animation='';
+ card.querySelectorAll('.wfl').forEach(function(x){x.remove()});for(var i=0;i<16;i++){var f=document.createElement('i');f.className='wfl';var z=2+Math.random()*3;f.style.cssText='width:'+z+'px;height:'+z+'px;left:'+Math.random()*100+'%;top:'+Math.random()*100+'%';card.appendChild(f)}
+ w.classList.add('on');ev('win_show',{code:code})}
 function closeWin(){$('win').classList.remove('on')}
-$('wx').addEventListener('click',function(){closeWin()});
-$('win').addEventListener('click',function(e){if(e.target===$('win'))closeWin()});
-$('wtr').addEventListener('click',function(){$('wcard').classList.add('terms');ev('terms_open',{code:curCode})});
-$('wbk').addEventListener('click',function(){$('wcard').classList.remove('terms')});
-$('wgo').addEventListener('click',function(){var code=curCode;closeWin();ev('win_date_click',{code:code});
- if(code==='НОЧЬ')return;
- var t=CFG[code].tariff;
- if(!document.body.classList.contains('open')||S.t!==t){openSh(t)}else{upd()}
- setTimeout(function(){var dt=$('dt');try{dt.scrollIntoView({block:'center'})}catch(e){}try{dt.focus()}catch(e){}},350)});
+function focusDate(){setTimeout(function(){var dt=$('dt');try{dt.scrollIntoView({block:'center'})}catch(e){}try{dt.focus()}catch(e){}},380)}
+$('wx').addEventListener('click',closeWin);$('win').addEventListener('click',function(e){if(e.target===$('win'))closeWin()});
+$('wterm').addEventListener('click',function(){var t=$('terms');t.classList.toggle('on');this.textContent=t.classList.contains('on')?'Скрыть условия':'Условия';ev('terms_open',{code:cur})});
+$('wback').addEventListener('click',function(){$('wcard').classList.remove('pick')});
+function pickSet(v){pickT=v;$('wsw').dataset.v=v==='K'?'c':'p';$('wsw').querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b.dataset.v===(v==='K'?'c':'p'))})}
+$('wsw').addEventListener('click',function(e){var b=e.target.closest('button');if(b)pickSet(b.dataset.v==='c'?'K':'R')});
+$('wok').addEventListener('click',function(){closeWin();var t=pickT==='K'?K_:R_;ev('win_pick_tariff',{tariff:t});openSh(t);focusDate()});
+$('wgo').addEventListener('click',function(){var code=cur;ev('win_date_click',{code:code});
+ if(code==='НОЧЬ'){closeWin();return}
+ if(code==='ЧАН'&&!document.body.classList.contains('open')){$('wcard').classList.add('pick');return}
+ closeWin();focusDate()});
 
-/* ---- chips ---- */
-function markChips(){document.querySelectorAll('.fr').forEach(function(f){if(found[f.dataset.c])f.classList.add('open')})}
+/* ---------- слова в списке тарифа ---------- */
+function toast(t){var o=$('ptoast');if(o)o.remove();var d=document.createElement('div');d.id='ptoast';d.textContent=t;document.body.appendChild(d);setTimeout(function(){d.classList.add('on')},10);setTimeout(function(){d.classList.remove('on');setTimeout(function(){d.remove()},400)},2600)}
 document.addEventListener('click',function(e){var f=e.target.closest&&e.target.closest('.fr');if(!f)return;e.preventDefault();e.stopPropagation();
- var c=f.dataset.c;found[c]=true;save();f.classList.add('open');markChips();ev('code_found',{code:c,tariff:(typeof S!=='undefined'&&S.t)||''});
- openWin(c);if(document.body.classList.contains('open'))upd()},true);
-markChips();
+ if(f.classList.contains('off')){toast('Подарок откроется, когда выберете дату в будни, пн–пт');ev('chip_locked',{code:f.dataset.c});return}
+ var c=f.dataset.c;found[c]=true;save();f.classList.add('open');ev('code_found',{code:c,tariff:S.t||''});
+ if(document.body.classList.contains('open'))upd();openWin(c)},true);
 
-/* ---- analytics on every button ---- */
+/* ---------- слово ЧАН плывёт по главной, на трёх глубинах ---------- */
+var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches,seq=0,cool=0,flying=false;
+var LAY=['back','mid','front'];
+function pageProgress(){var h=document.documentElement.scrollHeight-window.innerHeight;return h>0?window.pageYOffset/h:0}
+function spawn(){var L=LAY[seq++%3];var el=document.createElement('div');el.className='drift '+L;flying=true;
+ var vw=window.innerWidth,colL=Math.max(0,(vw-430)/2),x0=Math.min(vw+10,colL+430+30),x1=Math.max(-260,colL-170);
+ el.style.top=(18+Math.random()*52)+'%';el.style.setProperty('--x0',x0+'px');el.style.setProperty('--x1',x1+'px');
+ el.style.setProperty('--fs',(L==='back'?34:L==='mid'?28:26)+'px');el.style.setProperty('--bl',(L==='back'?3.2:L==='mid'?2.4:2)+'px');el.style.setProperty('--op',L==='back'?.7:.9);el.style.setProperty('--dur',(10+Math.random()*4)+'s');
+ el.innerHTML='<span class="dw" role="button" aria-label="Промокод">ЧАН</span>';
+ el.addEventListener('animationend',function(e){if(e.target===el){el.remove();flying=false;cool=Date.now()+5000}});
+ el.querySelector('.dw').addEventListener('click',function(){el.remove();flying=false;cool=Date.now()+9e12;found['ЧАН']=true;save();ev('code_found',{code:'ЧАН',tariff:'',layer:L});openWin('ЧАН')});
+ ev('word_fly',{label:L});document.body.appendChild(el)}
+if(!found['ЧАН']&&!reduce){setInterval(function(){if(flying||Date.now()<cool)return;if(document.body.classList.contains('open')||$('win').classList.contains('on'))return;if(pageProgress()<0.3)return;spawn()},1500)}
+
+/* ---------- аналитика на каждую кнопку ---------- */
 document.addEventListener('click',function(e){var el=e.target.closest&&e.target.closest('button,a,.tap,.fr,[data-ev],#ov');if(!el)return;
  var label=el.dataset&&el.dataset.ev||el.id||((el.textContent||'').trim().replace(/\s+/g,' ').slice(0,28))||el.className;
- if(el.dataset&&el.dataset.x)label='extra_'+el.dataset.x+(+el.dataset.d>0?'_plus':'_minus');
- else if(el.dataset&&el.dataset.k)label='stepper_'+el.dataset.k+(+el.dataset.d>0?'_plus':'_minus');
+ if(el.dataset&&el.dataset.x)label='extra_'+el.dataset.x+(+el.dataset.d>0?'_plus':'_minus');else if(el.dataset&&el.dataset.k)label='stepper_'+el.dataset.k+(+el.dataset.d>0?'_plus':'_minus');
  ev('btn_click',{label:label,tariff:(typeof S!=='undefined'&&S.t)||''})},true);
 ['dt','tm'].forEach(function(id){var el=$(id);if(el)el.addEventListener('change',function(){ev('field_change',{label:id,tariff:S.t||''})})});
 
-/* ---- test hook ---- */
-window.__promoTest=function(){var out=[];function run(tname,date,n,x,fnd,label){S={t:tname,n:n,g:2,x:x||{}};found={};(fnd||[]).forEach(function(c){found[c]=true});window.PROMO.found=found;$('dt').value=date;var r=calc();out.push([label,r.room,r.sum,r.codes.join('+'),r.reject.join('+'),r.gift?'gift':''].join(' | '))}
- var R='Романтика для пары',K='Компания до 6 человек';
- run(R,'2026-11-17',1,{},['ПАРА'],'R вт 1н ПАРА');
- run(R,'2026-11-17',1,{},[],'R вт 1н без кода');
- run(R,'2026-11-17',2,{},['ПАРА'],'R вт 2н ПАРА+НОЧЬ');
- run(R,'2026-11-21',1,{},['ПАРА'],'R сб 1н (reject)');
- run(R,'2026-11-22',1,{},['ПАРА'],'R вс 1н (reject)');
- run(R,'2026-11-20',2,{},['ПАРА'],'R пт+сб 2н');
- run(R,'2026-11-19',2,{},['ПАРА'],'R чт+пт 2н');
- run(R,'2026-12-21',1,{},['ПАРА'],'R после 20.12');
- run(R,'2026-12-20',1,{},['ПАРА'],'R 20.12 (вс) ');
- run(K,'2026-11-17',1,{},['КОМПАНИЯ'],'K вт 1н');
- run(K,'2026-11-17',2,{},['КОМПАНИЯ'],'K вт 2н');
- run(R,'2026-11-17',1,{chan:1,banya:1},['ПАРА','ЧАН'],'R вт чан+баня ЧАН');
- run(R,'2026-11-21',1,{chan:1,banya:1},['ЧАН'],'R сб чан+баня (reject ЧАН, gift)');
- run(R,'2026-11-17',1,{chan:1},['ПАРА'],'R вт только чан (gift)');
+/* ---------- проверка расчётов ---------- */
+window.__promoTest=function(){var out=[];function run(t,date,n,x,fnd,label){S={t:t,n:n,g:2,x:x||{}};found={};(fnd||[]).forEach(function(c){found[c]=true});window.PROMO.found=found;$('dt').value=date;var r=calc();out.push([label,r.room,r.sum,r.codes.join('+'),r.gift?'gift':''].join(' | '))}
+ run(R_,'2026-11-17',1,{},[],'R вт 1н без кодов');run(R_,'2026-11-17',2,{},[],'R вт 2н');run(R_,'2026-11-21',1,{},[],'R сб');run(R_,'2026-11-22',1,{},[],'R вс');
+ run(R_,'2026-11-20',2,{},[],'R пт+сб');run(R_,'2026-11-19',2,{},[],'R чт+пт');run(R_,'2026-12-21',1,{},[],'R после 20.12');
+ run(K_,'2026-11-17',1,{},[],'K вт');run(K_,'2026-11-17',2,{},[],'K вт 2н');
+ run(R_,'2026-11-17',1,{chan:1},['ПАРА'],'R вт чан + ПАРА');run(R_,'2026-11-17',1,{chan:1,banya:1},['ЧАН'],'R вт чан+баня + ЧАН');
+ run(R_,'2026-11-17',1,{chan:1,banya:1},['ПАРА','ЧАН'],'R вт чан+баня ПАРА+ЧАН');run(R_,'2026-11-21',1,{chan:1,banya:1},['ЧАН','ПАРА'],'R сб чан+баня');
+ run(K_,'2026-11-18',1,{chan:1},['КОМПАНИЯ'],'K ср чан + КОМПАНИЯ');
  found={};window.PROMO.found=found;return out};
 })();
 
