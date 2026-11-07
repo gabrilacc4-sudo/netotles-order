@@ -472,6 +472,7 @@ function ev(n,p){try{ym(YM,'reachGoal',n,p||{});var o={};o[n]=(p&&(p.code||p.lab
 function elig(x){var g=x.getDay();return g>=1&&g<=5}
 var NB=' ';
 function sm(a,b){return a===b?'':'<s>'+fmt(a)+'</s> '}
+function names(a){return a.length<2?a.join(''):a.slice(0,-1).join(', ')+' и '+a[a.length-1]}
 function plain(n){return fmt(n).replace(/\s?₽/,'')}
 window.PROMO={last:null,found:found};
 
@@ -507,13 +508,13 @@ function render(){
  if(!S.t)return;var r=window.PROMO.last||{},cf=CFG[S.t],dv=$('dt').value,n=[];
  var mine=cf.codes.filter(function(c){return found[c[0]]});
  document.querySelectorAll('#sh [data-c]').forEach(function(c){c.classList.toggle('open',!!found[c.dataset.c])});
- if(r.usedPer)n.push(['pg','Промокоды применены',r.applied.map(function(c){return c[0]+' −'+c[1]+NB+'₽'}).join(', ')+'. Итого −'+r.per+NB+'₽ за ночь']);
+ if(r.usedPer)n.push(['pg','Применены промокоды '+names(r.applied.map(function(c){return c[0]})),'Ночь в будни: <s>'+fmt(cf.reg)+'</s> '+fmt(cf.reg-r.per)]);
  if(r.un)n.push(['pg','Вторая ночь по промокоду НОЧЬ',fmt(cf.n2)+' вместо '+fmt(cf.reg)]);
  if(r.les)n.push(['pg','Баня и чан вместе по промокоду ЛЕС','11'+NB+'800 ₽ вместо 14'+NB+'000 ₽, к проживанию']);
  if(dv&&!r.eligStart){
   if(mine.length)n.push(['pb','Промокоды на эти даты не действуют','Они работают на ночи с понедельника по пятницу до 20 декабря. Выберите другую дату']);
   if(found['ЛЕС']&&(S.x.chan||0)>0&&(S.x.banya||0)>0)n.push(['pb','Промокод ЛЕС на эти даты не действует','Баня и чан вместе на ночи пн–пт до 20 декабря'])}
- if(!dv&&(mine.length||found['ЛЕС']))n.push(['pn','Промокоды в вашем заказе','Они сработают на ночи с понедельника по пятницу до 20 декабря. Выберите дату']);
+ if(!dv&&(mine.length||found['ЛЕС'])){var nm=mine.map(function(c){return c[0]}).concat(found['ЛЕС']?['ЛЕС']:[]);n.push(['pn',(nm.length>1?'Промокоды ':'Промокод ')+names(nm)+' в вашем заказе','Они сработают на ночи с понедельника по пятницу до 20 декабря. Выберите дату'])}
  if(r.near)n.push(['pn','Ближайшие субботы, как правило, заняты','Подскажем в чате']);else if(r.far)n.push(['pn','Субботу подтвердит диспетчер','']);
  $('pbn').innerHTML=n.map(function(x){return '<div class="pbx '+x[0]+'"><div class="ptt">'+x[1]+'</div>'+(x[2]?'<div class="pl">'+x[2]+'</div>':'')+'</div>'}).join('');
  var g=$('gift');if(r.gift){g.style.display='block';g.innerHTML='🔥 В подарок: связка дров'}else g.style.display='none';
@@ -547,11 +548,13 @@ var cur='ЛЕС';
 function rowsFor(code){
  if(code==='ЛЕС')return [['Баня и чан вместе<br><small style="color:#9AA3AB">к проживанию</small>','14'+NB+'000','11'+NB+'800']];
  if(code==='НОЧЬ'){var cf=CFG[S.t]||CFG[R_];return [['Вторая ночь',plain(cf.reg),plain(cf.n2)]]}
- var i=INFO[code];return [['Ночь в будни',plain(i.reg),plain(i.reg-i.amt)]]}
+ var i=INFO[code],c2=CFG[i.t],per=c2.codes.filter(function(c){return found[c[0]]}).reduce(function(x,c){return x+c[1]},0);return [['Ночь в будни',plain(i.reg),plain(i.reg-per)]]}
 function openWin(code){cur=code;var card=$('wcard');card.classList.remove('pick');$('terms').classList.remove('on');$('wterm').textContent='Условия';
  $('wcode').textContent=code;$('wcode').className='wcode '+(code==='ЛЕС'?'wc-s':code==='НОЧЬ'||/^(КОМПАНИЯ|ДРУЗЬЯ|ПРАЗДНИК|ИСКРА|ВРЕМЯ)$/.test(code)?'wc-n':'wc-f');
  $('wrows').innerHTML=rowsFor(code).map(function(x){return '<div class="wrow"><span>'+x[0]+'</span><div class="wpp"><s>'+x[1]+NB+'₽</s><b>'+x[2]+NB+'₽</b></div></div><div class="wgl"></div>'}).join('');
  $('wcn').innerHTML=COND;$('wgo').textContent='Отлично';
+ var rec=card.querySelector('.wrec');rec.textContent='Мы добавили его в ваш заказ';
+ if(INFO[code]){var have=CFG[INFO[code].t].codes.filter(function(c){return found[c[0]]}).map(function(c){return c[0]});if(have.length>1)rec.textContent='Мы добавили его в ваш заказ. Теперь применены '+names(have)}
  var w=$('win');w.classList.remove('on');void w.offsetWidth;card.style.animation='none';void card.offsetWidth;card.style.animation='';
  card.querySelectorAll('.wfl').forEach(function(x){x.remove()});for(var i=0;i<34;i++){var f=document.createElement('i');f.className='wfl';var z=1.6+Math.random()*3.4;f.style.cssText='width:'+z+'px;height:'+z+'px;left:'+Math.random()*100+'%;opacity:'+(.45+Math.random()*.5)+';--dx:'+(-24+Math.random()*48)+'px;animation-duration:'+(4.5+Math.random()*5)+'s;animation-delay:-'+(Math.random()*9)+'s';card.appendChild(f)}
  w.classList.add('on');ev('win_show',{code:code})}
