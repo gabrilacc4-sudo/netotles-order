@@ -258,6 +258,16 @@ if(h.indexOf('wa.me')>-1)goal('send_whatsapp');else if(h.indexOf('t.me')>-1)goal
 @keyframes fglow2{0%,100%{box-shadow:0 0 0 rgba(201,165,107,0)}50%{box-shadow:0 0 9px rgba(201,165,107,.28)}}
 .fr.open{opacity:1;filter:none;animation:none}
 </style>
+<style>
+#pic{position:relative}
+.star{position:absolute;z-index:4;width:32px;height:32px;margin:-16px 0 0 -16px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;opacity:.32;animation:tw 4.5s ease-in-out infinite;-webkit-tap-highlight-color:transparent}
+.star.open{color:#F0D49B;opacity:.95;animation:none;filter:drop-shadow(0 0 5px rgba(240,212,155,.9))}
+@keyframes tw{0%,100%{opacity:.18;transform:scale(.85)}50%{opacity:.5;transform:scale(1.15)}}
+.hotclock{cursor:pointer;animation:cl 7s ease-in-out infinite}
+.hotclock.open{box-shadow:0 0 0 1px #C9A56B;animation:none}
+@keyframes cl{0%,88%,100%{box-shadow:0 0 0 rgba(201,165,107,0)}94%{box-shadow:0 0 12px rgba(201,165,107,.7)}}
+@media (prefers-reduced-motion:reduce){.star,.hotclock{animation:none}}
+</style>
 </head><body>
 <div id="fx"></div>
 <div class="wrap">
@@ -440,8 +450,8 @@ var YM=113739024,END=new Date('2026-12-20T23:59:59');
 var R_='Романтика для пары',K_='Компания до 6 человек';
 var CFG={};
 /* три кода на тариф: имя, скидка за ночь, место (gnote:… подпись, li:N строка списка) */
-CFG[R_]={n2:9900,reg:12000,codes:[['ПАРА',200,'gnote:гостей сверх'],['ДВОЕ',300,'li:1'],['УЮТ',400,'gnote:Повторная затопка']]};
-CFG[K_]={n2:13000,reg:15000,codes:[['КОМПАНИЯ',200,'li:4'],['ДРУЗЬЯ',300,'li:3'],['ПРАЗДНИК',400,'gnote:Заезд с 15:00']]};
+CFG[R_]={n2:9900,reg:12000,codes:[['ПАРА',200,'gnote:гостей сверх'],['ДВОЕ',300,'li:1'],['УЮТ',400,'gnote:Повторная затопка'],['ЗВЕЗДА',100,'star:72,24'],['ЧАСЫ',100,'clock']]};
+CFG[K_]={n2:13000,reg:15000,codes:[['КОМПАНИЯ',200,'li:4'],['ДРУЗЬЯ',300,'li:3'],['ПРАЗДНИК',400,'gnote:Заезд с 15:00'],['ИСКРА',100,'star:24,36'],['ВРЕМЯ',100,'clock']]};
 var INFO={};[R_,K_].forEach(function(t){CFG[t].codes.forEach(function(c){INFO[c[0]]={t:t,amt:c[1],reg:CFG[t].reg}})});
 var COND='Промокод работает с понедельника по пятницу, до 20 декабря.<br>В субботу и воскресенье не действует';
 var found={};try{found=JSON.parse(localStorage.getItem('nl_codes3')||'{}')}catch(e){}
@@ -485,7 +495,7 @@ window.calc=function(){
 function render(){
  if(!S.t)return;var r=window.PROMO.last||{},cf=CFG[S.t],dv=$('dt').value,n=[];
  var mine=cf.codes.filter(function(c){return found[c[0]]});
- document.querySelectorAll('#sh .fr').forEach(function(c){c.classList.toggle('open',!!found[c.dataset.c])});
+ document.querySelectorAll('#sh [data-c]').forEach(function(c){c.classList.toggle('open',!!found[c.dataset.c])});
  if(r.usedPer)n.push(['pg','Промокоды применены',r.applied.map(function(c){return c[0]+' −'+c[1]+NB+'₽'}).join(', ')+'. Итого −'+r.per+NB+'₽ за ночь']);
  if(r.un)n.push(['pg','Вторая ночь по промокоду НОЧЬ',fmt(cf.n2)+' вместо '+fmt(cf.reg)]);
  if(r.les)n.push(['pg','Баня и чан вместе по промокоду ЛЕС','11'+NB+'800 ₽ вместо 14'+NB+'000 ₽, к проживанию']);
@@ -509,12 +519,14 @@ window.upd=function(){_upd();var r=window.PROMO.last||{};
 };
 function place(chip,spec){
  var parts=spec.split(':'),kind=parts[0],key=parts.slice(1).join(':'),host=null;
+ if(kind==='star'){var xy=key.split(',');var st=document.createElement('span');st.className='star'+(found[chip.dataset.c]?' open':'');st.dataset.c=chip.dataset.c;st.dataset.ev='star_'+chip.dataset.c;st.style.left=xy[0]+'%';st.style.top=xy[1]+'%';st.innerHTML='<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 1.5l2.6 7.9 7.9 2.6-7.9 2.6L12 22.5l-2.6-7.9-7.9-2.6 7.9-2.6z" fill="currentColor"/></svg>';$('pic').appendChild(st);return}
+ if(kind==='clock'){var its=$('shL').querySelectorAll('.it'),last=its[its.length-1],ib=last&&last.querySelector('.ib');if(ib){ib.classList.add('hotclock');if(found[chip.dataset.c])ib.classList.add('open');ib.dataset.c=chip.dataset.c;ib.dataset.ev='clock_'+chip.dataset.c}return}
  if(kind==='li'){host=$('shL').querySelectorAll('.it')[+key];if(host){chip.style.marginLeft='auto';chip.style.alignSelf='center'}}
  else{host=[].slice.call(document.querySelectorAll('#sh .gnote')).filter(function(x){return x.textContent.indexOf(key)>-1})[0];if(host)chip.style.marginLeft='10px'}
  if(host)host.appendChild(chip)}
 var _open=window.openSh;
 window.openSh=function(t){window.__n2=null;window.__ck=null;window.__rk=null;window.__gf=0;_open(t);
- document.querySelectorAll('#sh .fr').forEach(function(x){x.remove()});
+ document.querySelectorAll('#sh .fr,#sh .star').forEach(function(x){x.remove()});
  CFG[t].codes.forEach(function(c){var el=document.createElement('span');el.className='fr'+(found[c[0]]?' open':'');el.dataset.c=c[0];el.dataset.ev='chip_'+c[0];el.textContent=c[0];place(el,c[2])});
  window.upd()};
 
@@ -525,7 +537,7 @@ function rowsFor(code){
  if(code==='НОЧЬ'){var cf=CFG[S.t]||CFG[R_];return [['Вторая ночь',plain(cf.reg),plain(cf.n2)]]}
  var i=INFO[code];return [['Ночь в будни',plain(i.reg),plain(i.reg-i.amt)]]}
 function openWin(code){cur=code;var card=$('wcard');card.classList.remove('pick');$('terms').classList.remove('on');$('wterm').textContent='Условия';
- $('wcode').textContent=code;$('wcode').className='wcode '+(code==='ЛЕС'?'wc-s':code==='НОЧЬ'||/^(КОМПАНИЯ|ДРУЗЬЯ|ПРАЗДНИК)$/.test(code)?'wc-n':'wc-f');
+ $('wcode').textContent=code;$('wcode').className='wcode '+(code==='ЛЕС'?'wc-s':code==='НОЧЬ'||/^(КОМПАНИЯ|ДРУЗЬЯ|ПРАЗДНИК|ИСКРА|ВРЕМЯ)$/.test(code)?'wc-n':'wc-f');
  $('wrows').innerHTML=rowsFor(code).map(function(x){return '<div class="wrow"><span>'+x[0]+'</span><div class="wpp"><s>'+x[1]+NB+'₽</s><b>'+x[2]+NB+'₽</b></div></div><div class="wgl"></div>'}).join('');
  $('wcn').innerHTML=COND;$('wgo').textContent='Отлично';
  var w=$('win');w.classList.remove('on');void w.offsetWidth;card.style.animation='none';void card.offsetWidth;card.style.animation='';
@@ -538,8 +550,8 @@ $('wback').addEventListener('click',function(){$('wcard').classList.remove('pick
 $('wgo').addEventListener('click',function(){ev('win_ok',{code:cur});closeWin()});
 
 /* нажатие на слово: человек сразу получает код, дата не нужна */
-document.addEventListener('click',function(e){var f=e.target.closest&&e.target.closest('.fr');if(!f)return;e.preventDefault();e.stopPropagation();
- var c=f.dataset.c;found[c]=true;save();f.classList.add('open');ev('code_found',{code:c,tariff:S.t||''});
+document.addEventListener('click',function(e){var f=e.target.closest&&e.target.closest('.fr,.star,.hotclock');if(!f)return;e.preventDefault();e.stopPropagation();
+ var c=f.dataset.c;found[c]=true;save();f.classList.add('open');ev('code_found',{code:c,tariff:S.t||'',via:f.className.indexOf('star')>-1?'star':f.className.indexOf('hotclock')>-1?'clock':'word'});
  if(document.body.classList.contains('open'))upd();openWin(c)},true);
 
 /* ---------- слово ЛЕС плывёт по главной на трёх глубинах ---------- */
@@ -569,7 +581,7 @@ window.__promoTest=function(){var out=[];function run(t,date,n,x,fnd,label){S={t
  run(R_,'2026-11-17',2,{},P3,'R вт 2н три кода');run(R_,'2026-11-21',1,{},P3,'R сб три кода');run(R_,'2026-11-22',1,{},P3,'R вс три кода');
  run(R_,'2026-11-20',2,{},P3,'R пт+сб три кода');run(R_,'2026-11-19',2,{},P3,'R чт+пт три кода');run(R_,'2026-12-21',1,{},P3,'R после 20.12');
  run(K_,'2026-11-17',1,{},K3,'K вт три кода');run(K_,'2026-11-17',2,{},K3,'K вт 2н три кода');run(K_,'2026-11-17',1,{},[],'K вт без кодов');
- run(R_,'2026-11-17',1,{chan:1,banya:1},['ЛЕС'],'R вт чан+баня ЛЕС');run(R_,'2026-11-21',1,{chan:1,banya:1},['ЛЕС'],'R сб чан+баня ЛЕС');
+ run(R_,'2026-11-17',1,{},P3.concat(['ЗВЕЗДА','ЧАСЫ']),'R вт все пять кодов');run(K_,'2026-11-17',1,{},K3.concat(['ИСКРА','ВРЕМЯ']),'K вт все пять кодов');run(R_,'2026-11-17',1,{chan:1,banya:1},['ЛЕС'],'R вт чан+баня ЛЕС');run(R_,'2026-11-21',1,{chan:1,banya:1},['ЛЕС'],'R сб чан+баня ЛЕС');
  found={};window.PROMO.found=found;return out};
 })();
 
