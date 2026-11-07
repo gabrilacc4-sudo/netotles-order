@@ -189,6 +189,11 @@ if(h.indexOf('wa.me')>-1)goal('send_whatsapp');else if(h.indexOf('t.me')>-1)goal
 .drift .dw{pointer-events:auto;display:inline-block;padding:14px 20px;cursor:pointer;font-weight:700;letter-spacing:5px;font-size:var(--fs,26px);color:#EAF4FB;text-shadow:0 0 10px rgba(200,230,255,.9),0 0 26px rgba(160,200,235,.7);filter:blur(var(--bl,2.6px));opacity:var(--op,.88);animation:dsway 3.6s ease-in-out infinite;-webkit-tap-highlight-color:transparent}
 .drift.back .dw{pointer-events:none}
 @keyframes dcross{from{transform:translateX(var(--x0,110vw))}to{transform:translateX(var(--x1,-60vw))}}
+@keyframes drise{from{transform:translate(var(--px),108vh)}to{transform:translate(var(--px),-24vh)}}
+@keyframes dfall{from{transform:translate(var(--px),-24vh)}to{transform:translate(var(--px),108vh)}}
+@keyframes ddiag{from{transform:translate(var(--x0),-18vh)}to{transform:translate(var(--x1),108vh)}}
+@keyframes dwave{0%{transform:translate(var(--x0),0)}25%{transform:translate(calc(var(--x0)*.75 + var(--x1)*.25),-80px)}50%{transform:translate(calc(var(--x0)*.5 + var(--x1)*.5),60px)}75%{transform:translate(calc(var(--x0)*.25 + var(--x1)*.75),-70px)}100%{transform:translate(var(--x1),0)}}
+@keyframes dzoom{0%{transform:translate(var(--px),0) scale(.25);opacity:0}18%{opacity:1}100%{transform:translate(var(--px),0) scale(2.1);opacity:0}}
 @keyframes dsway{0%,100%{transform:translateY(-14px) rotate(-4deg)}50%{transform:translateY(16px) rotate(4deg)}}
 #win{position:fixed;inset:0;background:rgba(5,10,15,.76);-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);display:none;align-items:center;justify-content:center;z-index:300;padding:16px;perspective:1000px}
 #win.on{display:flex}
@@ -576,14 +581,25 @@ document.addEventListener('click',function(e){var f=e.target.closest&&e.target.c
 /* ---------- слово ЛЕС плывёт по главной на трёх глубинах ---------- */
 var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches,seq=0,cool=0,flying=false,LAY=['mid','front','back'];
 function pageProgress(){var h=document.documentElement.scrollHeight-window.innerHeight;return h>0?window.pageYOffset/h:0}
-function spawn(){var L=LAY[seq++%3];var el=document.createElement('div');el.className='drift '+L;flying=true;
+var VS=['cross','crossR','rise','fall','diag','wave','zoom'],lastV='';
+function spawn(forceV){var L=LAY[seq++%3];var el=document.createElement('div');el.className='drift '+L;flying=true;
  var vw=window.innerWidth,colL=Math.max(0,(vw-430)/2),x0=Math.min(vw+10,colL+430+30),x1=Math.max(-260,colL-170);
  el.style.top=(18+Math.random()*52)+'%';el.style.setProperty('--x0',x0+'px');el.style.setProperty('--x1',x1+'px');
  el.style.setProperty('--fs',(L==='back'?34:L==='mid'?28:26)+'px');el.style.setProperty('--bl',(L==='back'?3.2:L==='mid'?2.4:2)+'px');el.style.setProperty('--op',L==='back'?.7:.9);el.style.setProperty('--dur',(5+Math.random()*2)+'s');
  el.innerHTML='<span class="dw" role="button" aria-label="Промокод">ЛЕС</span>';
  el.addEventListener('animationend',function(e){if(e.target===el){el.remove();flying=false;cool=Date.now()+2500}});
  el.querySelector('.dw').addEventListener('click',function(){el.remove();flying=false;cool=Date.now()+9e12;found['ЛЕС']=true;save();ev('code_found',{code:'ЛЕС',tariff:'',layer:L});openWin('ЛЕС')});
- ev('word_fly',{label:L});document.body.appendChild(el)}
+ var V=forceV;if(!V){do{V=VS[Math.floor(Math.random()*VS.length)]}while(V===lastV)}lastV=V;
+ var px=(colL+20+Math.random()*(430-190))+'px',st=el.style;st.setProperty('--px',px);
+ if(V==='crossR'){st.setProperty('--x0',(colL-170)+'px');st.setProperty('--x1',Math.min(vw+10,colL+430+30)+'px')}
+ else if(V==='rise'){st.top='0';st.animationName='drise';st.setProperty('--dur',(7+Math.random()*2)+'s')}
+ else if(V==='fall'){st.top='0';st.animationName='dfall';st.setProperty('--dur',(7+Math.random()*2)+'s')}
+ else if(V==='diag'){st.top='0';st.animationName='ddiag';st.setProperty('--dur',(6+Math.random()*2)+'s')}
+ else if(V==='wave'){st.animationName='dwave';st.setProperty('--dur',(7+Math.random()*2)+'s')}
+ else if(V==='zoom'){st.top=(25+Math.random()*40)+'%';st.animationName='dzoom';st.animationTimingFunction='ease-out';st.setProperty('--dur','5s')}
+ el.dataset.v=V;
+ ev('word_fly',{label:L+'_'+V});document.body.appendChild(el);return el}
+window.PROMO.spawn=spawn
 if(!found['ЛЕС']&&!reduce){setInterval(function(){if(flying||Date.now()<cool)return;if(document.body.classList.contains('open')||$('win').classList.contains('on'))return;if(pageProgress()<0.12)return;spawn()},1200)}
 
 /* ---------- аналитика на каждую кнопку ---------- */
