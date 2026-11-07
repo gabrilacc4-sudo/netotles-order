@@ -177,6 +177,98 @@ document.addEventListener('click',function(ev){var a=ev.target.closest&&ev.targe
 if(h.indexOf('wa.me')>-1)goal('send_whatsapp');else if(h.indexOf('t.me')>-1)goal('send_telegram');else if(h.indexOf('tel:')===0)goal('click_call');},true);
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/113739024" style="position:absolute;left:-9999px" alt=""></div></noscript>
+
+<style>
+.fr{display:inline-block;padding:3px 10px;border-radius:8px;font-size:12px;letter-spacing:2.5px;font-weight:700;cursor:pointer;color:#dcecf7;background:rgba(190,215,235,.24);border:1px solid rgba(255,255,255,.5);filter:blur(1.5px);animation:frs 3.2s ease-in-out infinite;transition:filter .5s,background .5s,color .5s;-webkit-tap-highlight-color:transparent}
+#sh .it .fr{margin-left:auto;align-self:center;flex:none}
+.fr.off{animation:none;opacity:.42;filter:blur(2.5px)}
+.fr.open{filter:none;animation:none;color:#0E1A24;background:#C9A56B;border-color:#C9A56B;opacity:1}
+@keyframes frs{0%,100%{box-shadow:0 0 0 rgba(200,230,255,0)}50%{box-shadow:0 0 10px rgba(160,200,235,.8)}}
+#sh .sr s{color:#8a97a0;font-size:13px;margin-right:6px;text-decoration-thickness:1.5px}
+.drift{position:fixed;left:0;top:30%;pointer-events:none;will-change:transform;animation:dcross var(--dur,11s) linear forwards}
+.drift.back{z-index:-1}.drift.mid{z-index:2;mix-blend-mode:screen}.drift.front{z-index:4}
+.drift .dw{pointer-events:auto;display:inline-block;padding:14px 20px;cursor:pointer;font-weight:700;letter-spacing:5px;font-size:var(--fs,26px);color:#EAF4FB;text-shadow:0 0 10px rgba(200,230,255,.9),0 0 26px rgba(160,200,235,.7);filter:blur(var(--bl,2.6px));opacity:var(--op,.88);animation:dsway 3.6s ease-in-out infinite;-webkit-tap-highlight-color:transparent}
+.drift.back .dw{pointer-events:none}
+@keyframes dcross{from{transform:translateX(var(--x0,110vw))}to{transform:translateX(var(--x1,-60vw))}}
+@keyframes dsway{0%,100%{transform:translateY(-14px) rotate(-4deg)}50%{transform:translateY(16px) rotate(4deg)}}
+#win{position:fixed;inset:0;background:rgba(5,10,15,.76);-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);display:none;align-items:center;justify-content:center;z-index:300;padding:16px;perspective:1000px}
+#win.on{display:flex}
+.wcard{width:min(360px,100%);border-radius:22px;padding:26px 20px 20px;background:#0E1A24;border:1px solid rgba(201,165,107,.85);box-shadow:0 40px 90px rgba(0,0,0,.7),0 0 50px rgba(201,165,107,.25);text-align:center;position:relative;overflow:hidden;color:#E8E2D6;animation:wfly .9s cubic-bezier(.2,.85,.25,1) both}
+@keyframes wfly{0%{transform:translate3d(90px,50px,-260px) rotateY(-72deg) rotateX(24deg) scale(.55);opacity:0}55%{opacity:1}100%{transform:translate3d(0,0,0) rotateY(0) rotateX(0) scale(1);opacity:1}}
+.wcard:before{content:"";position:absolute;inset:6px;border:1px solid rgba(201,165,107,.35);border-radius:17px;pointer-events:none}
+.wcard .wkk{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#C9A56B;font-weight:700}
+.wcard h3{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:27px;margin:6px 0 14px;color:#F4EFE6}
+.wcode{display:inline-block;padding:11px 24px;border-radius:12px;font-weight:700;letter-spacing:6px;font-size:23px;margin-bottom:16px}
+.wc-f{color:#dcecf7;background:rgba(190,215,235,.22);border:1px solid rgba(255,255,255,.55);box-shadow:0 0 18px rgba(200,230,255,.5);text-shadow:0 0 8px rgba(255,255,255,.7)}
+.wc-n{color:#ffd9a3;background:#0B1620;border:1px solid #E0A458;text-shadow:0 0 8px #E0A458,0 0 20px #E0A458;box-shadow:0 0 20px rgba(224,164,88,.6),inset 0 0 10px rgba(224,164,88,.35)}
+.wc-s{color:#F4EFE6;border:1px dashed rgba(255,255,255,.4);text-shadow:0 0 8px rgba(255,255,255,.95),0 0 22px rgba(200,220,240,.85);letter-spacing:5px}
+.wcard .rows{display:flex;flex-direction:column;gap:8px;text-align:left;margin-bottom:12px}
+.wrow{display:flex;align-items:baseline;justify-content:space-between;gap:10px;white-space:nowrap;font-variant-numeric:lining-nums tabular-nums}
+.wrow span{font-size:14px;color:#CFC8BA;white-space:normal}
+.wpp{display:flex;align-items:baseline;gap:9px}.wpp s{font-size:14px;color:#9AA3AB}.wpp b{font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:24px;color:#C9A56B}
+.wgl{height:1px;background:linear-gradient(90deg,rgba(201,165,107,.9),rgba(201,165,107,.1));margin:-2px 0 2px}
+.wcard .wrec{font-size:13px;color:#9AD3B5;margin:4px 0 10px}
+.wcard .wcond{font-size:13px;color:#C9A56B;line-height:1.5;padding:10px;border:1px dashed rgba(201,165,107,.55);border-radius:12px;margin-bottom:14px}
+.wcard .wterms{display:none;text-align:left;font-size:13px;line-height:1.5;color:#CFC8BA;margin:-4px 0 12px;padding:10px;border-radius:12px;background:rgba(255,255,255,.05)}.wcard .wterms.on{display:block}
+.wcard .wb{display:flex;gap:8px}
+.wcard .wb button{flex:1;padding:12px 8px;border-radius:12px;font-weight:700;font-size:14px;font-family:inherit;cursor:pointer;border:1px solid rgba(201,165,107,.7);background:transparent;color:#F4EFE6}
+.wcard .wb button.pri{background:#E0A458;color:#2B2118;border-color:#E0A458}
+.wcard .wx{position:absolute;top:8px;right:12px;font-size:24px;color:#9AA3AB;background:none;border:0;cursor:pointer;line-height:1}
+.wcard .wchoose{display:none;text-align:left}.wcard.pick .wmain{display:none}.wcard.pick .wchoose{display:block}
+.wsw{position:relative;display:grid;grid-template-columns:1fr 1fr;background:#0B1620;border:1px solid rgba(201,165,107,.38);border-radius:16px;padding:4px;margin:12px 0}
+.wsw .wpill{position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:12px;background:rgba(201,165,107,.2);border:1px solid #C9A56B;transition:transform .35s cubic-bezier(.3,.8,.3,1)}
+.wsw[data-v="c"] .wpill{transform:translateX(100%)}
+.wsw button{position:relative;z-index:1;background:none;border:0;color:#9AA3AB;display:flex;align-items:center;gap:10px;padding:8px 10px;text-align:left;border-radius:12px;font-family:inherit;font-weight:700;cursor:pointer}
+.wsw button.on{color:#F4EFE6}
+.wsw .th{width:40px;height:40px;border-radius:10px;background-size:cover;background-position:center;flex:none;filter:saturate(.8) brightness(.85)}.wsw button.on .th{filter:none}
+.wsw .tt2{font-size:14px;line-height:1.2}.wsw .tt2 i{display:block;font-style:normal;font-weight:500;font-size:11px;color:#9AA3AB}
+.wfl{position:absolute;border-radius:50%;background:#fff;opacity:.75;pointer-events:none}
+.pbx{margin:10px 0;padding:12px 14px;border-radius:14px;background:#0E1A24;color:#E8E2D6;font-size:13px;line-height:1.5}
+.pbx.pg{border:1px solid rgba(111,191,149,.7)}.pbx.pb{border:1px solid rgba(217,123,106,.8)}.pbx.pn{border:1px solid rgba(201,165,107,.45)}
+.pbx .ptt{font-weight:700;font-size:14px;margin-bottom:2px}.pbx.pg .ptt{color:#9AD3B5}.pbx.pb .ptt{color:#F2A395}.pbx.pn .ptt{color:#C9A56B}
+.gift{margin:10px 0;padding:10px 12px;border-radius:12px;background:rgba(201,165,107,.12);border:1px solid rgba(201,165,107,.5);color:#E8D7B4;font-size:14px}
+#ptoast{position:fixed;left:50%;bottom:90px;transform:translate(-50%,20px);background:#0E1A24;border:1px solid rgba(201,165,107,.7);color:#E8E2D6;padding:10px 16px;border-radius:12px;font-size:13px;z-index:320;opacity:0;transition:all .35s;max-width:86%;text-align:center}
+#ptoast.on{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){.drift{animation:none}.drift .dw,.fr{animation:none}.wcard{animation:none!important}}
+</style>
+<style>
+.fr{display:inline-block;position:relative;overflow:hidden;padding:4px 13px;border-radius:999px;font-size:12px;letter-spacing:3px;font-weight:700;cursor:pointer;
+ color:#EBCB8E;background:rgba(201,165,107,.13);border:1px solid rgba(201,165,107,.62);text-shadow:0 0 8px rgba(233,201,138,.75);
+ filter:blur(1.1px);animation:fglow 3.2s ease-in-out infinite;opacity:1;-webkit-tap-highlight-color:transparent}
+.fr:after{content:"";position:absolute;top:0;bottom:0;width:42%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,244,214,.6),transparent);transform:skewX(-18deg);animation:fsweep 3.6s ease-in-out infinite;pointer-events:none}
+@keyframes fsweep{0%{left:-60%}55%,100%{left:135%}}
+@keyframes fglow{0%,100%{box-shadow:0 0 0 rgba(201,165,107,0)}50%{box-shadow:0 0 16px rgba(201,165,107,.5)}}
+.fr.open{filter:none;animation:none;color:#10202C;background:linear-gradient(135deg,#F0D49B,#C9A56B);border-color:#F0D49B;text-shadow:none}
+.fr.open:after{display:none}
+.wcard .wcond{font-size:14px;line-height:1.5;padding:12px 14px;color:#E3C487;border:1px solid rgba(201,165,107,.6);border-radius:12px;background:rgba(201,165,107,.08)}
+@media (prefers-reduced-motion:reduce){.fr,.fr:after{animation:none}}
+</style>
+<style>
+.wfl{position:absolute;top:-10px;border-radius:50%;background:#fff;pointer-events:none;z-index:1;animation:wfall linear infinite}
+@keyframes wfall{0%{transform:translate(0,0)}100%{transform:translate(var(--dx,12px),560px)}}
+.wcard .wmain,.wcard .wchoose{position:relative;z-index:2}
+.wcard .wx{z-index:3}
+.wcard .wb{gap:10px;margin-top:2px}
+.wcard .wb button{flex:1;border-radius:14px;padding:14px 10px;font-size:16px;font-weight:600;font-family:inherit;cursor:pointer;border:0;background:#F4EFE6;color:#2B2118}
+.wcard .wb button.pri{background:#E3A857;color:#2B2118}
+@media (prefers-reduced-motion:reduce){.wfl{animation:none}}
+</style>
+<style>
+.fr{opacity:.62;filter:blur(1.5px);text-shadow:0 0 5px rgba(233,201,138,.45);animation:fglow2 6s ease-in-out infinite;padding:3px 11px;font-size:11px;letter-spacing:2.6px;background:rgba(201,165,107,.08);border-color:rgba(201,165,107,.4)}
+.fr:after{animation:fsweep 8s ease-in-out infinite;opacity:.5}
+@keyframes fglow2{0%,100%{box-shadow:0 0 0 rgba(201,165,107,0)}50%{box-shadow:0 0 9px rgba(201,165,107,.28)}}
+.fr.open{opacity:1;filter:none;animation:none}
+</style>
+<style>
+#pic{position:relative}
+.star{position:absolute;z-index:4;width:32px;height:32px;margin:-16px 0 0 -16px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;opacity:.32;animation:tw 4.5s ease-in-out infinite;-webkit-tap-highlight-color:transparent}
+.star.open{color:#F0D49B;opacity:.95;animation:none;filter:drop-shadow(0 0 5px rgba(240,212,155,.9))}
+@keyframes tw{0%,100%{opacity:.18;transform:scale(.85)}50%{opacity:.5;transform:scale(1.15)}}
+.hotclock{cursor:pointer;animation:cl 7s ease-in-out infinite}
+.hotclock.open{box-shadow:0 0 0 1px #C9A56B;animation:none}
+@keyframes cl{0%,88%,100%{box-shadow:0 0 0 rgba(201,165,107,0)}94%{box-shadow:0 0 12px rgba(201,165,107,.7)}}
+@media (prefers-reduced-motion:reduce){.star,.hotclock{animation:none}}
+</style>
 </head><body>
 <div id="fx"></div>
 <div class="wrap">
@@ -272,7 +364,7 @@ for(var j=0;j<70;j++){var f=document.createElement('div');f.className='flake';va
 <div id="exl"></div>
 <div class="gnote" style="margin:6px 0 8px">Повторная затопка чана или бани: мастер, уточните в чате</div>
 </div>
-<div class="sum">
+<div id="pbn"></div><div id="gift" class="gift" style="display:none"></div><div class="sum">
 <div class="sr"><span>Проживание</span><span id="s_room">выберите дату</span></div>
 <div class="sr" id="s_exr" style="display:none"><span>Дополнительно</span><span id="s_ex"></span></div>
 <div class="sr big"><span>Предварительно</span><b id="tsum">—</b></div>
@@ -342,5 +434,157 @@ window.addEventListener('mousemove',function(e){if(!ms)return;dy=e.clientY-y0;if
 window.addEventListener('mouseup',function(){if(!ms)return;ms=false;document.body.style.userSelect='';end()})})();
 if(location.hash==='#comp'||location.hash==='#pair'){openSh(location.hash==='#comp'?'Компания до 6 человек':'Романтика для пары')}
 if(location.hash==='#demo'){openSh('Компания до 6 человек');document.getElementById('dt').value='2026-10-24';S.g=6;S.x={chan:1,banya:1,wood:2};upd();document.getElementById('sc').scrollTop=document.getElementById('bsec').offsetTop-20}
+</script>
+<div id="win" role="dialog" aria-modal="true"><div class="wcard" id="wcard"><button class="wx" id="wx" aria-label="Закрыть" data-ev="win_close">×</button>
+<div class="wmain"><div class="wkk">Спасибо, что заглянули</div><h3>Промокод для вас</h3><div class="wcode wc-f" id="wcode"></div><div class="rows" id="wrows"></div><div class="wrec">Мы добавили его в ваш заказ</div><div class="wcond" id="wcn"></div>
+<div class="wterms" id="terms">Промокод действует на ночи с понедельника по пятницу, дата заезда до 20 декабря включительно. В субботу и воскресенье цена обычная. На одну ночь проживания действует одна скидка. Баня и чан вместе даются к проживанию. К чану или бане в подарок связка дров в любой день.</div>
+<div class="wb"><button class="pri" id="wgo" data-ev="win_ok">Отлично</button><button id="wterm" data-ev="win_terms">Условия</button></div></div>
+<div class="wchoose"><div class="wkk">Выберите тариф</div>
+<div class="wsw" id="wsw" data-v="p"><span class="wpill"></span>
+<button class="on" data-v="p"><span class="th" style="background-image:url(p27c.jpg)"></span><span class="tt2">Для пары<i>Романтика</i></span></button>
+<button data-v="c"><span class="th" style="background-image:url(p44.jpg)"></span><span class="tt2">Для компании<i>до 6 человек</i></span></button></div>
+<div class="wb"><button id="wback">Назад</button><button class="pri" id="wok" data-ev="win_pick_ok">Продолжить</button></div></div>
+</div></div>
+<script>
+(function(){
+var YM=113739024,END=new Date('2026-12-20T23:59:59');
+var R_='Романтика для пары',K_='Компания до 6 человек';
+var CFG={};
+/* три кода на тариф: имя, скидка за ночь, место (gnote:… подпись, li:N строка списка) */
+CFG[R_]={n2:9900,reg:12000,codes:[['ПАРА',200,'gnote:гостей сверх'],['ДВОЕ',300,'li:1'],['УЮТ',400,'gnote:Повторная затопка'],['ЗВЕЗДА',100,'star:72,24'],['ЧАСЫ',100,'clock']]};
+CFG[K_]={n2:13000,reg:15000,codes:[['КОМПАНИЯ',200,'li:4'],['ДРУЗЬЯ',300,'li:3'],['ПРАЗДНИК',400,'gnote:Заезд с 15:00'],['ИСКРА',100,'star:24,36'],['ВРЕМЯ',100,'clock']]};
+var INFO={};[R_,K_].forEach(function(t){CFG[t].codes.forEach(function(c){INFO[c[0]]={t:t,amt:c[1],reg:CFG[t].reg}})});
+var COND='Промокод работает с понедельника по пятницу, до 20 декабря.<br>В субботу и воскресенье не действует';
+var found={};try{found=JSON.parse(localStorage.getItem('nl_codes3')||'{}')}catch(e){}
+function save(){try{localStorage.setItem('nl_codes3',JSON.stringify(found))}catch(e){}}
+function $(i){return document.getElementById(i)}
+function ev(n,p){try{ym(YM,'reachGoal',n,p||{});var o={};o[n]=(p&&(p.code||p.label))||1;ym(YM,'params',{promo:o})}catch(e){}}
+function elig(x){var g=x.getDay();return g>=1&&g<=5}
+var NB=' ';
+function sm(a,b){return a===b?'':'<s>'+fmt(a)+'</s> '}
+function plain(n){return fmt(n).replace(/\s?₽/,'')}
+window.PROMO={last:null,found:found};
+
+/* ---------- калькулятор ---------- */
+window.calc=function(){
+ var t=D[S.t],cf=CFG[S.t],dv=$('dt').value,chan=S.x.chan||0,banya=S.x.banya||0,regExtra=0;
+ EX.forEach(function(e){regExtra+=(S.x[e[0]]||0)*e[2]});
+ var r={room:null,regRoom:null,sum:regExtra,regSum:regExtra,codes:[],gift:(chan+banya)>0,per:0,applied:[]};
+ var exr=$('s_exr');
+ if(!dv){$('s_room').textContent='выберите дату';$('tsum').textContent='—';exr.style.display=regExtra?'flex':'none';$('s_ex').innerHTML=fmt(regExtra);window.PROMO.last=r;return r}
+ var d=new Date(dv+'T12:00:00'),nights=[],i;
+ for(i=0;i<S.n;i++){var x=new Date(d);x.setDate(x.getDate()+i);nights.push(x)}
+ var ok=d<=END;r.d=d;r.okDate=ok;r.eligStart=ok&&elig(d);
+ var mine=cf.codes.filter(function(c){return found[c[0]]}),per=mine.reduce(function(a,c){return a+c[1]},0);
+ var room=0,reg=0,un=false,usedPer=false;
+ nights.forEach(function(x,i){var rg=(x.getDay()===6?t.sat:t.base),p=rg,e=ok&&elig(x);
+  if(e&&i===1&&elig(nights[0])){p=cf.n2;un=true}else if(e&&per>0){p=rg-per;usedPer=true}
+  reg+=rg;room+=p});
+ r.regRoom=reg;r.room=room;r.un=un;r.per=per;r.usedPer=usedPer;
+ if(usedPer){mine.forEach(function(c){r.codes.push(c[0]);r.applied.push(c)})}
+ if(un)r.codes.push('НОЧЬ');
+ var sets=Math.min(chan,banya);
+ if(sets>0&&r.eligStart&&found['ЛЕС']){r.sum=regExtra-sets*2200;r.codes.push('ЛЕС');r.les=true}
+ var today=new Date();today.setHours(0,0,0,0);
+ nights.forEach(function(x){if(x.getDay()===6){var diff=(x-today)/864e5;if(diff<14)r.near=true;else r.far=true}});
+ $('s_room').innerHTML=sm(r.regRoom,r.room)+fmt(r.room);
+ exr.style.display=regExtra?'flex':'none';$('s_ex').innerHTML=sm(r.regSum,r.sum)+fmt(r.sum);
+ $('tsum').innerHTML=sm(r.regRoom+r.regSum,r.room+r.sum)+'≈ '+fmt(r.room+r.sum);
+ window.PROMO.last=r;return r};
+
+/* ---------- плашки, подарок, слова ---------- */
+function render(){
+ if(!S.t)return;var r=window.PROMO.last||{},cf=CFG[S.t],dv=$('dt').value,n=[];
+ var mine=cf.codes.filter(function(c){return found[c[0]]});
+ document.querySelectorAll('#sh [data-c]').forEach(function(c){c.classList.toggle('open',!!found[c.dataset.c])});
+ if(r.usedPer)n.push(['pg','Промокоды применены',r.applied.map(function(c){return c[0]+' −'+c[1]+NB+'₽'}).join(', ')+'. Итого −'+r.per+NB+'₽ за ночь']);
+ if(r.un)n.push(['pg','Вторая ночь по промокоду НОЧЬ',fmt(cf.n2)+' вместо '+fmt(cf.reg)]);
+ if(r.les)n.push(['pg','Баня и чан вместе по промокоду ЛЕС','11'+NB+'800 ₽ вместо 14'+NB+'000 ₽, к проживанию']);
+ if(dv&&!r.eligStart){
+  if(mine.length)n.push(['pb','Промокоды на эти даты не действуют','Они работают на ночи с понедельника по пятницу до 20 декабря. Выберите другую дату']);
+  if(found['ЛЕС']&&(S.x.chan||0)>0&&(S.x.banya||0)>0)n.push(['pb','Промокод ЛЕС на эти даты не действует','Баня и чан вместе на ночи пн–пт до 20 декабря'])}
+ if(!dv&&(mine.length||found['ЛЕС']))n.push(['pn','Промокоды в вашем заказе','Они сработают на ночи с понедельника по пятницу до 20 декабря. Выберите дату']);
+ if(r.near)n.push(['pn','Ближайшие субботы, как правило, заняты','Подскажем в чате']);else if(r.far)n.push(['pn','Субботу подтвердит диспетчер','']);
+ $('pbn').innerHTML=n.map(function(x){return '<div class="pbx '+x[0]+'"><div class="ptt">'+x[1]+'</div>'+(x[2]?'<div class="pl">'+x[2]+'</div>':'')+'</div>'}).join('');
+ var g=$('gift');if(r.gift){g.style.display='block';g.innerHTML='🔥 В подарок: связка дров'}else g.style.display='none';
+}
+var _upd=window.upd;
+window.upd=function(){_upd();var r=window.PROMO.last||{};
+ var extra=[];if(r.codes&&r.codes.length)extra.push('Промокод: '+r.codes.join(', '));if(r.gift)extra.push('В подарок: связка дров');
+ ['shW','shG'].forEach(function(id){var a=$(id),u=a.getAttribute('href'),k=u.indexOf('text=');if(k<0)return;var txt=decodeURIComponent(u.slice(k+5)),mk='Подскажите, свободна ли дата?',j=txt.lastIndexOf(mk);if(j>-1&&extra.length){txt=txt.slice(0,j)+extra.join('\n')+'\n'+txt.slice(j)}a.setAttribute('href',u.slice(0,k+5)+encodeURIComponent(txt))});
+ render();
+ if(r.un){var key=$('dt').value+'|'+S.n+'|'+S.t;if(window.__n2!==key){window.__n2=key;ev('code_applied',{code:'НОЧЬ',tariff:S.t});openWin('НОЧЬ')}}
+ if(r.codes&&r.codes.length){var ck=r.codes.join();if(window.__ck!==ck){window.__ck=ck;r.codes.forEach(function(c){if(c!=='НОЧЬ')ev('code_applied',{code:c,tariff:S.t})})}}
+ if(r.gift&&!window.__gf){window.__gf=1;ev('gift_shown',{tariff:S.t})}
+ var dv=$('dt').value;if(dv&&!r.eligStart){var rk=dv+'|'+S.t;if(window.__rk!==rk){window.__rk=rk;if(CFG[S.t].codes.some(function(c){return found[c[0]]})||found['ЛЕС'])ev('code_rejected',{tariff:S.t})}}
+};
+function place(chip,spec){
+ var parts=spec.split(':'),kind=parts[0],key=parts.slice(1).join(':'),host=null;
+ if(kind==='star'){var xy=key.split(',');var st=document.createElement('span');st.className='star'+(found[chip.dataset.c]?' open':'');st.dataset.c=chip.dataset.c;st.dataset.ev='star_'+chip.dataset.c;st.style.left=xy[0]+'%';st.style.top=xy[1]+'%';st.innerHTML='<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 1.5l2.6 7.9 7.9 2.6-7.9 2.6L12 22.5l-2.6-7.9-7.9-2.6 7.9-2.6z" fill="currentColor"/></svg>';$('pic').appendChild(st);return}
+ if(kind==='clock'){var its=$('shL').querySelectorAll('.it'),last=its[its.length-1],ib=last&&last.querySelector('.ib');if(ib){ib.classList.add('hotclock');if(found[chip.dataset.c])ib.classList.add('open');ib.dataset.c=chip.dataset.c;ib.dataset.ev='clock_'+chip.dataset.c}return}
+ if(kind==='li'){host=$('shL').querySelectorAll('.it')[+key];if(host){chip.style.marginLeft='auto';chip.style.alignSelf='center'}}
+ else{host=[].slice.call(document.querySelectorAll('#sh .gnote')).filter(function(x){return x.textContent.indexOf(key)>-1})[0];if(host)chip.style.marginLeft='10px'}
+ if(host)host.appendChild(chip)}
+var _open=window.openSh;
+window.openSh=function(t){window.__n2=null;window.__ck=null;window.__rk=null;window.__gf=0;_open(t);
+ document.querySelectorAll('#sh .fr,#sh .star').forEach(function(x){x.remove()});
+ CFG[t].codes.forEach(function(c){var el=document.createElement('span');el.className='fr'+(found[c[0]]?' open':'');el.dataset.c=c[0];el.dataset.ev='chip_'+c[0];el.textContent=c[0];place(el,c[2])});
+ window.upd()};
+
+/* ---------- окно «Спасибо, что заглянули» ---------- */
+var cur='ЛЕС';
+function rowsFor(code){
+ if(code==='ЛЕС')return [['Баня и чан вместе<br><small style="color:#9AA3AB">к проживанию</small>','14'+NB+'000','11'+NB+'800']];
+ if(code==='НОЧЬ'){var cf=CFG[S.t]||CFG[R_];return [['Вторая ночь',plain(cf.reg),plain(cf.n2)]]}
+ var i=INFO[code];return [['Ночь в будни',plain(i.reg),plain(i.reg-i.amt)]]}
+function openWin(code){cur=code;var card=$('wcard');card.classList.remove('pick');$('terms').classList.remove('on');$('wterm').textContent='Условия';
+ $('wcode').textContent=code;$('wcode').className='wcode '+(code==='ЛЕС'?'wc-s':code==='НОЧЬ'||/^(КОМПАНИЯ|ДРУЗЬЯ|ПРАЗДНИК|ИСКРА|ВРЕМЯ)$/.test(code)?'wc-n':'wc-f');
+ $('wrows').innerHTML=rowsFor(code).map(function(x){return '<div class="wrow"><span>'+x[0]+'</span><div class="wpp"><s>'+x[1]+NB+'₽</s><b>'+x[2]+NB+'₽</b></div></div><div class="wgl"></div>'}).join('');
+ $('wcn').innerHTML=COND;$('wgo').textContent='Отлично';
+ var w=$('win');w.classList.remove('on');void w.offsetWidth;card.style.animation='none';void card.offsetWidth;card.style.animation='';
+ card.querySelectorAll('.wfl').forEach(function(x){x.remove()});for(var i=0;i<34;i++){var f=document.createElement('i');f.className='wfl';var z=1.6+Math.random()*3.4;f.style.cssText='width:'+z+'px;height:'+z+'px;left:'+Math.random()*100+'%;opacity:'+(.45+Math.random()*.5)+';--dx:'+(-24+Math.random()*48)+'px;animation-duration:'+(4.5+Math.random()*5)+'s;animation-delay:-'+(Math.random()*9)+'s';card.appendChild(f)}
+ w.classList.add('on');ev('win_show',{code:code})}
+function closeWin(){$('win').classList.remove('on')}
+$('wx').addEventListener('click',closeWin);$('win').addEventListener('click',function(e){if(e.target===$('win'))closeWin()});
+$('wterm').addEventListener('click',function(){var t=$('terms');t.classList.toggle('on');this.textContent=t.classList.contains('on')?'Скрыть условия':'Условия';ev('terms_open',{code:cur})});
+$('wback').addEventListener('click',function(){$('wcard').classList.remove('pick')});
+$('wgo').addEventListener('click',function(){ev('win_ok',{code:cur});closeWin()});
+
+/* нажатие на слово: человек сразу получает код, дата не нужна */
+document.addEventListener('click',function(e){var f=e.target.closest&&e.target.closest('.fr,.star,.hotclock');if(!f)return;e.preventDefault();e.stopPropagation();
+ var c=f.dataset.c;found[c]=true;save();f.classList.add('open');ev('code_found',{code:c,tariff:S.t||'',via:f.className.indexOf('star')>-1?'star':f.className.indexOf('hotclock')>-1?'clock':'word'});
+ if(document.body.classList.contains('open'))upd();openWin(c)},true);
+
+/* ---------- слово ЛЕС плывёт по главной на трёх глубинах ---------- */
+var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches,seq=0,cool=0,flying=false,LAY=['back','mid','front'];
+function pageProgress(){var h=document.documentElement.scrollHeight-window.innerHeight;return h>0?window.pageYOffset/h:0}
+function spawn(){var L=LAY[seq++%3];var el=document.createElement('div');el.className='drift '+L;flying=true;
+ var vw=window.innerWidth,colL=Math.max(0,(vw-430)/2),x0=Math.min(vw+10,colL+430+30),x1=Math.max(-260,colL-170);
+ el.style.top=(18+Math.random()*52)+'%';el.style.setProperty('--x0',x0+'px');el.style.setProperty('--x1',x1+'px');
+ el.style.setProperty('--fs',(L==='back'?34:L==='mid'?28:26)+'px');el.style.setProperty('--bl',(L==='back'?3.2:L==='mid'?2.4:2)+'px');el.style.setProperty('--op',L==='back'?.7:.9);el.style.setProperty('--dur',(10+Math.random()*4)+'s');
+ el.innerHTML='<span class="dw" role="button" aria-label="Промокод">ЛЕС</span>';
+ el.addEventListener('animationend',function(e){if(e.target===el){el.remove();flying=false;cool=Date.now()+5000}});
+ el.querySelector('.dw').addEventListener('click',function(){el.remove();flying=false;cool=Date.now()+9e12;found['ЛЕС']=true;save();ev('code_found',{code:'ЛЕС',tariff:'',layer:L});openWin('ЛЕС')});
+ ev('word_fly',{label:L});document.body.appendChild(el)}
+if(!found['ЛЕС']&&!reduce){setInterval(function(){if(flying||Date.now()<cool)return;if(document.body.classList.contains('open')||$('win').classList.contains('on'))return;if(pageProgress()<0.3)return;spawn()},1500)}
+
+/* ---------- аналитика на каждую кнопку ---------- */
+document.addEventListener('click',function(e){var el=e.target.closest&&e.target.closest('button,a,.tap,.fr,[data-ev],#ov');if(!el)return;
+ var label=el.dataset&&el.dataset.ev||el.id||((el.textContent||'').trim().replace(/\s+/g,' ').slice(0,28))||el.className;
+ if(el.dataset&&el.dataset.x)label='extra_'+el.dataset.x+(+el.dataset.d>0?'_plus':'_minus');else if(el.dataset&&el.dataset.k)label='stepper_'+el.dataset.k+(+el.dataset.d>0?'_plus':'_minus');
+ ev('btn_click',{label:label,tariff:(typeof S!=='undefined'&&S.t)||''})},true);
+['dt','tm'].forEach(function(id){var el=$(id);if(el)el.addEventListener('change',function(){ev('field_change',{label:id,tariff:S.t||''})})});
+
+/* ---------- проверка расчётов ---------- */
+window.__promoTest=function(){var out=[];function run(t,date,n,x,fnd,label){S={t:t,n:n,g:2,x:x||{}};found={};(fnd||[]).forEach(function(c){found[c]=true});window.PROMO.found=found;$('dt').value=date;var r=calc();out.push([label,r.room,r.sum,r.codes.join('+'),r.gift?'gift':''].join(' | '))}
+ var P3=['ПАРА','ДВОЕ','УЮТ'],K3=['КОМПАНИЯ','ДРУЗЬЯ','ПРАЗДНИК'];
+ run(R_,'2026-11-17',1,{},[],'R вт без кодов');run(R_,'2026-11-17',1,{},['ПАРА'],'R вт ПАРА');run(R_,'2026-11-17',1,{},P3,'R вт три кода');
+ run(R_,'2026-11-17',2,{},P3,'R вт 2н три кода');run(R_,'2026-11-21',1,{},P3,'R сб три кода');run(R_,'2026-11-22',1,{},P3,'R вс три кода');
+ run(R_,'2026-11-20',2,{},P3,'R пт+сб три кода');run(R_,'2026-11-19',2,{},P3,'R чт+пт три кода');run(R_,'2026-12-21',1,{},P3,'R после 20.12');
+ run(K_,'2026-11-17',1,{},K3,'K вт три кода');run(K_,'2026-11-17',2,{},K3,'K вт 2н три кода');run(K_,'2026-11-17',1,{},[],'K вт без кодов');
+ run(R_,'2026-11-17',1,{},P3.concat(['ЗВЕЗДА','ЧАСЫ']),'R вт все пять кодов');run(K_,'2026-11-17',1,{},K3.concat(['ИСКРА','ВРЕМЯ']),'K вт все пять кодов');run(R_,'2026-11-17',1,{chan:1,banya:1},['ЛЕС'],'R вт чан+баня ЛЕС');run(R_,'2026-11-21',1,{chan:1,banya:1},['ЛЕС'],'R сб чан+баня ЛЕС');
+ found={};window.PROMO.found=found;return out};
+})();
+
 </script>
 </body></html>
