@@ -341,14 +341,14 @@ if(h.indexOf('wa.me')>-1)goal('send_whatsapp');else if(h.indexOf('t.me')>-1)goal
 <div class="ov"><img src="p29.jpg" alt="Территория с подсветкой" style="object-position:50% 70%"><div><em>ТЕРРИТОРИЯ</em><b>Вечер в огнях</b><span class="d">Весь двор в огнях</span></div></div>
 <div class="ov"><img src="p28.jpg" alt="Баня" style="object-position:50% 35%"><div><em>БАНЯ</em><b>Сибирский кедр</b><span class="d">Кедр, панорамное окно, банные халаты</span></div></div>
 <div class="ov"><img src="p40.jpg" alt="Чан с подсветкой" style="object-position:50% 50%"><div><em>ЧАН</em><b>Чан</b><span class="d">Горячий чан к вашему приезду</span></div></div>
-<div class="ov"><img src="p35.jpg" alt="Беседка" style="object-position:50% 60%"><div><em>БЕСЕДКА</em><b>Беседка до 15 человек</b><span class="d">Мягкие диваны, мангал и решётки бесплатно</span></div></div>
+<div class="ov"><img src="p35.jpg" alt="Беседка" style="object-position:50% 60%"><div><em>БЕСЕДКА</em><b>Беседка до 15 человек</b><span class="d">Мягкие диваны, мангал</span></div></div>
 
 <h2>Условия проживания</h2>
 <div class="card"><ul>
 <li><b>Заезд с 15:00</b> <span class="m">ранний заезд с 13:00, выезд до 12:00</span></li>
 <li><b>С питомцами</b> <span class="m">можно, без доплаты</span></li>
 <li><b>Баня и чан</b> <span class="m">оплачиваются отдельно, затопка включена</span></li>
-<li><b>Мангал и решётки</b> <span class="m">бесплатно</span></li>
+<li><b>Мангал</b></li>
 <li><b>Оплата</b> <span class="m">наличные, перевод, карта</span></li>
 </ul></div>
 
@@ -373,7 +373,7 @@ for(var j=0;j<70;j++){var f=document.createElement('div');f.className='flake';va
 <div class="pic" id="pic"><div class="pimg" id="pimg"></div><div class="pt"><h3 id="shT">Тариф</h3><div class="pp" id="shP"></div></div></div>
 <div class="sec" id="bsec">СОБЕРИТЕ ЗАЯВКУ</div>
 <div class="bld">
-<div class="fl"><label for="dt">Дата заезда</label><input type="date" id="dt"></div>
+<div class="fl"><label for="dt">Дата заезда</label><input type="date" id="dt"></div><div class="gnote" id="outn" style="display:none"></div>
 <div class="fl"><label>Ночей</label><div class="stp"><button class="m" data-k="n" data-d="-1">−</button><span id="v_n">1</span><button data-k="n" data-d="1">+</button></div></div>
 <div class="fl"><label for="tm">Время заезда</label><select id="tm"><option>08:00</option><option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option><option>13:00</option><option>14:00</option><option selected>15:00</option><option>16:00</option><option>17:00</option><option>18:00</option><option>19:00</option><option>20:00</option><option>21:00</option><option>Другое, уточню</option></select></div>
 <div class="fl"><label>Гостей</label><div class="stp"><button class="m" data-k="g" data-d="-1">−</button><span id="v_g">2</span><button data-k="g" data-d="1">+</button></div></div>
@@ -398,8 +398,8 @@ for(var j=0;j<70;j++){var f=document.createElement('div');f.className='flake';va
 <a class="c" href="tel:+79141796645">Позвонить</a>
 </div></div>
 <script>
-var D={"Романтика для пары":{p:"от 12 000 ₽, суббота 16 000 ₽",base:12000,sat:16000,l:[["🏡","b1","Весь дом 78 м² только для вас","Три спальни, уютная гостиная"],["🛏","b4","Спальня с кроватью King Size","Мягкая постель и белые банные халаты"],["🍳","b2","Кухонная зона и стол на 6–8 человек","Всё необходимое для застолья"],["🔥","b5","Мангал и решётки бесплатно","Дрова для мангала 500 ₽ за связку"],["🛖","b6","Беседка с мягкими диванами","До 15 человек, территория освещена"],["♨️","b3","Баня из сибирского кедра","7 000 ₽, затопка включена"],["🫧","b3","Чан","7 000 ₽, затопка включена"],["🚿","b2","Ванная с душем","Стиральная машина"],["🐾","b5","Можно с питомцами","Без доплаты"],["🕒","b3","Заезд с 15:00, выезд до 12:00","Ранний заезд возможен с 13:00"]]},
-"Компания до 6 человек":{p:"от 15 000 ₽, суббота 18 000 ₽",base:15000,sat:18000,l:[["🏡","b1","Весь дом 78 м² для компании","До 6 гостей в стоимости, всего вмещает до 12"],["🛏","b4","Три спальни","King Size на 1 этаже, диван в гостиной, большое место 2,2×2,2 на 2 этаже"],["🍳","b2","Кухонная зона и стол на 6–8 человек","Всё необходимое для застолья"],["🔥","b5","Мангал и решётки бесплатно","Дрова для мангала 500 ₽ за связку"],["🛖","b6","Беседка с мягкими диванами","До 15 человек, территория освещена"],["♨️","b3","Баня из сибирского кедра","7 000 ₽, затопка включена"],["🫧","b3","Чан","7 000 ₽, затопка включена"],["🚿","b2","Ванная с душем","Стиральная машина"],["🐾","b5","Можно с питомцами","Без доплаты"],["🕒","b3","Заезд с 15:00, выезд до 12:00","Ранний заезд возможен с 13:00"]]}};
+var D={"Романтика для пары":{p:"от 12 000 ₽, суббота 16 000 ₽",base:12000,sat:16000,l:[["🏡","b1","Весь дом 78 м² только для вас","Три спальни, уютная гостиная"],["🛏","b4","Спальня с кроватью King Size","Мягкая постель и белые банные халаты"],["🍳","b2","Кухонная зона и стол на 6–8 человек","Всё необходимое для застолья"],["🔥","b5","Мангал","Дрова для мангала 500 ₽ за связку"],["🛖","b6","Беседка с мягкими диванами","До 15 человек, территория освещена"],["♨️","b3","Баня из сибирского кедра","7 000 ₽, затопка включена"],["🫧","b3","Чан","7 000 ₽, затопка включена"],["🚿","b2","Ванная с душем","Стиральная машина"],["🐾","b5","Можно с питомцами","Без доплаты"],["🕒","b3","Заезд с 15:00, выезд до 12:00","Ранний заезд возможен с 13:00"]]},
+"Компания до 6 человек":{p:"от 15 000 ₽, суббота 18 000 ₽",base:15000,sat:18000,l:[["🏡","b1","Весь дом 78 м² для компании","До 6 гостей в стоимости, всего вмещает до 12"],["🛏","b4","Три спальни","King Size на 1 этаже, диван в гостиной, большое место 2,2×2,2 на 2 этаже"],["🍳","b2","Кухонная зона и стол на 6–8 человек","Всё необходимое для застолья"],["🔥","b5","Мангал","Дрова для мангала 500 ₽ за связку"],["🛖","b6","Беседка с мягкими диванами","До 15 человек, территория освещена"],["♨️","b3","Баня из сибирского кедра","7 000 ₽, затопка включена"],["🫧","b3","Чан","7 000 ₽, затопка включена"],["🚿","b2","Ванная с душем","Стиральная машина"],["🐾","b5","Можно с питомцами","Без доплаты"],["🕒","b3","Заезд с 15:00, выезд до 12:00","Ранний заезд возможен с 13:00"]]}};
 var EX=[["chan","Чан",7000,5," · затопка включена"],["banya","Баня",7000,5," · затопка включена"],["grill","Стол-гриль",1500,5,""],["wood","Дрова для мангала, связка",500,9,""]];
 var S={t:null,n:1,g:2,x:{}};
 function fmt(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0')+' ₽'}
@@ -437,7 +437,7 @@ if(b.dataset.k==='n')S.n=Math.min(7,Math.max(1,S.n+dd));
 if(b.dataset.k==='g')S.g=Math.min(12,Math.max(1,S.g+dd));
 if(b.dataset.x){var e=EX.filter(function(z){return z[0]===b.dataset.x})[0];S.x[e[0]]=Math.min(e[3],Math.max(0,(S.x[e[0]]||0)+dd))}
 upd()});
-document.getElementById('dt').addEventListener('input',upd);document.getElementById('tm').addEventListener('change',upd);
+document.getElementById('dt').addEventListener('input',upd);document.getElementById('dt').addEventListener('change',upd);document.getElementById('tm').addEventListener('change',upd);
 document.querySelectorAll('.tap').forEach(function(c){c.addEventListener('click',function(){openSh(c.dataset.t)})});
 document.getElementById('sc').addEventListener('scroll',function(){document.querySelector('#sh .grab').style.opacity=Math.max(0,1-this.scrollTop/50)});
 document.getElementById('ov').addEventListener('click',function(){lock(false)});
@@ -493,7 +493,7 @@ window.calc=function(){
  EX.forEach(function(e){regExtra+=(S.x[e[0]]||0)*e[2]});
  var r={room:null,regRoom:null,sum:regExtra,regSum:regExtra,codes:[],gift:(chan+banya)>0,per:0,applied:[]};
  var exr=$('s_exr');
- if(!dv){$('s_room').textContent='выберите дату';$('s_nights').innerHTML='';$('s_roomrow').style.display='flex';$('tsum').textContent='—';exr.style.display=regExtra?'flex':'none';$('s_ex').innerHTML=fmt(regExtra);window.PROMO.last=r;return r}
+ if(!dv){$('s_room').textContent='выберите дату';$('s_nights').innerHTML='';$('outn').style.display='none';$('s_roomrow').style.display='flex';$('tsum').textContent='—';exr.style.display=regExtra?'flex':'none';$('s_ex').innerHTML=fmt(regExtra);window.PROMO.last=r;return r}
  var d=new Date(dv+'T12:00:00'),nights=[],i;
  for(i=0;i<S.n;i++){var x=new Date(d);x.setDate(x.getDate()+i);nights.push(x)}
  var ok=d<=END;r.d=d;r.okDate=ok;r.eligStart=ok&&elig(d);
@@ -510,7 +510,7 @@ window.calc=function(){
  var today=new Date();today.setHours(0,0,0,0);
  nights.forEach(function(x){if(x.getDay()===6){var diff=(x-today)/864e5;if(diff<14)r.near=true;else r.far=true}});
  $('s_room').innerHTML=sm(r.regRoom,r.room)+fmt(r.room);
- var MN=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];$('s_nights').innerHTML=nl.map(function(a,i){return '<div class="sr"><span>Ночь '+(i+1)+' · '+dow(a[0])+', '+a[0].getDate()+' '+MN[a[0].getMonth()]+(a[3]?'<small style="display:block;color:#7FC8A0;font-size:11px;margin-top:2px">вторая ночь со скидкой</small>':'')+'</span><span>'+sm(a[1],a[2])+fmt(a[2])+'</span></div>'}).join('');$('s_roomrow').style.display='none';
+ var _o=new Date(d);_o.setDate(_o.getDate()+S.n);var MN=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];$('s_nights').innerHTML=nl.map(function(a,i){return '<div class="sr"><span>Ночь '+(i+1)+' · '+dow(a[0])+', '+a[0].getDate()+' '+MN[a[0].getMonth()]+(a[3]?'<small style="display:block;color:#7FC8A0;font-size:11px;margin-top:2px">вторая ночь со скидкой</small>':'')+'</span><span>'+sm(a[1],a[2])+fmt(a[2])+'</span></div>'}).join('');$('s_roomrow').style.display='none';$('outn').style.display='block';$('outn').textContent='Выезд: '+dow(_o)+', '+_o.getDate()+' '+MN[_o.getMonth()]+', до 12:00';
  exr.style.display=regExtra?'flex':'none';$('s_ex').innerHTML=sm(r.regSum,r.sum)+fmt(r.sum);
  $('tsum').innerHTML=sm(r.regRoom+r.regSum,r.room+r.sum)+'≈ '+fmt(r.room+r.sum);
  window.PROMO.last=r;return r};
@@ -536,7 +536,7 @@ window.upd=function(){_upd();var r=window.PROMO.last||{};
  var extra=[];if(r.codes&&r.codes.length)extra.push('Промокод: '+r.codes.join(', '));if(r.gift)extra.push('В подарок: связка дров');
  ['shW','shG'].forEach(function(id){var a=$(id),u=a.getAttribute('href'),k=u.indexOf('text=');if(k<0)return;var txt=decodeURIComponent(u.slice(k+5)),mk='Подскажите, свободна ли дата?',j=txt.lastIndexOf(mk);if(j>-1&&extra.length){txt=txt.slice(0,j)+extra.join('\n')+'\n'+txt.slice(j)}a.setAttribute('href',u.slice(0,k+5)+encodeURIComponent(txt))});
  render();
- if(r.un){var key=$('dt').value+'|'+S.n+'|'+S.t;if(window.__n2!==key){window.__n2=key;ev('code_applied',{code:'НОЧЬ',tariff:S.t});openWin('НОЧЬ')}}
+ if(r.un){var key=S.t;if(window.__n2!==key&&!window.__n2t){window.__n2t=setTimeout(function(){window.__n2t=null;var cr=window.PROMO.last;if(window.__n2===key||!cr||!cr.un||document.activeElement===$('dt'))return;window.__n2=key;ev('code_applied',{code:'НОЧЬ',tariff:S.t});openWin('НОЧЬ')},1200)}}
  if(r.codes&&r.codes.length){var ck=r.codes.join();if(window.__ck!==ck){window.__ck=ck;r.codes.forEach(function(c){if(c!=='НОЧЬ')ev('code_applied',{code:c,tariff:S.t})})}}
  if(r.gift&&!window.__gf){window.__gf=1;ev('gift_shown',{tariff:S.t})}
  var dv=$('dt').value;if(dv&&!r.eligStart){var rk=dv+'|'+S.t;if(window.__rk!==rk){window.__rk=rk;if(CFG[S.t].codes.some(function(c){return found[c[0]]})||found['ЛЕС'])ev('code_rejected',{tariff:S.t})}}
@@ -572,6 +572,7 @@ function openWin(code){cur=code;var card=$('wcard');card.classList.remove('pick'
  card.querySelectorAll('.wfl').forEach(function(x){x.remove()});for(var i=0;i<34;i++){var f=document.createElement('i');f.className='wfl';var z=1.6+Math.random()*3.4;f.style.cssText='width:'+z+'px;height:'+z+'px;left:'+Math.random()*100+'%;opacity:'+(.45+Math.random()*.5)+';--dx:'+(-24+Math.random()*48)+'px;animation-duration:'+(4.5+Math.random()*5)+'s;animation-delay:-'+(Math.random()*9)+'s';card.appendChild(f)}
  w.classList.add('on');ev('win_show',{code:code})}
 window.PROMO.open=openWin;
+['input','change'].forEach(function(n){$('dt').addEventListener(n,function(){window.upd()})});$('tm').addEventListener('change',function(){window.upd()});
 function closeWin(){$('win').classList.remove('on')}
 $('wx').addEventListener('click',closeWin);$('win').addEventListener('click',function(e){if(e.target===$('win'))closeWin()});
 $('wterm').addEventListener('click',function(){var t=$('terms');t.classList.toggle('on');this.textContent=t.classList.contains('on')?'Скрыть условия':'Условия';ev('terms_open',{code:cur})});
