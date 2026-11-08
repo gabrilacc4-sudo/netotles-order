@@ -381,7 +381,7 @@ for(var j=0;j<70;j++){var f=document.createElement('div');f.className='flake';va
 <div class="gnote" style="margin:6px 0 8px">Повторная затопка чана или бани: мастер, уточните в чате</div>
 </div>
 <div id="pbn"></div><div id="gift" class="gift" style="display:none"></div><div class="sum">
-<div class="sr"><span>Проживание</span><span id="s_room">выберите дату</span></div>
+<div id="s_nights"></div><div class="sr" id="s_roomrow"><span>Проживание</span><span id="s_room">выберите дату</span></div>
 <div class="sr" id="s_exr" style="display:none"><span>Дополнительно</span><span id="s_ex"></span></div>
 <div class="sr big"><span>Предварительно</span><b id="tsum">—</b></div>
 <div class="pp3">Точную стоимость и свободные даты подтвердим в чате</div>
@@ -490,15 +490,15 @@ window.calc=function(){
  EX.forEach(function(e){regExtra+=(S.x[e[0]]||0)*e[2]});
  var r={room:null,regRoom:null,sum:regExtra,regSum:regExtra,codes:[],gift:(chan+banya)>0,per:0,applied:[]};
  var exr=$('s_exr');
- if(!dv){$('s_room').textContent='выберите дату';$('tsum').textContent='—';exr.style.display=regExtra?'flex':'none';$('s_ex').innerHTML=fmt(regExtra);window.PROMO.last=r;return r}
+ if(!dv){$('s_room').textContent='выберите дату';$('s_nights').innerHTML='';$('s_roomrow').style.display='flex';$('tsum').textContent='—';exr.style.display=regExtra?'flex':'none';$('s_ex').innerHTML=fmt(regExtra);window.PROMO.last=r;return r}
  var d=new Date(dv+'T12:00:00'),nights=[],i;
  for(i=0;i<S.n;i++){var x=new Date(d);x.setDate(x.getDate()+i);nights.push(x)}
  var ok=d<=END;r.d=d;r.okDate=ok;r.eligStart=ok&&elig(d);
  var mine=cf.codes.filter(function(c){return found[c[0]]}),per=TS[mine.length];
- var room=0,reg=0,un=false,usedPer=false;
+ var room=0,reg=0,un=false,usedPer=false,nl=[];
  nights.forEach(function(x,i){var rg=(x.getDay()===6?t.sat:t.base),p=rg,e=ok&&elig(x);
   if(e&&i===1&&elig(nights[0])){p=cf.n2;un=true}else if(e&&per>0){p=rg-per;usedPer=true}
-  reg+=rg;room+=p});
+  reg+=rg;room+=p;nl.push([x,rg,p])});
  r.regRoom=reg;r.room=room;r.un=un;r.per=per;r.usedPer=usedPer;
  if(usedPer){mine.forEach(function(c){r.codes.push(c[0]);r.applied.push(c)})}
  if(un)r.codes.push('НОЧЬ');
@@ -507,6 +507,7 @@ window.calc=function(){
  var today=new Date();today.setHours(0,0,0,0);
  nights.forEach(function(x){if(x.getDay()===6){var diff=(x-today)/864e5;if(diff<14)r.near=true;else r.far=true}});
  $('s_room').innerHTML=sm(r.regRoom,r.room)+fmt(r.room);
+ var MN=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];$('s_nights').innerHTML=nl.map(function(a,i){return '<div class="sr"><span>Ночь '+(i+1)+' · '+dow(a[0])+', '+a[0].getDate()+' '+MN[a[0].getMonth()]+'</span><span>'+sm(a[1],a[2])+fmt(a[2])+'</span></div>'}).join('');$('s_roomrow').style.display='none';
  exr.style.display=regExtra?'flex':'none';$('s_ex').innerHTML=sm(r.regSum,r.sum)+fmt(r.sum);
  $('tsum').innerHTML=sm(r.regRoom+r.regSum,r.room+r.sum)+'≈ '+fmt(r.room+r.sum);
  window.PROMO.last=r;return r};
