@@ -279,11 +279,12 @@ if(h.indexOf('wa.me')>-1)goal('send_whatsapp');else if(h.indexOf('t.me')>-1)goal
 @keyframes hzp{0%,100%{opacity:.8;text-shadow:0 0 4px rgba(255,200,100,.55);transform:scale(1)}18%{opacity:1;text-shadow:0 0 9px rgba(255,210,120,.95),0 0 16px rgba(240,170,60,.6);transform:scale(1.1)}34%{opacity:.7;text-shadow:0 0 3px rgba(255,200,100,.4)}55%{opacity:1;text-shadow:0 0 9px rgba(255,210,120,.9),0 0 16px rgba(240,170,60,.55);transform:scale(1.08)}75%{opacity:.78;text-shadow:0 0 4px rgba(255,200,100,.5)}}
 .hz.open{color:#F0D49B;text-shadow:0 0 6px rgba(240,212,155,.8);animation:none}
 .hotic{cursor:pointer;position:relative;animation:cl 5s ease-in-out infinite}.hotic::after{content:'';position:absolute;inset:-9px}
+.hotic::before{content:'';position:absolute;inset:0;border-radius:inherit;border:1.5px solid rgba(240,212,155,.95);pointer-events:none;animation:rip 3s ease-out infinite}.hotic.open::before,.bulb.open::after{display:none}.bulb::after{content:'';position:absolute;width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(240,212,155,.9);pointer-events:none;animation:rip 3s ease-out infinite}.hz::before{content:'';position:absolute;left:-1px;right:-1px;bottom:-2px;border-bottom:1.5px dotted rgba(255,205,115,.95);pointer-events:none}.hz.open::before{display:none}@keyframes rip{0%,35%{transform:scale(1);opacity:0}42%{opacity:.95}100%{transform:scale(2);opacity:0}}
 .hotic.open{box-shadow:0 0 0 1px #C9A56B;animation:none}
 .bulb{position:absolute;z-index:4;width:44px;height:44px;margin:-22px 0 0 -22px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#F0D49B;font-size:21px;line-height:1;opacity:.55;text-shadow:0 0 7px rgba(240,212,155,.9);animation:bl 5s ease-in-out infinite;-webkit-tap-highlight-color:transparent}.bulb::before{content:'\2726'}
 @keyframes bl{0%,60%,100%{opacity:.55;transform:scale(.9) rotate(0)}80%{opacity:1;transform:scale(1.45) rotate(25deg)}}
 .bulb.fly::before{content:'';width:5px;height:5px;border-radius:50%;background:#FFF1C8;box-shadow:0 0 8px 4px rgba(255,214,130,.95)}.bulb.fly{opacity:.8;animation:ff 3.6s ease-in-out infinite}@keyframes ff{0%,50%,100%{opacity:.5;transform:translate(0,0) scale(.8)}80%{opacity:1;transform:translate(5px,-4px) scale(1.3)}}.pic .bulb{background:none;padding:0;backdrop-filter:none;bottom:auto;border-radius:0;font-size:21px}.bulb.open{opacity:.95;animation:none}
-@media (prefers-reduced-motion:reduce){.hz,.hotic,.bulb,.bulb.fly{animation:none}}
+@media (prefers-reduced-motion:reduce){.hz,.hotic,.bulb,.bulb.fly,.hotic::before,.bulb::after{animation:none}}
 </style>
 </head><body>
 <div id="fx"></div>
@@ -498,7 +499,7 @@ window.calc=function(){
  var room=0,reg=0,un=false,usedPer=false,nl=[];
  nights.forEach(function(x,i){var rg=(x.getDay()===6?t.sat:t.base),p=rg,e=ok&&elig(x);
   if(e&&i===1&&elig(nights[0])){p=cf.n2;un=true}else if(e&&per>0){p=rg-per;usedPer=true}
-  reg+=rg;room+=p;nl.push([x,rg,p])});
+  reg+=rg;room+=p;nl.push([x,rg,p,e&&i===1&&elig(nights[0])])});
  r.regRoom=reg;r.room=room;r.un=un;r.per=per;r.usedPer=usedPer;
  if(usedPer){mine.forEach(function(c){r.codes.push(c[0]);r.applied.push(c)})}
  if(un)r.codes.push('НОЧЬ');
@@ -507,7 +508,7 @@ window.calc=function(){
  var today=new Date();today.setHours(0,0,0,0);
  nights.forEach(function(x){if(x.getDay()===6){var diff=(x-today)/864e5;if(diff<14)r.near=true;else r.far=true}});
  $('s_room').innerHTML=sm(r.regRoom,r.room)+fmt(r.room);
- var MN=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];$('s_nights').innerHTML=nl.map(function(a,i){return '<div class="sr"><span>Ночь '+(i+1)+' · '+dow(a[0])+', '+a[0].getDate()+' '+MN[a[0].getMonth()]+'</span><span>'+sm(a[1],a[2])+fmt(a[2])+'</span></div>'}).join('');$('s_roomrow').style.display='none';
+ var MN=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];$('s_nights').innerHTML=nl.map(function(a,i){return '<div class="sr"><span>Ночь '+(i+1)+' · '+dow(a[0])+', '+a[0].getDate()+' '+MN[a[0].getMonth()]+(a[3]?'<small style="display:block;color:#7FC8A0;font-size:11px;margin-top:2px">вторая ночь со скидкой</small>':'')+'</span><span>'+sm(a[1],a[2])+fmt(a[2])+'</span></div>'}).join('');$('s_roomrow').style.display='none';
  exr.style.display=regExtra?'flex':'none';$('s_ex').innerHTML=sm(r.regSum,r.sum)+fmt(r.sum);
  $('tsum').innerHTML=sm(r.regRoom+r.regSum,r.room+r.sum)+'≈ '+fmt(r.room+r.sum);
  window.PROMO.last=r;return r};
