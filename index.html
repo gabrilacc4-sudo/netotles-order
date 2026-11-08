@@ -22,7 +22,8 @@ h1{font-size:26px;font-weight:500;line-height:1.2;text-align:center;margin:6px 0
 .quote{text-align:center;font-style:italic;color:#E3A857;font-size:15px;margin:8px 8px 14px;line-height:1.4}
 .btn{display:block;text-align:center;border-radius:14px;padding:14px;font-size:16px;font-weight:600;margin-top:10px}
 .book{background:#E3A857;color:#2B2118}
-.row+.igl{display:block;margin:10px 0 0!important;text-align:center}.igs{font-size:10px;opacity:.55;margin:6px 0 0!important}.note.resp{font-size:13px;font-weight:500;color:#CFC8BA;margin-top:12px}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.row+.igl{display:block;margin:10px 0 0!important;text-align:center}.igs{font-size:10px;opacity:.55;margin:6px 0 0!important}.note.resp{font-size:13px;font-weight:500;color:#CFC8BA;margin-top:12px}#cal{background:#0B1620;border:1px solid #2c4152;border-radius:14px;padding:10px 10px 8px;margin:4px 0 2px;user-select:none;-webkit-user-select:none}#cal .cal-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;color:#E8E2D6;font-weight:700;font-size:15px}#cal .cal-h button{width:34px;height:34px;border-radius:50%;border:0;background:#17283A;color:#E8E2D6;font-size:18px;line-height:1;cursor:pointer}#cal .cal-h button[disabled]{opacity:.25;cursor:default}#cal .cal-g{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}#cal .cal-w{font-size:11px;color:#8A97A3;text-align:center;padding:2px 0}#cal .cal-d{height:38px;border:0;background:none;color:#E8E2D6;font:inherit;font-size:14px;border-radius:10px;cursor:pointer;position:relative}#cal .cal-d.cal-sa{color:#E0A458}#cal .cal-d.cal-mu{opacity:.22;cursor:default;pointer-events:none}#cal .cal-d.cal-in{background:rgba(224,164,88,.2);border-radius:0}#cal .cal-d.cal-st,#cal .cal-d.cal-en{background:#E0A458;color:#1A1208;font-weight:800;border-radius:10px}#cal .cal-d.cal-en{background:rgba(224,164,88,.55);color:#1A1208}#cal .cal-d.cal-td::after{content:'';position:absolute;left:50%;bottom:4px;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:#E0A458}#cal .cal-t{font-size:12.5px;color:#C9A56B;margin:7px 2px 0;min-height:16px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
 .card{background:#F4EFE6;color:#2B2118;border-radius:14px;padding:14px}
 .mini{margin:0;font-size:14px;font-weight:600;text-align:center;padding:13px}
 .ghost{border:1px solid #3a4b5a;color:#E8E2D6;font-weight:500;font-size:14px}
@@ -373,7 +374,7 @@ for(var j=0;j<70;j++){var f=document.createElement('div');f.className='flake';va
 <div class="pic" id="pic"><div class="pimg" id="pimg"></div><div class="pt"><h3 id="shT">Тариф</h3><div class="pp" id="shP"></div></div></div>
 <div class="sec" id="bsec">СОБЕРИТЕ ЗАЯВКУ</div>
 <div class="bld">
-<div class="fl"><label for="dt">Дата заезда</label><input type="date" id="dt"></div><div class="gnote" id="outn" style="display:none"></div>
+<div class="sec" style="margin:10px 0 4px">ДАТЫ ПРЕБЫВАНИЯ</div><input type="date" id="dt" style="display:none"><div id="cal"></div><div class="gnote" id="outn" style="display:none"></div>
 <div class="fl"><label>Ночей</label><div class="stp"><button class="m" data-k="n" data-d="-1">−</button><span id="v_n">1</span><button data-k="n" data-d="1">+</button></div></div>
 <div class="fl"><label for="tm">Время заезда</label><select id="tm"><option>08:00</option><option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option><option>13:00</option><option>14:00</option><option selected>15:00</option><option>16:00</option><option>17:00</option><option>18:00</option><option>19:00</option><option>20:00</option><option>21:00</option><option>Другое, уточню</option></select></div>
 <div class="fl"><label>Гостей</label><div class="stp"><button class="m" data-k="g" data-d="-1">−</button><span id="v_g">2</span><button data-k="g" data-d="1">+</button></div></div>
@@ -532,7 +533,7 @@ function render(){
  var g=$('gift');if(r.gift){g.style.display='block';g.innerHTML='🔥 В подарок: связка дров'}else g.style.display='none';
 }
 var _upd=window.upd;
-window.upd=function(){_upd();var r=window.PROMO.last||{};
+window.upd=function(){_upd();try{renderCal()}catch(e){}var r=window.PROMO.last||{};
  var extra=[];if(r.codes&&r.codes.length)extra.push('Промокод: '+r.codes.join(', '));if(r.gift)extra.push('В подарок: связка дров');
  ['shW','shG'].forEach(function(id){var a=$(id),u=a.getAttribute('href'),k=u.indexOf('text=');if(k<0)return;var txt=decodeURIComponent(u.slice(k+5)),mk='Подскажите, свободна ли дата?',j=txt.lastIndexOf(mk);if(j>-1&&extra.length){txt=txt.slice(0,j)+extra.join('\n')+'\n'+txt.slice(j)}a.setAttribute('href',u.slice(0,k+5)+encodeURIComponent(txt))});
  render();
@@ -551,7 +552,7 @@ function place(code,spec){
   if(re.test(h)){sm.innerHTML=h.replace(re,'$1<span class="hz">0</span>$2');mark(sm.querySelector('.hz'),code)}return}}
 var _lock=window.lock;window.lock=function(on){if(!on&&document.body.classList.contains('open')&&S&&S.t&&CFG[S.t]){CFG[S.t].codes.forEach(function(c){delete found[c[0]]});save()}_lock(on)};
 var _open=window.openSh;
-window.openSh=function(t){window.__n2=null;window.__ck=null;window.__rk=null;window.__gf=0;_open(t);
+window.openSh=function(t){stage=0;cv=null;window.__n2=null;window.__ck=null;window.__rk=null;window.__gf=0;_open(t);
  document.querySelectorAll('#sh .bulb,#sh .fr,#sh .star').forEach(function(x){x.remove()});
  CFG[t].codes.forEach(function(c){place(c[0],c[2])});
  window.upd()};
@@ -572,6 +573,40 @@ function openWin(code){cur=code;var card=$('wcard');card.classList.remove('pick'
  card.querySelectorAll('.wfl').forEach(function(x){x.remove()});for(var i=0;i<34;i++){var f=document.createElement('i');f.className='wfl';var z=1.6+Math.random()*3.4;f.style.cssText='width:'+z+'px;height:'+z+'px;left:'+Math.random()*100+'%;opacity:'+(.45+Math.random()*.5)+';--dx:'+(-24+Math.random()*48)+'px;animation-duration:'+(4.5+Math.random()*5)+'s;animation-delay:-'+(Math.random()*9)+'s';card.appendChild(f)}
  w.classList.add('on');ev('win_show',{code:code})}
 window.PROMO.open=openWin;
+/* ---------- свой календарь: заезд и выезд, начало можно менять ---------- */
+var cv=null,stage=0,MR=['январь','февраль','март','апрель','май','июнь','июль','август','сентябрь','октябрь','ноябрь','декабрь'],MG=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+function ymd(d){return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())}
+function day0(d){var x=new Date(d);x.setHours(12,0,0,0);return x}
+function addD(d,n){var x=new Date(d);x.setDate(x.getDate()+n);return x}
+function setStay(start,n){S.n=Math.max(1,Math.min(7,n));$('dt').value=ymd(start);window.upd()}
+function renderCal(){var box=$('cal');if(!box)return;var dv=$('dt').value,st=dv?day0(new Date(dv+'T12:00:00')):null,en=st?addD(st,S.n):null,today=day0(new Date());
+ if(!cv){cv=new Date(today.getFullYear(),today.getMonth(),1)}
+ var y=cv.getFullYear(),m=cv.getMonth(),first=new Date(y,m,1),lead=(first.getDay()+6)%7,dim=new Date(y,m+1,0).getDate(),h='';
+ var canPrev=!(y===today.getFullYear()&&m===today.getMonth());
+ h+='<div class="cal-h"><button type="button" data-cn="-1"'+(canPrev?'':' disabled')+' aria-label="Предыдущий месяц">‹</button><span>'+MR[m]+' '+y+'</span><button type="button" data-cn="1" aria-label="Следующий месяц">›</button></div><div class="cal-g">';
+ ['пн','вт','ср','чт','пт','сб','вс'].forEach(function(w){h+='<div class="cal-w">'+w+'</div>'});
+ for(var i=0;i<lead;i++)h+='<div></div>';
+ for(var d=1;d<=dim;d++){var c=day0(new Date(y,m,d)),cls='cal-d',past=c<today;
+  if(c.getDay()===6)cls+=' cal-sa';if(past)cls+=' cal-mu';if(+c===+today)cls+=' cal-td';
+  if(st){if(+c===+st)cls+=' cal-st';else if(en&&+c===+en)cls+=' cal-en';else if(en&&c>st&&c<en)cls+=' cal-in'}
+  h+='<button type="button" class="'+cls+'" data-cd="'+ymd(c)+'"'+(past?' disabled':'')+'>'+d+'</button>'}
+ h+='</div><div class="cal-t" id="cth">';
+ if(!st)h+='Нажмите день заезда';
+ else if(stage===1)h+='Заезд '+st.getDate()+' '+MG[st.getMonth()]+'. Теперь нажмите день выезда или другой день заезда';
+ else h+=st.getDate()+' '+MG[st.getMonth()]+' — '+en.getDate()+' '+MG[en.getMonth()]+', ночей: '+S.n+'. Нажмите любую дату, чтобы выбрать заново';
+ box.innerHTML=h+'</div>'}
+document.addEventListener('click',function(e){var nb=e.target.closest&&e.target.closest('#sh [data-k="n"]');if(nb)stage=0},true);
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('#cal button');if(!b)return;e.preventDefault();
+ if(b.dataset.cn){cv=new Date(cv.getFullYear(),cv.getMonth()+(+b.dataset.cn),1);renderCal();return}
+ if(!b.dataset.cd)return;var d=day0(new Date(b.dataset.cd+'T12:00:00')),dv=$('dt').value,st=dv?day0(new Date(dv+'T12:00:00')):null;
+ ev('btn_click',{label:'cal_day',tariff:S.t||''});
+ if(stage===1&&st){
+  if(+d===+st){stage=0;renderCal()}
+  else if(d<st){stage=1;setStay(d,1)}
+  else{stage=0;setStay(st,Math.round((d-st)/864e5))}
+ }else{stage=1;setStay(d,1)}
+},true);
+
 ['input','change'].forEach(function(n){$('dt').addEventListener(n,function(){window.upd()})});$('tm').addEventListener('change',function(){window.upd()});
 function closeWin(){$('win').classList.remove('on')}
 $('wx').addEventListener('click',closeWin);$('win').addEventListener('click',function(e){if(e.target===$('win'))closeWin()});
