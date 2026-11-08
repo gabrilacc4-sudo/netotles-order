@@ -31,7 +31,7 @@ h1{font-size:26px;font-weight:500;line-height:1.2;text-align:center;margin:6px 0
 .ic div{flex:1;background:rgba(27,42,56,.85);border-radius:12px;padding:10px 6px;text-align:center;font-size:12px;line-height:1.3}
 .ic b{display:block;font-size:15px;color:#E3A857;font-weight:600}
 h2{font-size:20px;font-weight:500;margin:26px 0 12px}
-.lab{font-size:13px;color:#6b5a48}.price{font-size:26px;font-weight:600;margin:2px 0}.small{font-size:13px;color:#6b5a48}
+.b12{display:inline-block;margin:6px 0 2px;padding:4px 11px;border:1px solid #B58A4A;border-radius:20px;background:rgba(201,165,107,.16);color:#7A4F1F;font-size:12px}.b12 b{font-weight:800;margin-right:4px}#sh .b12{margin:8px 0 0;border-color:#C9A56B;background:rgba(201,165,107,.18);color:#E8CF9C}.lab{font-size:13px;color:#6b5a48}.price{font-size:26px;font-weight:600;margin:2px 0}.small{font-size:13px;color:#6b5a48}
 .tag{font-size:13px;color:#8A5A2B;margin-top:6px;font-weight:500}
 .dk{background:rgba(27,42,56,.9);border-radius:14px;padding:14px;margin-top:10px}
 .li{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #2f4152;font-size:15px}.li:last-child{border:none}.li span:last-child{color:#E3A857;font-weight:600}
@@ -184,6 +184,7 @@ if(h.indexOf('wa.me')>-1)goal('send_whatsapp');else if(h.indexOf('t.me')>-1)goal
 .fr.open{filter:none;animation:none;color:#0E1A24;background:#C9A56B;border-color:#C9A56B;opacity:1}
 @keyframes frs{0%,100%{box-shadow:0 0 0 rgba(200,230,255,0)}50%{box-shadow:0 0 10px rgba(160,200,235,.8)}}
 #sh .sr s{color:#aab4bc;font-size:19px;margin-right:8px;text-decoration-thickness:2px}#sh .pg s,#sh .pn s{color:#aab4bc;font-size:1.3em;text-decoration-thickness:2px;margin-right:4px}
+.spk{position:fixed;z-index:5;pointer-events:none;border-radius:50%;background:radial-gradient(circle,#fff 0%,rgba(220,240,255,.9) 40%,transparent 72%);animation:spk .95s ease-out forwards}@keyframes spk{from{opacity:1;transform:translate(0,0) scale(1)}to{opacity:0;transform:translate(var(--sx,0),var(--sy,14px)) scale(.3)}}
 .drift{position:fixed;left:0;top:30%;pointer-events:none;will-change:transform;animation:dcross var(--dur,11s) linear forwards}
 .drift.back{z-index:-1}.drift.mid{z-index:2;mix-blend-mode:screen}.drift.front{z-index:4}
 .drift .dw{pointer-events:auto;display:inline-block;padding:14px 20px;cursor:pointer;font-weight:700;letter-spacing:5px;font-size:var(--fs,26px);color:#EAF4FB;text-shadow:0 0 12px rgba(215,238,255,1),0 0 30px rgba(170,210,245,.9),0 0 50px rgba(140,190,240,.6);filter:blur(var(--bl,2.6px));opacity:var(--op,.88);animation:dsway 3.6s ease-in-out infinite;-webkit-tap-highlight-color:transparent}
@@ -318,7 +319,7 @@ if(h.indexOf('wa.me')>-1)goal('send_whatsapp');else if(h.indexOf('t.me')>-1)goal
 </div>
 <div class="card tap" style="margin-top:10px" data-t="Компания до 6 человек" data-p="от 15 000 ₽, суббота 18 000 ₽">
 <img class="cardimg" src="../p44.jpg" alt="Компания в чане" style="object-position:50% 50%;height:250px">
-<div class="lab">Компания до 6 человек</div>
+<div class="lab">Компания до 6 человек</div><div class="b12"><b>6 + ещё 6</b> вмещает до 12 человек</div>
 <div class="price">от 15 000 ₽</div>
 <div class="small">суббота 18 000 ₽</div>
 <div class="tag">Праздник с друзьями: беседка на 15 человек, баня, чан</div>
@@ -395,7 +396,7 @@ for(var j=0;j<70;j++){var f=document.createElement('div');f.className='flake';va
 </div></div>
 <script>
 var D={"Романтика для пары":{p:"от 12 000 ₽, суббота 16 000 ₽",base:12000,sat:16000,l:[["🏡","b1","Весь дом 78 м² только для вас","Три спальни, уютная гостиная"],["🛏","b4","Спальня с кроватью King Size","Мягкая постель и белые банные халаты"],["🍳","b2","Кухонная зона и стол на 6–8 человек","Всё необходимое для застолья"],["🔥","b5","Мангал и решётки бесплатно","Дрова для мангала 500 ₽ за связку"],["🛖","b6","Беседка с мягкими диванами","До 15 человек, территория освещена"],["♨️","b3","Баня из сибирского кедра","7 000 ₽, затопка включена"],["🫧","b3","Чан","7 000 ₽, затопка включена"],["🚿","b2","Ванная с душем","Стиральная машина"],["🐾","b5","Можно с питомцами","Без доплаты"],["🕒","b3","Заезд с 15:00, выезд до 12:00","Ранний заезд возможен с 13:00"]]},
-"Компания до 6 человек":{p:"от 15 000 ₽, суббота 18 000 ₽",base:15000,sat:18000,l:[["🏡","b1","Весь дом 78 м² для компании","До 6 гостей в стоимости"],["🛏","b4","Три спальни","King Size на 1 этаже, диван в гостиной, большое место 2,2×2,2 на 2 этаже"],["🍳","b2","Кухонная зона и стол на 6–8 человек","Всё необходимое для застолья"],["🔥","b5","Мангал и решётки бесплатно","Дрова для мангала 500 ₽ за связку"],["🛖","b6","Беседка с мягкими диванами","До 15 человек, территория освещена"],["♨️","b3","Баня из сибирского кедра","7 000 ₽, затопка включена"],["🫧","b3","Чан","7 000 ₽, затопка включена"],["🚿","b2","Ванная с душем","Стиральная машина"],["🐾","b5","Можно с питомцами","Без доплаты"],["🕒","b3","Заезд с 15:00, выезд до 12:00","Ранний заезд возможен с 13:00"]]}};
+"Компания до 6 человек":{p:"от 15 000 ₽, суббота 18 000 ₽",base:15000,sat:18000,l:[["🏡","b1","Весь дом 78 м² для компании","До 6 гостей в стоимости, всего вмещает до 12"],["🛏","b4","Три спальни","King Size на 1 этаже, диван в гостиной, большое место 2,2×2,2 на 2 этаже"],["🍳","b2","Кухонная зона и стол на 6–8 человек","Всё необходимое для застолья"],["🔥","b5","Мангал и решётки бесплатно","Дрова для мангала 500 ₽ за связку"],["🛖","b6","Беседка с мягкими диванами","До 15 человек, территория освещена"],["♨️","b3","Баня из сибирского кедра","7 000 ₽, затопка включена"],["🫧","b3","Чан","7 000 ₽, затопка включена"],["🚿","b2","Ванная с душем","Стиральная машина"],["🐾","b5","Можно с питомцами","Без доплаты"],["🕒","b3","Заезд с 15:00, выезд до 12:00","Ранний заезд возможен с 13:00"]]}};
 var EX=[["chan","Чан",7000,5," · затопка включена"],["banya","Баня",7000,5," · затопка включена"],["grill","Стол-гриль",1500,5,""],["wood","Дрова для мангала, связка",500,9,""]];
 var S={t:null,n:1,g:2,x:{}};
 function fmt(n){return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0')+' ₽'}
@@ -422,7 +423,7 @@ var q=encodeURIComponent(L.join('\n'));
 document.getElementById('shW').href='https://wa.me/79141796645?text='+q;document.getElementById('shG').href='https://t.me/netotforest?text='+q}
 var lockY=0;function lock(on){var b=document.body;if(on){if(b.classList.contains('open'))return;lockY=window.pageYOffset;b.style.top=-lockY+'px';b.classList.add('open')}else{if(!b.classList.contains('open'))return;b.classList.remove('open');b.style.top='';window.scrollTo(0,lockY)}}
 function openSh(t){S={t:t,n:1,g:2,x:{}};goal('tariff_open');var d=D[t];
-var im=document.querySelector('.tap[data-t="'+t+'"] img');if(im){var pi=document.getElementById('pimg');pi.style.backgroundImage='url('+im.getAttribute('src')+')';pi.style.backgroundPosition=t==='Компания до 6 человек'?'50% 35%':'50% 90%'}document.getElementById('shT').textContent=t;document.getElementById('shP').textContent=d.p;
+var im=document.querySelector('.tap[data-t="'+t+'"] img');if(im){var pi=document.getElementById('pimg');pi.style.backgroundImage='url('+im.getAttribute('src')+')';pi.style.backgroundPosition=t==='Компания до 6 человек'?'50% 35%':'50% 90%'}document.getElementById('shT').textContent=t;document.getElementById('shP').textContent=d.p;var _b=document.querySelector('#sh .pt .b12');if(_b)_b.remove();if(t==='Компания до 6 человек'){var _n=document.createElement('div');_n.className='b12';_n.innerHTML='<b>6 + ещё 6</b> вмещает до 12 человек';document.querySelector('#sh .pt').appendChild(_n)}
 document.getElementById('shL').innerHTML=d.l.map(function(x){return '<div class="it"><div class="ib '+x[1]+'">'+x[0]+'</div><div>'+x[2]+'<small>'+x[3]+'</small></div></div>'}).join('');
 document.getElementById('exl').innerHTML=EX.map(function(e){return '<div class="ex"><div>'+e[1]+'<small>'+fmt(e[2])+e[4]+'</small></div><div class="stp"><button class="m" data-x="'+e[0]+'" data-d="-1">−</button><span id="x_'+e[0]+'">0</span><button data-x="'+e[0]+'" data-d="1">+</button></div></div>'}).join('');
 document.getElementById('dt').value='';document.getElementById('tm').value='15:00';
@@ -598,7 +599,9 @@ function spawn(forceV){var L=LAY[seq++%3];var el=document.createElement('div');e
  else if(V==='wave'){st.animationName='dwave';st.setProperty('--dur',(7+Math.random()*2)+'s')}
  else if(V==='zoom'){st.top=(25+Math.random()*40)+'%';st.animationName='dzoom';st.animationTimingFunction='ease-out';st.setProperty('--dur','5s')}
  el.dataset.v=V;
- ev('word_fly',{label:L+'_'+V});document.body.appendChild(el);return el}
+ ev('word_fly',{label:L+'_'+V});document.body.appendChild(el);
+ var spt=setInterval(function(){if(!el.isConnected){clearInterval(spt);return}var rc=el.getBoundingClientRect();if(rc.width<5)return;for(var k=0;k<2;k++){var d=document.createElement('i');d.className='spk';var z=2+Math.random()*3.5;d.style.cssText='width:'+z+'px;height:'+z+'px;left:'+(rc.left+Math.random()*rc.width)+'px;top:'+(rc.top+rc.height*.25+Math.random()*rc.height*.5)+'px;--sx:'+(-10+Math.random()*20)+'px;--sy:'+(6+Math.random()*16)+'px';document.body.appendChild(d);(function(x){setTimeout(function(){x.remove()},980)})(d)}},70);
+ return el}
 window.PROMO.spawn=spawn
 if(!found['ЛЕС']&&!reduce){setInterval(function(){if(flying||Date.now()<cool)return;if(document.body.classList.contains('open')||$('win').classList.contains('on'))return;if(pageProgress()<0.12)return;spawn()},1200)}
 
