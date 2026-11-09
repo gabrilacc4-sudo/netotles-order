@@ -22,7 +22,8 @@ h1{font-size:26px;font-weight:500;line-height:1.2;text-align:center;margin:6px 0
 .quote{text-align:center;font-style:italic;color:#E3A857;font-size:15px;margin:8px 8px 14px;line-height:1.4}
 .btn{display:block;text-align:center;border-radius:14px;padding:14px;font-size:16px;font-weight:600;margin-top:10px}
 .book{background:#E3A857;color:#2B2118}
-.row+.igl{display:block;margin:10px 0 0!important;text-align:center}.igs{font-size:10px;opacity:.55;margin:6px 0 0!important}.note.resp{font-size:13px;font-weight:500;color:#CFC8BA;margin-top:12px}#cal{background:#0B1620;border:1px solid #2c4152;border-radius:14px;padding:10px 10px 8px;margin:4px 0 2px;user-select:none;-webkit-user-select:none}#cal .cal-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;color:#E8E2D6;font-weight:700;font-size:15px}#cal .cal-h button{width:34px;height:34px;border-radius:50%;border:0;background:#17283A;color:#E8E2D6;font-size:18px;line-height:1;cursor:pointer}#cal .cal-h button[disabled]{opacity:.25;cursor:default}#cal .cal-g{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}#cal .cal-w{font-size:11px;color:#8A97A3;text-align:center;padding:2px 0}#cal .cal-d{height:38px;border:0;background:none;color:#E8E2D6;font:inherit;font-size:14px;border-radius:10px;cursor:pointer;position:relative}#cal .cal-d.cal-sa{color:#E0A458}#cal .cal-d.cal-mu{opacity:.22;cursor:default;pointer-events:none}#cal .cal-d.cal-in{background:rgba(224,164,88,.2);border-radius:0}#cal .cal-d.cal-st,#cal .cal-d.cal-en{background:#E0A458;color:#1A1208;font-weight:800;border-radius:10px}#cal .cal-d.cal-en{background:rgba(224,164,88,.55);color:#1A1208}#cal .cal-d.cal-td::after{content:'';position:absolute;left:50%;bottom:4px;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:#E0A458}#cal .cal-t{font-size:12.5px;color:#C9A56B;margin:7px 2px 0;min-height:16px}
+.row+.igl{display:block;margin:10px 0 0!important;text-align:center}.igs{font-size:10px;opacity:.55;margin:6px 0 0!important}.note.resp{font-size:13px;font-weight:500;color:#CFC8BA;margin-top:12px}#cal{background:#0B1620;border:1px solid #2c4152;border-radius:14px;padding:10px 10px 8px;margin:4px 0 2px;user-select:none;-webkit-user-select:none}#cal .cal-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;color:#E8E2D6;font-weight:700;font-size:15px}#cal .cal-h button{width:34px;height:34px;border-radius:50%;border:0;background:#17283A;color:#E8E2D6;font-size:18px;line-height:1;cursor:pointer}#cal .cal-h button[disabled]{opacity:.25;cursor:default}#cal .cal-g{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}#cal .cal-w{font-size:11px;color:#8A97A3;text-align:center;padding:2px 0}#cal .cal-d{height:38px;border:0;background:none;color:#E8E2D6;font:inherit;font-size:14px;border-radius:10px;cursor:pointer;position:relative}#cal .cal-d.cal-sa{color:#E0A458}#cal .cal-d.cal-mu{opacity:.22;cursor:default;pointer-events:none}#cal .cal-d.cal-in{background:rgba(224,164,88,.2);border-radius:0}#cal .cal-d.cal-st,#cal .cal-d.cal-en{background:#E0A458;color:#1A1208;font-weight:800;border-radius:10px}#cal .cal-d.cal-en{background:rgba(224,164,88,.55);color:#1A1208}#cal .cal-d.cal-td::after{content:'';position:absolute;left:50%;bottom:4px;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:#E0A458}#cal .cal-d.cal-bz{opacity:.3;text-decoration:line-through;cursor:default;pointer-events:none}#cal .cal-d.cal-nx{opacity:.3;cursor:default;pointer-events:none}#cal .cal-lg{font-size:11.5px;color:#8A97A3;margin:4px 2px 0}
+#cal .cal-t{font-size:12.5px;color:#C9A56B;margin:7px 2px 0;min-height:16px}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
 .card{background:#F4EFE6;color:#2B2118;border-radius:14px;padding:14px}
 .mini{margin:0;font-size:14px;font-weight:600;text-align:center;padding:13px}
@@ -531,7 +532,7 @@ function render(){
  var g=$('gift');if(r.gift){g.style.display='block';g.innerHTML='🔥 В подарок: связка дров'}else g.style.display='none';
 }
 var _upd=window.upd;
-window.upd=function(){_upd();try{renderCal()}catch(e){}var r=window.PROMO.last||{};
+loadBusy();window.upd=function(){_upd();try{renderCal()}catch(e){}var r=window.PROMO.last||{};
  var extra=[];if(r.codes&&r.codes.length)extra.push('Промокод: '+r.codes.join(', '));if(r.gift)extra.push('В подарок: связка дров');
  ['shW','shG'].forEach(function(id){var a=$(id),u=a.getAttribute('href'),k=u.indexOf('text=');if(k<0)return;var txt=decodeURIComponent(u.slice(k+5)),mk='Подскажите, свободна ли дата?',j=txt.lastIndexOf(mk);if(j>-1&&extra.length){txt=txt.slice(0,j)+extra.join('\n')+'\n'+txt.slice(j)}a.setAttribute('href',u.slice(0,k+5)+encodeURIComponent(txt))});
  render();
@@ -550,7 +551,7 @@ function place(code,spec){
   if(re.test(h)){sm.innerHTML=h.replace(re,'$1<span class="hz">0</span>$2');mark(sm.querySelector('.hz'),code)}return}}
 var _lock=window.lock;window.lock=function(on){if(!on&&document.body.classList.contains('open')&&S&&S.t&&CFG[S.t]){CFG[S.t].codes.forEach(function(c){delete found[c[0]]});save()}_lock(on)};
 var _open=window.openSh;
-window.openSh=function(t){stage=0;cv=null;window.__n2=null;window.__ck=null;window.__rk=null;window.__gf=0;_open(t);
+window.openSh=function(t){stage=0;cv=null;loadBusy();window.__n2=null;window.__ck=null;window.__rk=null;window.__gf=0;_open(t);
  document.querySelectorAll('#sh .bulb,#sh .fr,#sh .star').forEach(function(x){x.remove()});
  CFG[t].codes.forEach(function(c){place(c[0],c[2])});
  window.upd()};
@@ -576,6 +577,16 @@ var cv=null,stage=0,MR=['январь','февраль','март','апрель
 function ymd(d){return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())}
 function day0(d){var x=new Date(d);x.setHours(12,0,0,0);return x}
 function addD(d,n){var x=new Date(d);x.setDate(x.getDate()+n);return x}
+
+/* ---------- занятые даты из RealtyCalendar (iCal, только даты, без имён) ---------- */
+var ICS_URL='https://realtycalendar.ru/apartments/export.ics?q=Mjc5NDcx%0A',BUSY={},busyOK=false,busyT=0;
+function parseBusy(t){var b={};t=t.replace(/\r?\n[ \t]/g,'');(t.match(/BEGIN:VEVENT[\s\S]*?END:VEVENT/g)||[]).forEach(function(e){var a=/DTSTART[^:]*:(\d{4})(\d\d)(\d\d)/.exec(e),z=/DTEND[^:]*:(\d{4})(\d\d)(\d\d)/.exec(e);if(!a||!z)return;
+ var d=Date.UTC(+a[1],+a[2]-1,+a[3]),end=Date.UTC(+z[1],+z[2]-1,+z[3]);for(var n=0;d<end&&n<400;n++,d+=864e5){var x=new Date(d);b[x.getUTCFullYear()+'-'+pad(x.getUTCMonth()+1)+'-'+pad(x.getUTCDate())]=1}});return b}
+function loadBusy(){if(busyOK&&Date.now()-busyT<300000)return;var c=window.AbortController?new AbortController():null,tm=setTimeout(function(){if(c)c.abort()},8000);
+ fetch(ICS_URL,c?{signal:c.signal,cache:'no-store'}:{cache:'no-store'}).then(function(r){return r.text()}).then(function(t){clearTimeout(tm);if(t.indexOf('BEGIN:VCALENDAR')<0)return;BUSY=parseBusy(t);busyOK=true;busyT=Date.now();try{renderCal()}catch(e){}}).catch(function(){})}
+function isBusy(d){return BUSY[ymd(d)]===1}
+function firstBusy(s){for(var i=0;i<400;i++){var x=addD(s,i);if(isBusy(x))return x}return null}
+function endOk(st,d){var fb=firstBusy(st);return !fb||d<=fb}
 function setStay(start,n){S.n=Math.max(1,Math.min(7,n));$('dt').value=ymd(start);window.upd()}
 function renderCal(){var box=$('cal');if(!box)return;var dv=$('dt').value,st=dv?day0(new Date(dv+'T12:00:00')):null,en=st?addD(st,S.n):null,today=day0(new Date());
  if(!cv){cv=new Date(today.getFullYear(),today.getMonth(),1)}
@@ -584,19 +595,21 @@ function renderCal(){var box=$('cal');if(!box)return;var dv=$('dt').value,st=dv?
  h+='<div class="cal-h"><button type="button" data-cn="-1"'+(canPrev?'':' disabled')+' aria-label="Предыдущий месяц">‹</button><span>'+MR[m]+' '+y+'</span><button type="button" data-cn="1" aria-label="Следующий месяц">›</button></div><div class="cal-g">';
  ['пн','вт','ср','чт','пт','сб','вс'].forEach(function(w){h+='<div class="cal-w">'+w+'</div>'});
  for(var i=0;i<lead;i++)h+='<div></div>';
- for(var d=1;d<=dim;d++){var c=day0(new Date(y,m,d)),cls='cal-d',past=c<today;
+ for(var d=1;d<=dim;d++){var c=day0(new Date(y,m,d)),cls='cal-d',past=c<today,busy=isBusy(c),blocked=false;
   if(c.getDay()===6)cls+=' cal-sa';if(past)cls+=' cal-mu';if(+c===+today)cls+=' cal-td';
+  if(!past){if(stage===1&&st&&c>st){if(!endOk(st,c)){blocked=true;cls+=busy?' cal-bz':' cal-nx'}}else if(busy){blocked=true;cls+=' cal-bz'}}
   if(st){if(+c===+st)cls+=' cal-st';else if(en&&+c===+en)cls+=' cal-en';else if(en&&c>st&&c<en)cls+=' cal-in'}
-  h+='<button type="button" class="'+cls+'" data-cd="'+ymd(c)+'"'+(past?' disabled':'')+'>'+d+'</button>'}
+  h+='<button type="button" class="'+cls+'" data-cd="'+ymd(c)+'"'+((past||blocked)?' disabled':'')+'>'+d+'</button>'}
  h+='</div><div class="cal-t" id="cth">';
  if(!st)h+='Нажмите день заезда';
  else if(stage===1)h+='Заезд '+st.getDate()+' '+MG[st.getMonth()]+'. Теперь нажмите день выезда или другой день заезда';
- else h+=st.getDate()+' '+MG[st.getMonth()]+' — '+en.getDate()+' '+MG[en.getMonth()]+', ночей: '+S.n+'. Нажмите любую дату, чтобы выбрать заново';
- box.innerHTML=h+'</div>'}
+ else{var cf=false;for(var q=0;q<S.n;q++){if(isBusy(addD(st,q)))cf=true}h+=st.getDate()+' '+MG[st.getMonth()]+' — '+en.getDate()+' '+MG[en.getMonth()]+', ночей: '+S.n+'.'+(cf?' <b style="color:#F2A395">В эти даты есть занятая ночь, напишите нам, уточним.</b>':' Нажмите любую дату, чтобы выбрать заново')}
+ box.innerHTML=h+'</div>'+(busyOK?'<div class="cal-lg">Серые дни заняты. Нужной даты нет? Напишите нам в чат</div>':'')}
 document.addEventListener('click',function(e){var nb=e.target.closest&&e.target.closest('#sh [data-k="n"]');if(nb)stage=0},true);
 document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('#cal button');if(!b)return;e.preventDefault();
  if(b.dataset.cn){cv=new Date(cv.getFullYear(),cv.getMonth()+(+b.dataset.cn),1);renderCal();return}
  if(!b.dataset.cd)return;var d=day0(new Date(b.dataset.cd+'T12:00:00')),dv=$('dt').value,st=dv?day0(new Date(dv+'T12:00:00')):null;
+ if(stage===1&&st&&d>st){if(!endOk(st,d))return}else if(isBusy(d))return;
  ev('btn_click',{label:'cal_day',tariff:S.t||''});
  if(stage===1&&st){
   if(+d===+st){stage=0;renderCal()}
