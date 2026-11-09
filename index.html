@@ -606,7 +606,7 @@ function renderCal(){var box=$('cal');if(!box)return;var dv=$('dt').value,st=dv?
  if(!st)h+='Нажмите день заезда';
  else if(stage===1)h+='Заезд '+st.getDate()+' '+MG[st.getMonth()]+'. Теперь нажмите день выезда или другой день заезда';
  else{var cf=false;for(var q=0;q<S.n;q++){if(isBusy(addD(st,q)))cf=true}h+=st.getDate()+' '+MG[st.getMonth()]+' — '+en.getDate()+' '+MG[en.getMonth()]+', ночей: '+S.n+'.'+(cf?' <b style="color:#F2A395">В эти даты есть занятая ночь, напишите нам, уточним.</b>':' Нажмите любую дату, чтобы выбрать заново')}
- box.innerHTML=h+'</div>'+(busyOK?'<div class="cal-lg"><i class="cal-sw"></i>занято. Нужной даты нет? Напишите нам в чат</div>':(busyFail?'<div class="cal-lg">Занятость сейчас не загрузилась, свободные даты уточним в чате</div>':''))}
+ box.innerHTML=h+'</div>'+(busyOK?'<div class="cal-lg"><i class="cal-sw"></i>занято. Нужной даты нет? Напишите нам в чат</div>':(busyFail?'<div class="cal-lg">Занятость сейчас не загрузилась, свободные даты уточним в чате</div>':''))+'<div class="cal-lg" style="opacity:.45">версия 9.11-в7'+(busyOK?', занятость загружена':(busyFail?', занятость не загрузилась':', загрузка…'))+'</div>'}
 document.addEventListener('click',function(e){var nb=e.target.closest&&e.target.closest('#sh [data-k="n"]');if(nb)stage=0},true);
 document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('#cal button');if(!b)return;e.preventDefault();
  if(b.dataset.cn){cv=new Date(cv.getFullYear(),cv.getMonth()+(+b.dataset.cn),1);renderCal();return}
