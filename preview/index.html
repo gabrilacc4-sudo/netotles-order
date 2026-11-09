@@ -582,8 +582,9 @@ function addD(d,n){var x=new Date(d);x.setDate(x.getDate()+n);return x}
 var ICS_URL='https://realtycalendar.ru/apartments/export.ics?q=Mjc5NDcx%0A',BUSY={},busyOK=false,busyT=0,busyFail=false;
 function parseBusy(t){var b={};t=t.replace(/\r?\n[ \t]/g,'');(t.match(/BEGIN:VEVENT[\s\S]*?END:VEVENT/g)||[]).forEach(function(e){var a=/DTSTART[^:]*:(\d{4})(\d\d)(\d\d)/.exec(e),z=/DTEND[^:]*:(\d{4})(\d\d)(\d\d)/.exec(e);if(!a||!z)return;
  var d=Date.UTC(+a[1],+a[2]-1,+a[3]),end=Date.UTC(+z[1],+z[2]-1,+z[3]);for(var n=0;d<end&&n<400;n++,d+=864e5){var x=new Date(d);b[x.getUTCFullYear()+'-'+pad(x.getUTCMonth()+1)+'-'+pad(x.getUTCDate())]=1}});return b}
+try{ev('page_ver',{label:'v7',url:location.search||'-'})}catch(e){}
 function loadBusy(){if(busyOK&&Date.now()-busyT<60000)return;var c=window.AbortController?new AbortController():null,tm=setTimeout(function(){if(c)c.abort()},8000);
- fetch(ICS_URL,c?{signal:c.signal,cache:'no-store'}:{cache:'no-store'}).then(function(r){return r.text()}).then(function(t){clearTimeout(tm);if(t.indexOf('BEGIN:VCALENDAR')<0){busyFail=true;try{renderCal()}catch(e){}return}BUSY=parseBusy(t);busyOK=true;busyT=Date.now();try{renderCal()}catch(e){}})  .catch(function(){busyFail=true;try{renderCal()}catch(e){}})}
+ fetch(ICS_URL,c?{signal:c.signal,cache:'no-store'}:{cache:'no-store'}).then(function(r){return r.text()}).then(function(t){clearTimeout(tm);if(t.indexOf('BEGIN:VCALENDAR')<0){busyFail=true;try{ev('busy_fail',{label:'v7',why:'bad_body'})}catch(e){}try{renderCal()}catch(e){}return}BUSY=parseBusy(t);busyOK=true;busyT=Date.now();try{ev('busy_ok',{label:'v7',n:Object.keys(BUSY).length})}catch(e){}try{renderCal()}catch(e){}})  .catch(function(er){busyFail=true;try{ev('busy_fail',{label:'v7',why:String(er&&er.message||er).slice(0,40)})}catch(e){}try{renderCal()}catch(e){}})}
 function isBusy(d){return BUSY[ymd(d)]===1}
 function firstBusy(s){for(var i=0;i<400;i++){var x=addD(s,i);if(isBusy(x))return x}return null}
 function endOk(st,d){var fb=firstBusy(st);return !fb||d<=fb}
