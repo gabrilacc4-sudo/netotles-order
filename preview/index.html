@@ -479,6 +479,8 @@ function save(){}
 /* человек написал в чат: заявка отправлена, коды больше не помним */
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a)return;var h=a.getAttribute('href')||'';if(h.indexOf('wa.me')>-1||h.indexOf('t.me')>-1){try{localStorage.removeItem(KEY)}catch(x){}}},true);
 function $(i){return document.getElementById(i)}
+var __seen={},__ord=0;
+function foundOrder(code,extra){if(__seen[code])return 0;__seen[code]=1;__ord++;var n=__ord;try{var tf=(typeof S!=='undefined'&&S&&S.t)||'-',p={code:code,n:n,tariff:tf};for(var k in (extra||{}))p[k]=extra[k];ym(YM,'reachGoal','code_found_'+Math.min(n,3),p);var o={};o['n'+n]=code;ym(YM,'params',{promo_order:o})}catch(e){}return n}
 function ev(n,p){try{ym(YM,'reachGoal',n,p||{});var o={};o[n]=(p&&(p.code||p.label))||1;ym(YM,'params',{promo:o})}catch(e){}}
 function elig(x){var g=x.getDay();return g>=1&&g<=5}
 var NB=' ';
@@ -630,7 +632,7 @@ $('wgo').addEventListener('click',function(){ev('win_ok',{code:cur});closeWin()}
 
 /* нажатие на слово: человек сразу получает код, дата не нужна */
 document.addEventListener('click',function(e){var f=e.target.closest&&e.target.closest('.fr,[data-hot]');if(!f)return;e.preventDefault();e.stopPropagation();
- var c=f.dataset.c;found[c]=true;save();f.classList.add('open');ev('code_found',{code:c,tariff:S.t||'',via:f.dataset.hot?'hidden':'word'});
+ var c=f.dataset.c;found[c]=true;save();f.classList.add('open');var isNew=!__seen[c],ordN=foundOrder(c,{via:f.dataset.hot?'hidden':'word'});ev('code_found',{code:c,tariff:S.t||'',via:f.dataset.hot?'hidden':'word',n:ordN||__ord,fresh:isNew?1:0});
  if(document.body.classList.contains('open'))upd();openWin(c)},true);
 
 /* ---------- слово ЛЕС плывёт по главной на трёх глубинах ---------- */
@@ -643,7 +645,7 @@ function spawn(forceV){var L=LAY[seq++%3];var el=document.createElement('div');e
  el.style.setProperty('--fs',(L==='back'?44:L==='mid'?38:34)+'px');el.style.setProperty('--bl',(L==='back'?2.2:L==='mid'?1.3:.8)+'px');el.style.setProperty('--op',L==='back'?.85:1);el.style.setProperty('--dur',(5+Math.random()*2)+'s');
  el.innerHTML='<span class="dw" role="button" aria-label="Промокод">ЛЕС</span>';
  el.addEventListener('animationend',function(e){if(e.target===el){el.remove();flying=false;cool=Date.now()+2500}});
- el.querySelector('.dw').addEventListener('click',function(){el.remove();flying=false;cool=Date.now()+9e12;found['ЛЕС']=true;save();ev('code_found',{code:'ЛЕС',tariff:'',layer:L});openWin('ЛЕС')});
+ el.querySelector('.dw').addEventListener('click',function(){el.remove();flying=false;cool=Date.now()+9e12;found['ЛЕС']=true;save();var oN=foundOrder('ЛЕС',{via:'fly'});ev('code_found',{code:'ЛЕС',tariff:'',layer:L,n:oN,fresh:1});openWin('ЛЕС')});
  var V=forceV;if(!V){do{V=VS[Math.floor(Math.random()*VS.length)]}while(V===lastV)}lastV=V;
  var px=(colL+20+Math.random()*(430-190))+'px',st=el.style;st.setProperty('--px',px);
  if(V==='crossR'){st.setProperty('--x0',(colL-170)+'px');st.setProperty('--x1',Math.min(vw+10,colL+430+30)+'px')}
