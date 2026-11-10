@@ -1,0 +1,23 @@
+name: busy-dates
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch busy dates from RealtyCalendar
+        run: python3 tools/update_busy.py
+      - name: Commit if changed
+        run: |
+          if [ -n "$(git status --porcelain busy.json)" ]; then
+            git config user.name "busy-bot"
+            git config user.email "busy-bot@users.noreply.github.com"
+            git add busy.json
+            git commit -m "Update busy dates"
+            git push
+          fi
