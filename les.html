@@ -501,6 +501,8 @@ window.calc=function(){
  if(!dv){$('s_room').textContent='выберите дату';$('s_nights').innerHTML='';$('outn').style.display='none';$('s_roomrow').style.display='flex';$('tsum').textContent='—';exr.style.display=regExtra?'flex':'none';$('s_ex').innerHTML=fmt(regExtra);window.PROMO.last=r;return r}
  var d=new Date(dv+'T12:00:00'),nights=[],i;
  for(i=0;i<S.n;i++){var x=new Date(d);x.setDate(x.getDate()+i);nights.push(x)}
+ var hol=nights.some(function(x){return x.getMonth()===0&&x.getDate()<=7});
+ if(hol){var _o2=new Date(d);_o2.setDate(_o2.getDate()+S.n);r.d=d;r.holiday=true;r.eligStart=false;$('s_room').textContent='уточните у оператора';$('s_nights').innerHTML='';$('s_roomrow').style.display='flex';$('outn').style.display='block';$('outn').textContent='Выезд: '+dow(_o2)+', '+_o2.getDate()+'.'+pad(_o2.getMonth()+1)+', до 12:00';exr.style.display=regExtra?'flex':'none';$('s_ex').innerHTML=fmt(regExtra);$('tsum').textContent='уточните у оператора';window.PROMO.last=r;return r}
  var ok=d<=END;r.d=d;r.okDate=ok;r.eligStart=ok&&elig(d);
  var mine=cf.codes.filter(function(c){return found[c[0]]}),per=TS[mine.length];
  var room=0,reg=0,un=false,usedPer=false,nl=[];
