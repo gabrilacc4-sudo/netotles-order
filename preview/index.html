@@ -443,14 +443,14 @@ document.querySelectorAll('.tap').forEach(function(c){c.addEventListener('click'
 document.getElementById('sc').addEventListener('scroll',function(){document.querySelector('#sh .grab').style.opacity=Math.max(0,1-this.scrollTop/50)});
 document.getElementById('ov').addEventListener('click',function(){lock(false)});
 (function(){var sh=document.getElementById('sh'),sc=document.getElementById('sc'),y0=0,dy=0,drag=false,inSc=false;
-sh.addEventListener('touchstart',function(e){y0=e.touches[0].clientY;dy=0;drag=false;inSc=sc.contains(e.target)},{passive:true});
-sh.addEventListener('touchmove',function(e){dy=e.touches[0].clientY-y0;if(!drag){if(dy<=4||(inSc&&sc.scrollTop>0))return;drag=true;sh.style.transition='none'}
+sh.addEventListener('touchstart',function(e){y0=e.touches[0].clientY;dy=0;drag=false;inSc=(y0-sh.getBoundingClientRect().top)>56},{passive:true});
+sh.addEventListener('touchmove',function(e){dy=e.touches[0].clientY-y0;if(!drag){if(dy<=4||inSc)return;drag=true;sh.style.transition='none'}
 e.preventDefault();sh.style.transform='translate(-50%,'+Math.max(0,dy)+'px)'},{passive:false});
 function end(){if(!drag)return;drag=false;sh.style.transition='';if(dy>110){sh.style.transform='translate(-50%,105%)';lock(false);setTimeout(function(){sh.style.transform=''},400)}else{sh.style.transform=''}}
 sh.addEventListener('touchend',end);sh.addEventListener('touchcancel',end);
 var ms=false;
-sh.addEventListener('mousedown',function(e){if(e.button!==0||e.target.closest('input,select,button,a,label,textarea'))return;y0=e.clientY;dy=0;drag=false;inSc=sc.contains(e.target);ms=true});
-window.addEventListener('mousemove',function(e){if(!ms)return;dy=e.clientY-y0;if(!drag){if(dy<=4||(inSc&&sc.scrollTop>0))return;drag=true;sh.style.transition='none';document.body.style.userSelect='none'}sh.style.transform='translate(-50%,'+Math.max(0,dy)+'px)'});
+sh.addEventListener('mousedown',function(e){if(e.button!==0||e.target.closest('input,select,button,a,label,textarea'))return;y0=e.clientY;dy=0;drag=false;inSc=(y0-sh.getBoundingClientRect().top)>56;ms=true});
+window.addEventListener('mousemove',function(e){if(!ms)return;dy=e.clientY-y0;if(!drag){if(dy<=4||inSc)return;drag=true;sh.style.transition='none';document.body.style.userSelect='none'}sh.style.transform='translate(-50%,'+Math.max(0,dy)+'px)'});
 window.addEventListener('mouseup',function(){if(!ms)return;ms=false;document.body.style.userSelect='';end()})})();
 if(location.hash==='#comp'||location.hash==='#pair'){openSh(location.hash==='#comp'?'Компания до 6 человек':'Романтика для пары')}
 if(location.hash==='#demo'){openSh('Компания до 6 человек');document.getElementById('dt').value='2026-10-24';S.g=6;S.x={chan:1,banya:1,wood:2};upd();document.getElementById('sc').scrollTop=document.getElementById('bsec').offsetTop-20}
